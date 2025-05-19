@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
-import AppBar from './AppBar/AppBar';
+import AppBar from '../AppBar/AppBar';
 import { useSelector } from 'react-redux';
 import { selectError, selectLoading } from '../redux/contacts/selectors';
-import Loader from './Loader/Loader';
-import ErrorMessage from './ErrorMessage/ErrorMessage';
+import Loader from '../Loader/Loader';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 const Layout = () => {
   // const loading = useSelector(selectLoading);

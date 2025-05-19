@@ -1,5 +1,13 @@
+import Logo from '../Logo/Logo';
+import UserMenu from '../UserMenu/UserMenu';
+
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <header>
+      <Logo />
+      <UserMenu />
+    </header>
+  );
 };
 
 export default Header;

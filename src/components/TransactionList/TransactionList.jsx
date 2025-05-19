@@ -1,14 +1,16 @@
-const Transactions = () => {
+import TransactionItem from '../TransactionItem/TransactionItem';
+
+const TransactionList = () => {
   return (
     <div>
       <h1>Transactions</h1>
       <ul>
         <li>
-          <Transaction />
+          <TransactionItem />
         </li>
       </ul>
     </div>
   );
 };
 
-export default Transactions;
+export default TransactionList;

@@ -1,19 +1,19 @@
 import './App.css';
 import Loader from '../Loader/Loader';
-import { useDispatch, useSelector } from 'react-redux';
-import { lazy, Suspense, useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 // import { refreshUser } from '../redux/auth/operations';
 // import { selectIsRefreshing } from '../redux/auth/slectors';
-import HomePage from '../../pages/HomePage';
+import HomeTab from '../HomeTab/HomeTab';
+import StatisticsTab from '../StatisticsTab/StatisticsTab';
 
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
-const StatisticsPage = lazy(() => import('../../pages/StatisticsPage'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));
-const Layout = lazy(() => import('./Layout'));
+const UserAccountLayout = lazy(() => import('./UserAccountLayout'));
 
 function App() {
   // const dispatch = useDispatch();
@@ -30,30 +30,12 @@ function App() {
     <div className="main-container">
       <Suspense fallback={<Loader isLoading={true} />}>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<UserAccountLayout />}>
             <Route
               index
               path="home"
               element={
-                <PrivateRoute redirectTo="/login" component={<HomePage />} />
-              }
-            />
-            <Route
-              path="register"
-              element={
-                <RestrictedRoute
-                  redirectTo="/contacts"
-                  component={<RegistrationPage />}
-                />
-              }
-            />
-            <Route
-              path="login"
-              element={
-                <RestrictedRoute
-                  redirectTo="/contacts"
-                  component={<LoginPage />}
-                />
+                <PrivateRoute redirectTo="/login" component={<HomeTab />} />
               }
             />
             <Route
@@ -61,11 +43,29 @@ function App() {
               element={
                 <PrivateRoute
                   redirectTo="/login"
-                  component={<StatisticsPage />}
+                  component={<StatisticsTab />}
                 />
               }
             />
           </Route>
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegistrationPage />}
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

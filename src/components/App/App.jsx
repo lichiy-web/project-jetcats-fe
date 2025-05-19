@@ -1,27 +1,28 @@
 import './App.css';
-import Loader from './Loader/Loader';
+import Loader from '../Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-import { refreshUser } from '../redux/auth/operations';
-import { selectIsRefreshing } from '../redux/auth/slectors';
-import HomePage from '../pages/HomePage';
+// import { refreshUser } from '../redux/auth/operations';
+// import { selectIsRefreshing } from '../redux/auth/slectors';
+import HomePage from '../../pages/HomePage';
 
-const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
-const LoginPage = lazy(() => import('../pages/LoginPage'));
-const ContactsPage = lazy(() => import('../pages/ContactsPage'));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
+const LoginPage = lazy(() => import('../../pages/LoginPage'));
+const StatisticsPage = lazy(() => import('../../pages/StatisticsPage'));
+const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));
 const Layout = lazy(() => import('./Layout'));
 
 function App() {
-  const dispatch = useDispatch();
-  const isRefreshing = useSelector(selectIsRefreshing);
+  // const dispatch = useDispatch();
+  // const isRefreshing = useSelector(selectIsRefreshing);
 
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
+  const isRefreshing = false;
 
   return isRefreshing ? (
     <Loader isLoading={true} />
@@ -30,7 +31,13 @@ function App() {
       <Suspense fallback={<Loader isLoading={true} />}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
+            <Route
+              index
+              path="home"
+              element={
+                <PrivateRoute redirectTo="/login" component={<HomePage />} />
+              }
+            />
             <Route
               path="register"
               element={
@@ -50,11 +57,11 @@ function App() {
               }
             />
             <Route
-              path="contacts"
+              path="statistics"
               element={
                 <PrivateRoute
                   redirectTo="/login"
-                  component={<ContactsPage />}
+                  component={<StatisticsPage />}
                 />
               }
             />

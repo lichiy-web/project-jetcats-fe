@@ -1,18 +1,18 @@
 import { Outlet } from 'react-router-dom';
-import AppBar from './AppBar/AppBar';
-import { useSelector } from 'react-redux';
-import { selectError, selectLoading } from '../redux/contacts/selectors';
-import Loader from './Loader/Loader';
-import ErrorMessage from './ErrorMessage/ErrorMessage';
+import Header from '../Header/Header';
+// import { useSelector } from 'react-redux';
+// import { selectError, selectLoading } from '../redux/contacts/selectors';
+// import Loader from './Loader/Loader';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 const Layout = () => {
   // const loading = useSelector(selectLoading);
   // const error = useSelector(selectError);
+  const error = '';
   return (
     <>
-      {/* <AppBar /> */}
-      {/* {error ? <ErrorMessage /> : <Outlet />} */}
-
+      <Header />
+      {error ? <ErrorMessage /> : <Outlet />}
       {/* <Loader isLoading={loading} /> */}
     </>
   );

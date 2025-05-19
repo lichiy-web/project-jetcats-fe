@@ -15,12 +15,13 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 const Layout = lazy(() => import('./Layout'));
 
 function App() {
-  const dispatch = useDispatch();
-  const isRefreshing = useSelector(selectIsRefreshing);
+  // const dispatch = useDispatch();
+  // const isRefreshing = useSelector(selectIsRefreshing);
 
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
+  const isRefreshing = false;
 
   return isRefreshing ? (
     <Loader isLoading={true} />
@@ -28,36 +29,42 @@ function App() {
     <div className="main-container">
       <Suspense fallback={<Loader isLoading={true} />}>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
+          <Route path="/" element={<UserAccountLayout />}>
             <Route
-              path="register"
+              index
+              path="home"
               element={
-                <RestrictedRoute
-                  redirectTo="/contacts"
-                  component={<RegistrationPage />}
-                />
+                <PrivateRoute redirectTo="/login" component={<HomeTab />} />
               }
             />
             <Route
-              path="login"
-              element={
-                <RestrictedRoute
-                  redirectTo="/contacts"
-                  component={<LoginPage />}
-                />
-              }
-            />
-            <Route
-              path="contacts"
+              path="statistics"
               element={
                 <PrivateRoute
                   redirectTo="/login"
-                  component={<ContactsPage />}
+                  component={<StatisticsTab />}
                 />
               }
             />
           </Route>
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegistrationPage />}
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

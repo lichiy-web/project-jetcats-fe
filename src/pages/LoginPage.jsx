@@ -5,8 +5,10 @@ import css from './LoginPage.module.css'
 const LoginPage = () => {
   return (
     <div className={css.page}>
+      <div className={css.content}>
       <AuthCard formType="login"/>
       <DudeHi />
+      </div>
     </div>
   );
 };

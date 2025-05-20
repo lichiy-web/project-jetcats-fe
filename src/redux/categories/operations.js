@@ -2,40 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { appApi } from '../api/api';
 
 export const fetchCategories = createAsyncThunk(
-  'transactions/fetchAll',
+  'categories/fetchAll',
   async (signal, thunkAPI) => {
     return appApi
-      .get('/transactions', { signal: signal })
-      .then(({ data }) => data)
-      .catch(error => thunkAPI.rejectWithValue(error.message));
-  }
-);
-
-export const addTransaction = createAsyncThunk(
-  'transactions/addTransaction',
-  async (transaction, thunkAPI) => {
-    return appApi
-      .post('/transactions', transaction)
-      .then(({ data }) => data)
-      .catch(error => thunkAPI.rejectWithValue(error.message));
-  }
-);
-
-export const deleteTransaction = createAsyncThunk(
-  'transactions/deleteTransaction',
-  async (transactionId, thunkAPI) => {
-    return appApi
-      .delete(`/transactions/${transactionId}`)
-      .then(({ data }) => data._id)
-      .catch(error => thunkAPI.rejectWithValue(error.message));
-  }
-);
-
-export const patchTransaction = createAsyncThunk(
-  'transactions/patchTransaction',
-  async ({ transactionId, transaction }, thunkAPI) => {
-    return appApi
-      .patch(`/transactions/${transactionId}`, transaction)
+      .get('/categories', { signal: signal })
       .then(({ data }) => data)
       .catch(error => thunkAPI.rejectWithValue(error.message));
   }

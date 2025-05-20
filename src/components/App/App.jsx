@@ -29,25 +29,32 @@ function App() {
     <Loader isLoading={true} />
   ) : (
     <div className="main-container">
-      <Suspense fallback={<Loader isLoading={true} />}>
+      <Suspense fallback={<Loader isLoading />}>
         <Routes>
-          <Route path="/" element={<UserAccountLayout />}>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute
+                redirectTo="/login"
+                component={<UserAccountLayout />}
+              />
+            }
+          >
             <Route
               index
               // path="home"
-              element={
-                <PrivateRoute redirectTo="/login" component={<HomeTab />} />
-              }
+              element={<HomeTab />}
             />
             <Route
               path="statistics"
               element={
-                <PrivateRoute redirectTo="/login" component={<LoginPage />} />
+                <LoginPage />
+                // <PrivateRoute redirectTo="/login" component={} />
               }
             />
           </Route>
           <Route
-            path="register"
+            path="/register"
             element={
               <RestrictedRoute
                 redirectTo="/"
@@ -56,7 +63,7 @@ function App() {
             }
           />
           <Route
-            path="login"
+            path="/login"
             element={
               <RestrictedRoute redirectTo="/" component={<LoginPage />} />
             }

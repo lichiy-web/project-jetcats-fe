@@ -4,16 +4,21 @@ import InputName from '../InputName/InputName';
 import InputPassword from '../InputPassword/InputPassword';
 import LoginLink from '../LoginLink/LoginLink';
 import RegisterButton from '../RegisterButton/RegisterButton';
+import css from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
   return (
-    <div>
-      <InputName />
-      <InputEmail />
-      <InputPassword />
-      <InputConfirmPassword />
-      <RegisterButton />
-      <LoginLink />
+    <div className={css.form}>
+      <div className={css.inputFields}>
+        <InputName />
+        <InputEmail />
+        <InputPassword />
+        <InputConfirmPassword />
+      </div>
+      <div className={css.btnFields}>
+        <RegisterButton />
+        <LoginLink />
+      </div>
     </div>
   );
 };

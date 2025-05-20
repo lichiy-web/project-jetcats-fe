@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  justify-content: space-between;
+  gap: 35px;
+  margin: 34px 0 auto;
+  width: 100%;
+  max-width: 409px;
+  min-height: 260px;
+}
+
+.inputFields,
+.btnFields {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}

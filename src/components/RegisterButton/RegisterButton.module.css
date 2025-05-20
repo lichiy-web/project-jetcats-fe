@@ -1,0 +1,12 @@
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--main-black);
+  border-radius: 8px;
+  padding: 10px;
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  font-size: 18px;
+  justify-content: center;
+  color: #fcfcfc;
+}

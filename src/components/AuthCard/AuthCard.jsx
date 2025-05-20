@@ -2,8 +2,7 @@ import LoginForm from '../LoginForm/LoginForm';
 import Logo from '../Logo/Logo';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 
-
-const AuthCard = formType => {
+const AuthCard = ({ formType }) => {
   return (
     <div>
       <Logo />

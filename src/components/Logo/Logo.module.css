@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  color: var(--main-black);
+}
+
+.logoIcon {
+  fill: var(--main-black);
+}

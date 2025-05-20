@@ -26,6 +26,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-password-strength-bar": "^0.4.1",
     "react-redux": "^9.2.0",
+    "react-responsive": "^10.0.1",
     "react-router-dom": "^7.1.5",
     "react-spinners": "^0.15.0",
     "recharts": "^2.15.3",

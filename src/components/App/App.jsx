@@ -30,46 +30,48 @@ function App() {
   ) : (
     <div className="main-container">
       <Suspense fallback={<Loader isLoading />}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <PrivateRoute
-                redirectTo="/login"
-                component={<UserAccountLayout />}
-              />
-            }
-          >
+        <UserAccountLayout>
+          <Routes>
             <Route
-              index
-              // path="home"
-              element={<HomeTab />}
-            />
-            <Route
-              path="statistics"
+              path="/"
               element={
-                <LoginPage />
-                // <PrivateRoute redirectTo="/login" component={} />
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<UserAccountLayout />}
+                />
+              }
+            >
+              <Route
+                index
+                // path="home"
+                element={<HomeTab />}
+              />
+              <Route
+                path="statistics"
+                element={
+                  <LoginPage />
+                  // <PrivateRoute redirectTo="/login" component={} />
+                }
+              />
+            </Route>
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute
+                  redirectTo="/"
+                  component={<RegistrationPage />}
+                />
               }
             />
-          </Route>
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute
-                redirectTo="/"
-                component={<RegistrationPage />}
-              />
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute redirectTo="/" component={<LoginPage />} />
-            }
-          />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute redirectTo="/" component={<LoginPage />} />
+              }
+            />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </UserAccountLayout>
       </Suspense>
     </div>
   );

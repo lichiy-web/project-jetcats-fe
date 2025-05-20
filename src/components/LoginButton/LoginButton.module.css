@@ -1,0 +1,12 @@
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #081222;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #355359;
+  font-size: 18px;
+  justify-content: center;
+  color: #fcfcfc;
+}

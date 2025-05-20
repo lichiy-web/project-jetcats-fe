@@ -12,8 +12,6 @@ const Loader = ({ isLoading, strokeColor = '#000000' }) => {
         strokeWidth="5"
         animationDuration="0.75"
         ariaLabel="rotating-lines-loading"
-        // wrapperStyle={{}}
-        // wrapperClass=""
       />
     </div>
   );

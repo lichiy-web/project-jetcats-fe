@@ -8,7 +8,6 @@ import { refreshUser } from '../../redux/auth/operations';
 import { selectIsRefreshing } from '../../redux/auth/slectors';
 import Loader from '../Loader/Loader';
 import HomeTab from '../HomeTab/HomeTab';
-
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));

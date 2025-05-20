@@ -1,0 +1,44 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(
+    --main-Bg-lighter,
+    linear-gradient(180deg, #355359 0%, #3b5d63 100%)
+  );
+  backdrop-filter: blur(3.5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  position: relative;
+  padding: 3.3rem 3.875rem 2.9rem;
+  width: 90%;
+  max-width: 33.3rem; /* ~533px */
+  min-height: 24rem; /* ~387px */
+  border-radius: 1rem;
+  background: var(--main-Light-green, #508f8c);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  color: var(--main-Black, #081222);
+  text-align: center;
+  font-size: 1.125rem; /* 18px */
+  margin-top: 2.375rem; /* 38px */
+  margin-bottom: 1.5rem; /* 24px */
+}

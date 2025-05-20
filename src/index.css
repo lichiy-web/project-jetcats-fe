@@ -1,3 +1,28 @@
+/* css-variables */
+:root {
+  --main-black: #081222;
+  --main-dark-green: #0b6016;
+  --main-light-green: #508f8c;
+  --main-white: #fcfcfc;
+  --main-yellow: #dfad3f;
+  --main-red: #b20202;
+  --main-light-red: #f23a3a;
+  --chart-green: #24cca7;
+  --chart-pink: #ffd8d0;
+  --chart-darker-green: #00ad84;
+  --chart-blue: #4a56e2;
+  --chart-purple: #6e78e8;
+  --chart-light-blue: #81e1ff;
+  --chart-light-purple: #c5baff;
+  --chart-red: #fd9498;
+}
+
+:root {
+  --font-family: Inter, sans-serif;
+  --second-family: Poppins, sans-serif;
+  --third-family: Circe, sans-serif;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

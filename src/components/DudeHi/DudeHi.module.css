@@ -2,4 +2,6 @@
   position: absolute;
   bottom: 40px;
   right: 40px;
+  z-index: -1;
+  overflow: hidden;
 }

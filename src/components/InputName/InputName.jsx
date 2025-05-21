@@ -1,11 +1,10 @@
-import css from './InputName.module.css';
 import { ImUser } from 'react-icons/im';
 
 const InputName = () => {
   return (
-    <div className={css.inputWrapper}>
+    <div className="inputLogWrapper">
       <ImUser size={24} color="#081222" />
-      <input type="text" placeholder="Name" className={css.input} />
+      <input type="text" placeholder="Name" className="inputLog" />
     </div>
   );
 };

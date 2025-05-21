@@ -1,11 +1,12 @@
-import css from './InputPassword.module.css'
-import { RiLockPasswordFill } from "react-icons/ri";
+import { RiLockPasswordFill } from 'react-icons/ri';
 
 const InputPassword = () => {
-  return <div className={css.inputWrapper}>
+  return (
+    <div className="inputLogWrapper">
       <RiLockPasswordFill size={24} color="#081222" />
-      <input type="password" placeholder="Password" className={css.input}/>
-      </div>;
+      <input type="password" placeholder="Password" className="inputLog" />
+    </div>
+  );
 };
 
 export default InputPassword;

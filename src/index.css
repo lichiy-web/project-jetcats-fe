@@ -94,3 +94,35 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Common login/register inputs */
+
+.inputLogWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--main-black);
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.inputLog {
+  font-size: 18px;
+  color: var(--main-black);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+}
+
+.inputLog::placeholder {
+  color: var(--main-black);
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .inputLogWrapper {
+    width: 256px;
+  }
+}

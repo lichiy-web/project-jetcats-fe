@@ -7,5 +7,16 @@
   background-color: var(--main-light-green);
 
   border-radius: 16px;
-  padding: 40px 65px 50px;
+  padding: 40px 60px 50px;
+}
+
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+  /* Smth.. */
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    padding: 16px 16px 46px;
+    gap: 16px;
+  }
 }

@@ -1,0 +1,9 @@
+@media screan and (min-width: 768px) {
+  .wrapper {
+    gap: 16px;
+    background-color: var(--main-light-green);
+
+    border-radius: 16px;
+    padding: 40px 60px 50px;
+  }
+}

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './DevPanel.module.css';
-import { selectIsLoggedIn } from '../../redux/auth/slectors';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { logIn, logOut } from '../../redux/auth/operations';
 import { Link, NavLink } from 'react-router-dom';
 import clsx from 'clsx';

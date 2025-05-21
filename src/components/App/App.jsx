@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { refreshUser } from '../../redux/auth/operations';
-import { selectIsRefreshing } from '../../redux/auth/slectors';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
 import Loader from '../Loader/Loader';
 import HomeTab from '../HomeTab/HomeTab';
 import DevPanel from '../DevPanel/DevPanel';

@@ -5,9 +5,11 @@ import { Route, Routes } from 'react-router-dom';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { refreshUser } from '../../redux/auth/operations';
-import { selectIsRefreshing } from '../../redux/auth/slectors';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
 import Loader from '../Loader/Loader';
 import HomeTab from '../HomeTab/HomeTab';
+import DevPanel from '../DevPanel/DevPanel';
+import StatisticsTab from '../StatisticsTab/StatisticsTab';
 
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
@@ -29,49 +31,46 @@ function App() {
     <Loader isLoading={true} />
   ) : (
     <div className="main-container">
+      <DevPanel />
       <Suspense fallback={<Loader isLoading />}>
-        <UserAccountLayout>
-          <Routes>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute
+                redirectTo="/login"
+                component={<UserAccountLayout />}
+              />
+            }
+          >
+            <Route index element={<HomeTab />} />
             <Route
-              path="/"
+              path="statistics"
               element={
                 <PrivateRoute
                   redirectTo="/login"
-                  component={<UserAccountLayout />}
-                />
-              }
-            >
-              <Route
-                index
-                // path="home"
-                element={<HomeTab />}
-              />
-              <Route
-                path="statistics"
-                element={
-                  <LoginPage />
-                  // <PrivateRoute redirectTo="/login" component={} />
-                }
-              />
-            </Route>
-            <Route
-              path="/register"
-              element={
-                <RestrictedRoute
-                  redirectTo="/"
-                  component={<RegistrationPage />}
+                  component={<StatisticsTab />}
                 />
               }
             />
-            <Route
-              path="/login"
-              element={
-                <RestrictedRoute redirectTo="/" component={<LoginPage />} />
-              }
-            />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </UserAccountLayout>
+          </Route>
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/"
+                component={<RegistrationPage />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/" component={<LoginPage />} />
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </Suspense>
     </div>
   );

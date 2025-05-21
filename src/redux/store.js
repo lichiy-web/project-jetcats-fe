@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
-// import { contactsReducer } from './contacts/slice';
 // import { filtersReducer } from './filters/slice';
 import {
   persistStore,
@@ -13,6 +12,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { categoriesReducer } from './categories/slice';
+import { transactionsReducer } from './transactions/slice';
 
 const persistConfig = {
   key: 'root',
@@ -24,6 +25,8 @@ const persistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
+    categories: categoriesReducer,
+    transactions: transactionsReducer,
     // contacts: contactsReducer,
     // filters: filtersReducer,
   },

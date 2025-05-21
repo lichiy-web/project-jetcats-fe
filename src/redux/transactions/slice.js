@@ -25,7 +25,7 @@ const handleAuthSuccess = state => {
 
 const initialState = {
   items: [],
-  loading: false,
+  loading: true,
   error: null,
 };
 
@@ -84,4 +84,4 @@ const slice = createSlice({
   },
 });
 
-export const contactsReducer = slice.reducer;
+export const transactionsReducer = slice.reducer;

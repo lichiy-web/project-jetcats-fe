@@ -19,7 +19,7 @@ const TransactionItem = ({ transaction }) => {
 
   return (
     <>
-      <tr className="transaction-row">
+      <tr className={s.transactionRow}>
         <td>{transaction.date}</td>
         <td>{sign}</td>
         <td>{categoryName}</td>

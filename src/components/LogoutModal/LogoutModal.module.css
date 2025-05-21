@@ -1,13 +1,10 @@
-.backdrop {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(
-    --main-Bg-lighter,
-    linear-gradient(180deg, #355359 0%, #3b5d63 100%)
-  );
+  background: var(--main-Bg-lighter, rgba(46, 47, 66, 0.4));
   backdrop-filter: blur(3.5px);
   display: flex;
   justify-content: center;
@@ -16,13 +13,13 @@
 }
 
 .modal {
-  position: relative;
   padding: 3.3rem 3.875rem 2.9rem;
-  width: 90%;
+  width: 100%;
   max-width: 33.3rem; /* ~533px */
-  min-height: 24rem; /* ~387px */
+  height: auto;
   border-radius: 1rem;
   background: var(--main-Light-green, #508f8c);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,6 +30,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 11.375rem;  /* 182px */
+  height: 5.875rem;  /* 94px */
 }
 
 .message {

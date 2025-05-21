@@ -1,45 +1,57 @@
-import { useSelector } from 'react-redux';
-import { selectcIsModalLogOut } from '../../redux/modals/selectors';
-import css from './LogoutModal.module.css';
-import { useDispatch } from 'react-redux';
+import Modal from 'react-modal';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logOut } from '../../redux/auth/operations';
+import { logOut } from '../../redux/auth/operations.js';
+import { selectcIsModalLogOut } from '../../redux/modals/selectors.js';
+import { toggleModal } from '../../redux/modals/slice.js';
 import { toast } from 'react-toastify';
-
-import CancelBtn from '../CancelButton/CancelButton';
+import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
-import Logo from '../Logo/Logo';
+// import Logo from '../Logo/Logo';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import logo from '../../assets/logo-modal.svg'
+import css from './LogoutModal.module.css';
 
-const LogoutModal = ({ closeModal }) => {
+Modal.setAppElement('#root');
+
+const LogoutModal = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isModalLogOut = useSelector(selectcIsModalLogOut);
+
+  const handleClose = () => {
+    dispatch(toggleModal('LogOut'));
+  };
 
   const handleLogout = async () => {
     try {
       await dispatch(logOut()).unwrap();
-    // eslint-disable-next-line no-unused-vars
-    } catch (error) {
-      toast.error('Failed to log out. Please try again.');
-    } finally {
-      localStorage.clear();
-      dispatch({ type: 'auth/reset' });
-      closeModal();
       navigate('/login');
+    } catch (error) {
+      toast.error('Logout failed:', error);
+    } finally {
+      handleClose();
     }
   };
 
-  const isModalLogOut = useSelector(selectcIsModalLogOut);
   return (
-    isModalLogOut && (
-      <div>
-        <h1>LogoutModal</h1>
-        <CloseButton />
-        <Logo />
-        <LogOutButton />
-        <CancelButton />
+    <Modal
+      isOpen={isModalLogOut}
+      onRequestClose={handleClose}
+      className={css.modal}
+      overlayClassName={css.overlay}
+    >
+      <CloseButton onClick={handleClose} />
+
+      <div className={css.container}>
+        <img src={logo} alt="Spendy logo" className={css.logo} />
+
+        <p className={css.message}>Are you sure you want to log out?</p>
+
+        <LogOutButton onClick={handleLogout} />
+        <CancelButton onClick={handleClose} />
       </div>
-    )
+    </Modal>
   );
 };
 

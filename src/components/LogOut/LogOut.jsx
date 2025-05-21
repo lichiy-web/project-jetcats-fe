@@ -1,9 +1,17 @@
+import { useDispatch } from 'react-redux';
+import { toggleModal } from '../../redux/modals/slice';
 import s from './LogOut.module.css';
 
 const LogOut = () => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(toggleModal('LogOut'));
+  };
+
   return (
     <div>
-      <button className={s.logoutBtn}>
+      <button className={s.logoutBtn} onClick={handleClick}>
         <svg
           width="18"
           height="18"

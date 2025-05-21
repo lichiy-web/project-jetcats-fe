@@ -1,4 +1,7 @@
 import ButtonAddTransaction from '../ButtonAddTransaction/ButtonAddTransaction';
+import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
+import ModalDeleteTransaction from '../ModalDeleteTransaction/ModalDeleteTransaction';
+import ModalEditTransaction from '../ModalEditTransaction/ModalEditTransaction';
 import TransactionList from '../TransactionList/TransactionList';
 import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
 import { useState } from 'react';
@@ -24,7 +27,8 @@ const HomeTab = () => {
       <ButtonAddTransaction onClick={toggleModal} />
       {isModalOpen && <ModalAddTransaction onClose={toggleModal} />}
     </section>
-  );
-};
+
+      <ModalDeleteTransaction />
+      <ModalEditTransaction />
 
 export default HomeTab;

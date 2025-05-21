@@ -60,7 +60,7 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
   setAuthHeader(storedAccessToken);
   return appApi
     .get('/users/current')
-    .then(({ data }) => {
+    .then(({ data: { data } }) => {
       // console.log('refreshUser: ', { user: data });
       return data;
     })

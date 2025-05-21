@@ -1,0 +1,15 @@
+.title {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--main-white);
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+.amount {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--main-white);
+}

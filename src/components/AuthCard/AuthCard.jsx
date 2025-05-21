@@ -3,7 +3,7 @@ import Logo from '../Logo/Logo';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 
 const AuthCard = ({ formType }) => {
-  console.log({ formType });
+  // console.log({ formType });
   return (
     <div>
       <Logo />

@@ -1,0 +1,61 @@
+.transactionTableContainer {
+  max-height: 50vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  background-color: var(--main-light-green);
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.transactionTable {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--main-white);
+}
+
+.transactionTable th {
+  text-align: left;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--main-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+}
+
+.transactionTable td {
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.transaction-row {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin: 8px 0;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-row:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.delete-button {
+  background-color: var(--main-light-red);
+  color: var(--main-white);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: var(--main-red);
+}
+
+.transaction-row td:last-child {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

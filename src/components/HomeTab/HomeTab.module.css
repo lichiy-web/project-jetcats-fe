@@ -1,25 +1,25 @@
-.home-tab-container {
-  margin: 0 auto;
-  position: relative;
-  border-radius: 16px;
-  padding: 32px 27px;
-  width: 752px;
-  height: 664px;
+.homeTabContainer {
+  border-radius: 1rem;
+  width: 50vw;
+  height: 60vh;
+  background-color: var(--main-light-green);
+  color: var(--main-white);
 }
 
 @media (min-width: 1280px) {
-  .home-tab-container {
-    max-width: 757px;
+  .homeTabContainer {
+    max-width: 60vw;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .home-tab-container {
-    max-width: 704px;
+  .homeTabContainer {
+    max-width: 55vw;
   }
 }
+
 @media (min-width: 320px) and (max-width: 767px) {
-  .home-tab-container {
+  .homeTabContainer {
     max-width: 100%;
   }
 }

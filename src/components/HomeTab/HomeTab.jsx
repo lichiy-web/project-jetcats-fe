@@ -1,27 +1,25 @@
 import ButtonAddTransaction from '../ButtonAddTransaction/ButtonAddTransaction';
 import TransactionList from '../TransactionList/TransactionList';
-import { useDispatch } from 'react-redux';
-// import { useMediaQuery } from 'react-responsive';
 import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
-import { useEffect, useState } from 'react';
-import { fetchTransactions } from '../../redux/transactions/operations';
-import { fetchCategories } from '../../redux/transactions/operations';
+import { useState } from 'react';
+import s from './HomeTab.module.css';
+// import { useDispatch } from 'react-redux';
+// import { fetchTransactions } from '../../redux/transactions/operations';
+// import { fetchCategories } from '../../redux/categories/operations';
 
 const HomeTab = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    dispatch(fetchTransactions());
-    dispatch(fetchCategories());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchTransactions());
+  //   dispatch(fetchCategories());
+  // }, [dispatch]);
 
-  const toggleModal = () => {
-    setIsModalOpen(prev => !prev);
-  };
+  const toggleModal = () => setIsModalOpen(prev => !prev);
 
   return (
-    <section className="home-tab-container">
+    <section className={s.homeTabContainer}>
       <TransactionList />
       <ButtonAddTransaction onClick={toggleModal} />
       {isModalOpen && <ModalAddTransaction onClose={toggleModal} />}

@@ -1,27 +1,29 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransaction } from '../../redux/transactions/operations';
 import ModalEditTransaction from '../ModalEditTransaction/ModalEditTransaction';
 
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const categories = useSelector(state => state.categories.items);
 
   const handleDelete = () => dispatch(deleteTransaction(transaction.id));
   const toggleEditModal = () => setIsEditModalOpen(prev => !prev);
   const isIncome = transaction.type === 'income';
   const sign = isIncome ? '+' : '-';
+
+  const category = categories.find(cat => cat.id === transaction.categoryId);
+  const categoryName = category ? category.name : 'Unknown';
+
   return (
     <>
       <tr className="transaction-row">
         <td>{transaction.date}</td>
-        <td>
-          {sign}
-          {transaction.type}
-        </td>
-        <td>{transaction.category}</td>
+        <td>{sign}</td>
+        <td>{categoryName}</td>
         <td>{transaction.comment}</td>
-        <td>{transaction.amount.toFixed(2)}</td>
+        <td>{transaction.sum.toFixed(2)}</td>
         <td>
           <button onClick={toggleEditModal}>
             <img src="/src/assets/Edit_Icon-min.svg" alt="Edit" />

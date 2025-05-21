@@ -1,16 +1,26 @@
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import TransactionItem from '../TransactionItem/TransactionItem';
+import transactionsData from '../TransactionList/transactions.json';
+import s from './TransactionList.module.css';
 
 const TransactionList = () => {
-  const transactions = useSelector(state => state.transactions.items);
+  // const { items: transactions, isLoading: isTransactionsLoading } = useSelector(
+  //   state => state.transactions
+  // );
+  // const { items: categories, isLoading: isCategoriesLoading } = useSelector(
+  //   state => state.categories
+  // );
 
-  if (!transactions.length) {
-    return <p>No transactions found.</p>;
-  }
+  // const isLoading = isTransactionsLoading || isCategoriesLoading;
+
+  // if (isLoading) return <p>Loading...</p>;
+  // if (!transactions.length) return <p>No transactions found</p>;
+  // if (!categories.length) return <p>Categories not loaded</p>;
+  const transactions = transactionsData.transactions;
 
   return (
-    <div className="transaction-list-wrapper">
-      <table className="transaction-table">
+    <div className={s.transactionTableContainer}>
+      <table className={s.transactionTable}>
         <thead>
           <tr>
             <th>Date</th>
@@ -22,7 +32,7 @@ const TransactionList = () => {
         </thead>
         <tbody>
           {transactions.map(transaction => (
-            <TransactionItem key={transaction.id} transaction={transaction} />
+            <TransactionItem key={transaction._id} transaction={transaction} />
           ))}
         </tbody>
       </table>

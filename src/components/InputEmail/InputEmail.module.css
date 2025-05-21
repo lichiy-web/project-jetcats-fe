@@ -8,14 +8,33 @@
 }
 
 .input {
-  font-size: 18px;
+  font-size: 1.12rem;
   color: #081222;
   border: none;
   outline: none;
-  background-color: transparent;
+  background-color: #508F8C;
+}
+
+.input:focus {
+  background-color: #508F8C;
+  color: #081222;
+  outline: none;
+}
+
+.inputError {
+  border-color: #f23a3a;
+  color: #f23a3a;
 }
 
 .input::placeholder {
   color: #081222;
   opacity: 1;
+}
+
+.iconError {
+  fill: #f23a3a;
+}
+
+.error {
+  color: #f23a3a;
 }

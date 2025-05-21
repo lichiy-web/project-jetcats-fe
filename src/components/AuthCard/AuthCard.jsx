@@ -1,12 +1,11 @@
 import LoginForm from '../LoginForm/LoginForm';
 import Logo from '../Logo/Logo';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
-import css from './AuthCard.module.css'
+import css from './AuthCard.module.css';
 
-
-const AuthCard = formType => {
+const AuthCard = ({ formType }) => {
   return (
-    <div className= {css.wrapper}>
+    <div className={css.wrapper}>
       <Logo />
       {formType === 'register' ? <RegistrationForm /> : <LoginForm />}
     </div>

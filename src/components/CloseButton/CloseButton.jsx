@@ -1,5 +1,5 @@
 const CloseButton = () => {
-  return <div>x</div>;
+  return <div></div>;
 };
 
 export default CloseButton;

@@ -6,7 +6,7 @@ import LoginLink from '../LoginLink/LoginLink';
 import RegisterButton from '../RegisterButton/RegisterButton';
 
 const RegistrationForm = () => {
-  console.log('Entered RegistrationForm!');
+  // console.log('Entered RegistrationForm!');
 
   return (
     <div>

@@ -6,7 +6,7 @@ import {
   patchTransaction,
 } from './operations';
 import { logIn, logOut, refreshUser, register } from '../auth/operations';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 
 const handlePending = state => {
   state.loading = true;
@@ -66,10 +66,10 @@ const slice = createSlice({
       .addCase(logIn.fulfilled, handleAuthSuccess)
       .addCase(logIn.rejected, (state, { payload }) => {
         state.loading = false;
-        if (payload === 'Request failed with status code 400') {
-          toast.error('Wrong email or password');
-          return state;
-        }
+        // if (payload === 'Request failed with status code 400') {
+        //   toast.error('Wrong email or password');
+        //   return state;
+        // }
         state.error = payload;
       })
       .addCase(logOut.pending, handlePending)
@@ -84,4 +84,4 @@ const slice = createSlice({
   },
 });
 
-export const contactsReducer = slice.reducer;
+export const transactionsReducer = slice.reducer;

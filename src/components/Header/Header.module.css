@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 18px 30px;
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

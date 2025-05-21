@@ -5,10 +5,10 @@ import { MdEmail } from "react-icons/md";
 const InputEmail = () => {
   return (
     <div>
-    <label htmlFor="email">Email</label>
+    <label htmlFor="email" className={css.label}>Email</label>
   <div className={css.inputWrapper}>
     <MdEmail size={24} color="#081222" />
-    <Field type="email" name="email" id="email" className={css.input} />
+    <Field type="email" name="email" id="email" placeholder="Email" className={css.input} />
     </div>
     <ErrorMessage name="email" component="div" className={css.error} />
     </div>

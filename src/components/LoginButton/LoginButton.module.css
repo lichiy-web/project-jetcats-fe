@@ -2,12 +2,12 @@
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 14px;
+  gap: 0.9rem;
   border: 1px solid #081222;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
   background-color: #355359;
-  font-size: 18px;
+  font-size: 1.12rem;
   justify-content: center;
   color: #fcfcfc;
 }

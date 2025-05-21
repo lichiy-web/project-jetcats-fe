@@ -9,22 +9,6 @@ const clearAuthHeader = () => {
   appApi.defaults.headers.common.Authorization = '';
 };
 
-// export const register = createAsyncThunk(
-//   'auth/register',
-//   async (credentials, thunkAPI) =>
-//     appApi
-//       .post('/auth/register', credentials)
-//       .then(({ data }) => {
-//         // setAuthHeader(data.token);
-//         return { user: data };
-//       })
-//       .catch(error => thunkAPI.rejectWithValue(error.message))
-//       .then(user => {
-//         const { email, password } = credentials;
-//         return appApi.post('/auth/login', { email, password });
-//       })
-// );
-
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
@@ -44,14 +28,17 @@ export const register = createAsyncThunk(
 
 export const logIn = createAsyncThunk(
   'auth/login',
-  async (credentials, thunkAPI) =>
-    appApi
-      .post('/auth/login', credentials)
-      .then(({ data }) => {
-        setAuthHeader(data.accessToken);
-        return data;
-      })
-      .catch(error => thunkAPI.rejectWithValue(error.message))
+  async (credentials, thunkAPI) => {
+    try {
+      const {
+        data: { data },
+      } = await appApi.post('/auth/login', credentials);
+      setAuthHeader(data.accessToken);
+      return data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
 );
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) =>
@@ -62,10 +49,10 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) =>
 );
 
 export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
-  console.log('Entered refreshUser!');
+  // console.log('Entered refreshUser!');
   const state = thunkAPI.getState();
   const storedAccessToken = state.auth.accessToken;
-  console.log('refreshUser: ', { storedAccessToken });
+  // console.log('refreshUser: ', { storedAccessToken });
 
   if (!storedAccessToken)
     return thunkAPI.rejectWithValue("User isn't logged in");
@@ -74,8 +61,7 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
   return appApi
     .get('/users/current')
     .then(({ data }) => {
-      console.log('refreshUser: ', { user: data });
-
+      // console.log('refreshUser: ', { user: data });
       return data;
     })
     .catch(error => thunkAPI.rejectWithValue(error.message));
@@ -86,7 +72,7 @@ export const refreshAccessToken = createAsyncThunk(
   async (_, thunkAPI) =>
     appApi
       .post('/auth/refresh')
-      .then(({ data }) => {
+      .then(({ data: { data } }) => {
         setAuthHeader(data.accessToken);
         return data;
       })

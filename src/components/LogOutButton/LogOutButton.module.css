@@ -1,0 +1,19 @@
+.button {
+  margin: 0 auto 1.3125rem; /* 21px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6875rem 4.9375rem; /* 11px 79px */
+  gap: 0.5rem;
+  width: 25.625rem; /* 410px */
+  height: 2.75rem; /* 44px */
+  border-radius: 0.5rem;
+  background: var(
+    --main-Bg-lighter,
+    linear-gradient(180deg, #355359 0%, #3b5d63 100%)
+  );
+  color: var(--main-White, #fcfcfc);
+  text-align: center;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+}

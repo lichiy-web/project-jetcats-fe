@@ -7,6 +7,8 @@ import RegisterButton from '../RegisterButton/RegisterButton';
 import css from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
+  // console.log('Entered RegistrationForm!');
+
   return (
     <div className={css.form}>
       <div className={css.inputFields}>

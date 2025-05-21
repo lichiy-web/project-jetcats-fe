@@ -1,0 +1,12 @@
+.closeBtn {
+  position: absolute;
+  top: 1.25rem;  /* 20px */
+  right: 1.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 0;
+  width: 1rem;   /* 16px */
+  height: 1rem;
+}

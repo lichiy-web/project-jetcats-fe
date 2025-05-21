@@ -84,4 +84,4 @@ const slice = createSlice({
   },
 });
 
-export const contactsReducer = slice.reducer;
+export const transactionsReducer = slice.reducer;

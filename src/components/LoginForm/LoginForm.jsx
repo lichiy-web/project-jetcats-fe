@@ -5,6 +5,7 @@ import RegisterLink from '../RegisterLink/RegisterLink';
 import css from './LoginForm.module.css'
 
 const LoginForm = () => {
+  // console.log('Entered LoginForm!');
   return (
     <div className={css.form}>
       <div className={css.inputFields}>

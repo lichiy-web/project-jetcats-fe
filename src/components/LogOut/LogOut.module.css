@@ -1,0 +1,28 @@
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logoutBtn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+.span {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--main-white);
+}

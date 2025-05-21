@@ -1,62 +1,50 @@
-// import CancelButton from '../CancelButton/CancelButton';
-// import CloseButton from '../CloseButton/CloseButton';
+import CancelButton from '../CancelButton/CancelButton';
+import CloseButton from '../CloseButton/CloseButton';
+import ToggleDesc from '../ToggleDesc/ToggleDesc';
 // import InputAmount from '../InputAmount/InputAmount';
 // import InputComment from '../InputComment/InputComment';
 // import InputDate from '../InputDate/InputDate';
 // import ToggleDesc from '../ToggleDesc/ToggleDesc';
 import s from './AddTransactionForm.module.css';
 import { Formik, Form, Field } from 'formik';
+import { useState } from 'react';
+import * as Yup from 'yup';
 
 const AddTransactionForm = () => {
+  const validateSchema = Yup.object({
+    amount: Yup.number().positive('Must be positive').required('Required'),
+    date: Yup.date().required('Required'),
+    comment: Yup.string().max(20),
+  });
+
+  const handleBackdropClick = e => {
+    if (e.target === e.currentTarget) {
+      setIsModalOpen(false);
+    }
+  };
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  if (!isModalOpen) return null;
   return (
-    <div className={s.backdrop}>
-      <div className={s.modal}>
-        <button className={s.closeBtn} onClick={() => console.log('Закрыть')}>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M1 1L17 17" stroke="#081222" />
-            <path d="M1 17L17 0.999999" stroke="#081222" />
-          </svg>
-        </button>
+    <div className={s.backdrop} onClick={handleBackdropClick}>
+      <div className={s.modal} onClick={e => e.stopPropagation()}>
+        <CloseButton onClick={() => setIsModalOpen(false)} />
         <h2 className={s.title}>Add transaction</h2>
 
         <Formik
           initialValues={{
-            type: 'income',
+            type: 'expense',
             amount: '',
             date: '',
             comment: '',
           }}
+          validationSchema={validateSchema}
           onSubmit={values => {
             console.log('Submitted values:', values);
           }}
         >
           {({ values, setFieldValue }) => (
             <Form className={s.form}>
-              <div className={s.toggleGroup}>
-                <span className={s.span}>Incame</span>
-                <label className={s.toggle}>
-                  <input
-                    type="checkbox"
-                    className={s.toggleInput}
-                    checked={values.type === 'expense'}
-                    onChange={() =>
-                      setFieldValue(
-                        'type',
-                        values.type === 'income' ? 'expense' : 'income'
-                      )
-                    }
-                  />
-                  <span className={s.toggleSlider}></span>
-                </label>
-                <span className={s.span}>Expense</span>
-              </div>
-
+              <ToggleDesc values={values} setFieldValue={setFieldValue} />
               <div className={s.inputWrapper}>
                 <Field
                   name="amount"
@@ -84,13 +72,7 @@ const AddTransactionForm = () => {
                 <button type="submit" className={s.submitBtn}>
                   Save
                 </button>
-                <button
-                  type="button"
-                  className={s.cancelBtn}
-                  onClick={() => console.log('Cancel')}
-                >
-                  Cancel
-                </button>
+                <CancelButton />
               </div>
             </Form>
           )}

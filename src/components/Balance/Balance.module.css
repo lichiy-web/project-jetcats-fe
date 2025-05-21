@@ -9,6 +9,7 @@
 }
 .amount {
   font-family: var(--font-family);
+  margin-bottom: 23px;
   font-weight: 700;
   font-size: 30px;
   color: var(--main-white);

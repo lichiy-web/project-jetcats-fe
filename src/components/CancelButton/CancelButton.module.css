@@ -1,0 +1,25 @@
+.btn {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
+  border: 1px solid #081222;
+  border-radius: 8px;
+  padding: 11px 68px;
+  width: 410px;
+  height: 44px;
+  background-color: #508f8c;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  color: #081222;
+  transition: all 350ms ease-in-out;
+}
+
+.btn:hover {
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  color: #fcfcfc;
+}

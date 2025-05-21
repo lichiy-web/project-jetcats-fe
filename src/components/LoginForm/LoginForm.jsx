@@ -4,6 +4,7 @@ import LoginButton from '../LoginButton/LoginButton';
 import RegisterLink from '../RegisterLink/RegisterLink';
 
 const LoginForm = () => {
+  // console.log('Entered LoginForm!');
   return (
     <div>
       <InputEmail />

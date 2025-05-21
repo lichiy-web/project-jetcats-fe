@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { selectcIsModalLogOut } from '../../redux/modals/selectors';
 import css from './LogoutModal.module.css';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -27,21 +29,17 @@ const LogoutModal = ({ closeModal }) => {
     }
   };
 
+  const isModalLogOut = useSelector(selectcIsModalLogOut);
   return (
-    <div className={css.backdrop}>
-      <div className={css.modal}>
-        <CloseButton onClick={closeModal} />
-
-        <div className={css.container}>
-          <Logo className={css.logo} />
-  
-          <p className={css.message}>Are you sure you want to log out?</p>
-  
-          <LogOutButton onClick={handleLogout} />
-          <CancelBtn onClick={closeModal} />
-        </div>
+    isModalLogOut && (
+      <div>
+        <h1>LogoutModal</h1>
+        <CloseButton />
+        <Logo />
+        <LogOutButton />
+        <CancelButton />
       </div>
-    </div>
+    )
   );
 };
 

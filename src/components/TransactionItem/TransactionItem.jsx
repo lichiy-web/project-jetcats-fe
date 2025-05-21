@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransaction } from '../../redux/transactions/operations';
 import ModalEditTransaction from '../ModalEditTransaction/ModalEditTransaction';
+import s from './TransactionItem.module.css';
 
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
@@ -25,12 +26,14 @@ const TransactionItem = ({ transaction }) => {
         <td>{transaction.comment}</td>
         <td>{transaction.sum.toFixed(2)}</td>
         <td>
-          <button onClick={toggleEditModal}>
-            <img src="/src/assets/Edit_Icon-min.svg" alt="Edit" />
-          </button>
-          <button className="delete-button" onClick={handleDelete}>
-            Delete
-          </button>
+          <div className={s.buttonWrapper}>
+            <button className={s.editButton} onClick={toggleEditModal}>
+              <img src="/src/assets/Edit_Icon-min.svg" alt="Edit" />
+            </button>
+            <button className={s.deleteButton} onClick={handleDelete}>
+              Delete
+            </button>
+          </div>
         </td>
       </tr>
 

@@ -21,7 +21,7 @@ const TransactionList = () => {
   return (
     <div className={s.transactionTableContainer}>
       <table className={s.transactionTable}>
-        <thead>
+        <thead className={s.transactionTableHeader}>
           <tr>
             <th>Date</th>
             <th>Type</th>

@@ -1,10 +1,13 @@
+import { useSelector } from 'react-redux';
 import LogOut from '../LogOut/LogOut';
 import s from './UserMenu.module.css';
+import { selectUser } from '../../redux/auth/slectors';
 
 const UserMenu = () => {
+  const user = useSelector(selectUser);
   return (
     <div className={s.userMenu}>
-      <h3 className={s.name}>Name</h3>
+      {user.name && <h3 className={s.name}>{user.name}</h3>}
       <svg
         width="2"
         height="30"

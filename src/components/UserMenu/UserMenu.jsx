@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import LogOut from '../LogOut/LogOut';
 import s from './UserMenu.module.css';
-import { selectUser } from '../../redux/auth/slectors';
+import { selectUser } from '../../redux/auth/selectors';
 
 const UserMenu = () => {
   const user = useSelector(selectUser);

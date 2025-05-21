@@ -1,10 +1,17 @@
+import { useSelector } from 'react-redux';
 import DeleteForm from '../DeleteForm/DeleteForm';
+import { selectcIsModalDeleteTransAction } from '../../redux/modals/selectors';
 
 const ModalDeleteTransaction = () => {
+  const isModaDeleteTransaction = useSelector(selectcIsModalDeleteTransAction);
   return (
-    <div>
-      <DeleteForm />
-    </div>
+    isModaDeleteTransaction && (
+      <div>
+        <DeleteForm />
+        <h1></h1>
+        <DeleteForm />
+      </div>
+    )
   );
 };
 

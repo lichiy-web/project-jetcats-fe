@@ -1,6 +1,7 @@
 import s from './Header.module.css';
 import Logo from '../Logo/Logo';
 import UserMenu from '../UserMenu/UserMenu';
+import LogoutModal from '../LogoutModal/LogoutModal';
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
       <div className={s.userMenu}>
         <UserMenu />
       </div>
+      <LogoutModal />
     </header>
   );
 };

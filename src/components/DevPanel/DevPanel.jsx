@@ -2,8 +2,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './DevPanel.module.css';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { logIn, logOut } from '../../redux/auth/operations';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
+import {
+  selectcIsModalAddTransaction,
+  selectcIsModalDeleteTransAction,
+  selectcIsModalEditTransAction,
+  selectcIsModalLogOut,
+} from '../../redux/modals/selectors';
+import { MODALS, toggleModal } from '../../redux/modals/slice';
 
 const IS_DEV_MODE = import.meta.env.DEV;
 const JetCatsCreds = {
@@ -18,8 +25,18 @@ const buildLinkClass = ({ isActive }) => {
 const DevPanel = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isModalAddTransaction = useSelector(selectcIsModalAddTransaction);
+  // console.log({ isModalAddTransaction });
+  const isModalEditTransaction = useSelector(selectcIsModalEditTransAction);
+  const isModalDeleteTransaction = useSelector(selectcIsModalDeleteTransAction);
+  const isModalLogOut = useSelector(selectcIsModalLogOut);
+
   const handleAuth = () => {
     isLoggedIn ? dispatch(logOut()) : dispatch(logIn(JetCatsCreds));
+  };
+  const handleModals = modal => {
+    // console.log(modal);
+    dispatch(toggleModal(modal));
   };
   return (
     IS_DEV_MODE && (
@@ -39,6 +56,18 @@ const DevPanel = () => {
         <NavLink to="/login" className={buildLinkClass}>
           Login
         </NavLink>
+        <button type="button" onClick={() => handleModals(MODALS.add)}>
+          {isModalAddTransaction ? 'Close' : 'Open'} AddTrans
+        </button>
+        <button type="button" onClick={() => handleModals(MODALS.edit)}>
+          {isModalEditTransaction ? 'Close' : 'Open'} EditTrans
+        </button>
+        <button type="button" onClick={() => handleModals(MODALS.delete)}>
+          {isModalDeleteTransaction ? 'Close' : 'Open'} DeleteTrans
+        </button>
+        <button type="button" onClick={() => handleModals(MODALS.logout)}>
+          {isModalLogOut ? 'Close' : 'Open'} LogOut
+        </button>
       </div>
     )
   );

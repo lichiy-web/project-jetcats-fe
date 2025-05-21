@@ -1,0 +1,20 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  color: var(--main-white);
+}
+
+.link {
+  line-height: 0;
+}
+
+.icon {
+  width: 31px;
+  height: 32px;
+  object-fit: contain;
+}

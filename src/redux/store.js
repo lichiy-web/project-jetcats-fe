@@ -17,12 +17,25 @@ import storage from 'redux-persist/lib/storage';
 import { categoriesReducer } from './categories/slice';
 // >>>>>>> 752b2f100ea9b4351420f99319a10512d9939972
 import { transactionsReducer } from './transactions/slice';
+import { modalsReducer } from './modals/slice';
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
   whitelist: ['accessToken'],
+};
+
+const persistConfigModals = {
+  key: 'root',
+  version: 1,
+  storage,
+  whitelist: [
+    'isAddTransaction',
+    'isEditTransAction',
+    'isDeleteTransAction',
+    'isLogOut',
+  ],
 };
 
 export const store = configureStore({
@@ -33,8 +46,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     // >>>>>>> 752b2f100ea9b4351420f99319a10512d9939972
     transactions: transactionsReducer,
-    // contacts: contactsReducer,
-    // filters: filtersReducer,
+    modals: persistReducer(persistConfigModals, modalsReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

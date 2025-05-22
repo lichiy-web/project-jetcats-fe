@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import 'modern-normalize';
-import './reset.css';
+// import './reset.css';
 import './index.css';
 import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';

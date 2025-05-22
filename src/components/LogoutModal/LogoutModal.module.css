@@ -5,6 +5,7 @@
   width: 100vw;
   height: 100vh;
   background: var(--main-Bg-lighter, rgba(46, 47, 66, 0.4));
+  -webkit-backdrop-filter: blur(3.5px);
   backdrop-filter: blur(3.5px);
   display: flex;
   justify-content: center;

@@ -1,13 +1,16 @@
 import Balance from '../Balance/Balance';
 import Currency from '../Currency/Currency';
 import DudeHi from '../DudeHi/DudeHi';
+import s from './BalanceOverview.module.css';
 
 const BalanceOverview = () => {
   return (
-    <div>
+    <div className={s.container}>
       <Balance />
       <Currency />
-      <DudeHi />
+      <div className={s.dudeWrapper}>
+        <DudeHi />
+      </div>
     </div>
   );
 };

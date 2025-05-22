@@ -1,0 +1,34 @@
+.homeTabContainer {
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 32px 27px;
+  width: 757px;
+
+  padding-bottom: 80px;
+  height: 585px;
+  padding: 1rem;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  position: relative;
+  /* perspective: 0px; */
+  /* filter: brightness(100%); */
+
+}
+
+@media (min-width: 1280px) {
+  .homeTabContainer {
+    max-width: 60vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .homeTabContainer {
+    max-width: 55vw;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .homeTabContainer {
+    max-width: 100%;
+  }
+}

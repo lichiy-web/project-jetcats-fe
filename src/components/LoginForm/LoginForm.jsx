@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
+// import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { selectError } from '../../redux/transactions/selectors';
@@ -22,16 +22,17 @@ const LoginForm = () => {
 
   const handleSubmit = values => {
     dispatch(logIn(values));
-    console.log('відправка данних', values);
+    // console.log('відправка данних', values);
+    navigate('/');
   };
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  // const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/');
-    }
-  }, [isLoggedIn, navigate]);
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     navigate('/');
+  //   }
+  // }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     if (error) {
@@ -42,7 +43,7 @@ const LoginForm = () => {
       } else if (error.includes('500')) {
         toast.error('Unable to connect to the server');
       } else {
-        toast.error(error); 
+        toast.error(error);
       }
     }
   }, [error]);
@@ -72,7 +73,7 @@ const LoginForm = () => {
             <InputPassword />
           </div>
           <div className={css.btnFields}>
-            <LoginButton disabled={!isValid} />  
+            <LoginButton disabled={!isValid} />
             <RegisterLink />
           </div>
           {/* {isLoading && <Loader />} */}

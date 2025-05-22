@@ -11,7 +11,15 @@
     padding: .5em;
     box-shadow: 3px 3px 3px #8e8b8b;
     z-index: 10000;
+
 }
+
+.dev-panel>button,
+.link {
+    margin-bottom: .5em;
+}
+
+
 
 .link.active {
     text-decoration: underline;

@@ -21,13 +21,15 @@ const HomeTab = () => {
   const toggleModal = () => setIsModalOpen(prev => !prev);
 
   return (
-    <section className={s.homeTabContainer}>
-      <TransactionList />
-      <ButtonAddTransaction onClick={toggleModal} />
+    <>
+      <section className={s.homeTabContainer}>
+        <TransactionList />
+        <ButtonAddTransaction onClick={toggleModal} />
+        <ModalDeleteTransaction />
+        <ModalEditTransaction />
+      </section>
       {isModalOpen && <ModalAddTransaction onClose={toggleModal} />}
-      <ModalDeleteTransaction />
-      <ModalEditTransaction />
-    </section>
+    </>
   );
 };
 

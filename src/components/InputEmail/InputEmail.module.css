@@ -1,0 +1,53 @@
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border: 1px solid #081222;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+}
+
+.input {
+  font-size: 1.12rem;
+  color: #081222;
+  border: none;
+  outline: none;
+  background-color: #508F8C;
+}
+
+.input:focus {
+  background-color: #508F8C;
+  color: #081222;
+  outline: none;
+}
+
+.inputError {
+  border-color: #f23a3a;
+  color: #f23a3a;
+}
+
+.input::placeholder {
+  color: #081222;
+  opacity: 1;
+}
+
+.iconError {
+  fill: #f23a3a;
+}
+
+.error {
+  color: #f23a3a;
+}
+
+.label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+

@@ -3,10 +3,6 @@ import css from './DevPanel.module.css';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { logIn, logOut } from '../../redux/auth/operations';
 import { NavLink } from 'react-router-dom';
-// <<<<<<< sidebar-desktop
-import { Link } from 'react-router-dom';
-//  =======
-// >>>>>>> dev
 import clsx from 'clsx';
 import {
   selectcIsModalAddTransaction,

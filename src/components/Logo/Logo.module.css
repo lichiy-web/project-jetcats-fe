@@ -6,7 +6,8 @@
   font-weight: 700;
   font-size: 30px;
   text-align: center;
-  color: var(--main-black);
+  color: #081222;
+  /* color: var(--main-white); */
 }
 
 .logoIcon {

@@ -4,7 +4,6 @@ import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import css from './AuthCard.module.css';
 
 const AuthCard = ({ formType }) => {
-  // console.log({ formType });
   return (
     <div className={css.wrapper}>
       <Logo />

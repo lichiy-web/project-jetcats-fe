@@ -1,7 +1,7 @@
 import css from './LoginButton.module.css'
 
-const LoginButton = () => {
-  return <div className={css.btnWrapper}>LogIn</div>;
+const LoginButton = ({ disabled }) => {
+  return <button type="submit" className={css.btnWrapper} disabled={disabled}>LogIn</button>;
 };
 
 export default LoginButton;

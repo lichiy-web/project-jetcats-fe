@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 34px;
   background-color: var(--main-light-green);
+  min-width: 533px;
 
   border-radius: 16px;
   padding: 40px 60px 50px;
@@ -18,5 +19,6 @@
   .wrapper {
     padding: 16px 16px 46px;
     gap: 16px;
+    min-width: 288px;
   }
 }

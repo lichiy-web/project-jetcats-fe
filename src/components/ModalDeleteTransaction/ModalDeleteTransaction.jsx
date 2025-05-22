@@ -1,16 +1,28 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import Modal from 'react-modal';
+import { toggleModal } from '../../redux/modals/slice';
 import DeleteForm from '../DeleteForm/DeleteForm';
 import { selectcIsModalDeleteTransAction } from '../../redux/modals/selectors';
+import css from './ModalDeleteTransaction.module.css';
 
-const ModalDeleteTransaction = () => {
+Modal.setAppElement('#root');
+
+const ModalDeleteTransaction = ({ transactionId }) => {
+  const dispatch = useDispatch();
   const isModaDeleteTransaction = useSelector(selectcIsModalDeleteTransAction);
+  const handleClose = () => {
+    dispatch(toggleModal('DeleteTransAction'));
+  };
   return (
     isModaDeleteTransaction && (
-      <div>
-        <DeleteForm />
-        <h1></h1>
-        <DeleteForm />
-      </div>
+      <Modal
+        isOpen={isModaDeleteTransaction}
+        onRequestClose={handleClose}
+        className={css.modal}
+        overlayClassName={css.overlay}
+      >
+        <DeleteForm transactionId={transactionId} />
+      </Modal>
     )
   );
 };

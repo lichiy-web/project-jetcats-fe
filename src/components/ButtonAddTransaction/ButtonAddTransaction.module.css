@@ -1,19 +1,21 @@
 .addTransactionButton {
-  position: sticky;
+  position: absolute;
   background-color: transparent;
   margin-top: auto;
   border-radius: 50%;
   margin-left: auto;
   bottom: 24px;
-  left: 24px;
+  right: 24px; 
   align-self: flex-end;
   z-index: 100;
   border: none;
   cursor: pointer;
+  padding: 0;
 
-  @media screen and (max-width: 767px) {
-    .addTransactionButton {
-      position: fixed;
-    }
+}
+
+@media screen and (max-width: 767px) {
+  .addTransactionButton {
+    position: fixed;
   }
 }

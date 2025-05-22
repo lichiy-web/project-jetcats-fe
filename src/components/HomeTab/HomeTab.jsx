@@ -3,7 +3,6 @@ import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
 import ModalDeleteTransaction from '../ModalDeleteTransaction/ModalDeleteTransaction';
 import ModalEditTransaction from '../ModalEditTransaction/ModalEditTransaction';
 import TransactionList from '../TransactionList/TransactionList';
-import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
 import { useState } from 'react';
 import s from './HomeTab.module.css';
 // import { useDispatch } from 'react-redux';
@@ -26,9 +25,10 @@ const HomeTab = () => {
       <TransactionList />
       <ButtonAddTransaction onClick={toggleModal} />
       {isModalOpen && <ModalAddTransaction onClose={toggleModal} />}
-    </section>
-
       <ModalDeleteTransaction />
       <ModalEditTransaction />
+    </section>
+  );
+};
 
 export default HomeTab;

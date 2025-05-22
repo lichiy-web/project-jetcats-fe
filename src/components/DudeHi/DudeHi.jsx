@@ -1,5 +1,8 @@
+import DudeHiImg from '../../assets/img/ChatGPT Image Apr 23, 2025 at 04_18_25 PM 1.png';
+import s from './DudeHi.module.css';
+
 const DudeHi = () => {
-  return <div>DudeHi</div>;
+  return <img src={DudeHiImg} alt="DudeHi" className={s.img} />;
 };
 
 export default DudeHi;

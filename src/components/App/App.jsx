@@ -25,7 +25,6 @@ function App() {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  // const isRefreshing = false;
 
   return isRefreshing ? (
     <Loader isLoading={true} />

@@ -12,7 +12,7 @@
   opacity: 0.4;
 }
 .modal {
-  background-color: var(--main-light-green);
+  background-color: -var(--main-light-green);
   position: relative;
   width: 100%;
   max-width: 33.3rem;

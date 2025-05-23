@@ -8,7 +8,7 @@ const ModalAddTransaction = () => {
   return (
     isModalAddTransaction && (
       <div>
-        {/* <h1>AddTransactionForm</h1> */}
+        <h1>AddTransactionForm</h1>
         <AddTransactionForm />
       </div>
     )

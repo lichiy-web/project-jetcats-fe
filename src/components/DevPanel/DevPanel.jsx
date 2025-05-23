@@ -11,7 +11,6 @@ import {
   selectIsModalLogOut,
 } from '../../redux/modals/selectors';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
-import { useEffect } from 'react';
 
 const IS_DEV_MODE = import.meta.env.DEV;
 const JetCatsCreds = {

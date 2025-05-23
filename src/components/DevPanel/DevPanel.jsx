@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import {
   selectcIsModalAddTransaction,
-  selectcIsModalDeleteTransAction,
+  selectcIsModalDeleteTransaction,
   selectcIsModalEditTransAction,
   selectcIsModalLogOut,
 } from '../../redux/modals/selectors';
@@ -28,7 +28,7 @@ const DevPanel = () => {
   const isModalAddTransaction = useSelector(selectcIsModalAddTransaction);
   // console.log({ isModalAddTransaction });
   const isModalEditTransaction = useSelector(selectcIsModalEditTransAction);
-  const isModalDeleteTransaction = useSelector(selectcIsModalDeleteTransAction);
+  const isModalDeleteTransaction = useSelector(selectcIsModalDeleteTransaction);
   const isModalLogOut = useSelector(selectcIsModalLogOut);
 
   const handleAuth = () => {

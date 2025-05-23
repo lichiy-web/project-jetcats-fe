@@ -23,12 +23,11 @@
   --third-family: Circe, sans-serif;
 }
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
   /*Перевизначає колір текста автозаповнення input, який вшитий у браузер*/
-  -webkit-text-fill-color: #081222;  
+  -webkit-text-fill-color: #081222;
   /*Перевизначає колір фону автозаповнення input, який вшитий у браузер*/
   -webkit-box-shadow: 0 0 0px 40rem #508f8c inset;
 }
@@ -111,25 +110,73 @@ button:focus-visible {
 .inputLogWrapper {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0.9rem;
   border: 1px solid var(--main-black);
-  border-radius: 8px;
-  font-weight: 500;
-  padding: 10px;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+}
+
+.inputLogWrapper.inputLogWrapperError {
+  border: 1px solid var(--main-red);
 }
 
 .inputLog {
-  font-size: 18px;
+  font-size: 1.12rem;
   color: var(--main-black);
   border: none;
   outline: none;
-  background-color: transparent;
-  width: 100%;
+  background-color: var(--main-light-green);
+}
+
+.inputLog.inputLogError,
+.inputLog.inputLogError::placeholder {
+  color: var(--main-red);
+}
+
+.inputLog:focus {
+  background-color: #508f8c;
+  color: var(--main-black);
+  outline: none;
 }
 
 .inputLog::placeholder {
   color: var(--main-black);
   opacity: 1;
+}
+
+.error {
+  position: absolute;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--main-red);
+}
+
+.fieldLogWrapper {
+  position: relative;
+}
+
+.labelLog {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--main-black);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: transparent;
+  font-size: 18px;
+  justify-content: center;
+  color: var(--main-black);
 }
 
 @media screen and (max-width: 767px) {

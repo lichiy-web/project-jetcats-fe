@@ -1,14 +1,14 @@
 .form {
-display: flex;
-flex-direction: column;
-background-color: #508F8C;
-justify-content: space-between;
-gap: 2.19rem;
-margin: 2.19rem 0 auto; 
-width: 100%;
-max-width: 25.56rem;
-min-height: 16.25rem;
-padding-bottom: 5.13rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #508f8c;
+  justify-content: space-between;
+  gap: 2.19rem;
+  margin: 2.19rem 0 auto;
+  width: 100%;
+  max-width: 25.56rem;
+  min-height: 16.25rem;
+  padding-bottom: 5.13rem;
 }
 
 .inputFields,
@@ -18,3 +18,12 @@ padding-bottom: 5.13rem;
   gap: 1.3rem;
 }
 
+@media screen and (max-width: 767px) {
+  .form {
+    gap: 50px;
+  }
+  .inputFields,
+  .btnFields {
+    gap: 45px;
+  }
+}

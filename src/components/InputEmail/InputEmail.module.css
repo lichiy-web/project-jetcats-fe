@@ -12,11 +12,11 @@
   color: #081222;
   border: none;
   outline: none;
-  background-color: #508F8C;
+  background-color: --var(--main-light-green);
 }
 
 .input:focus {
-  background-color: #508F8C;
+  background-color: #508f8c;
   color: #081222;
   outline: none;
 }
@@ -50,4 +50,3 @@
   white-space: nowrap;
   border: 0;
 }
-

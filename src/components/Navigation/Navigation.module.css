@@ -1,0 +1,35 @@
+.mobileOnly {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .mobileOnly {
+    display: inline-block;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 26px;
+  border-radius: 16px;
+  padding: 16px 32px;
+  gap: 10px;
+  width: 451px;
+  height: 100%;
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+}
+
+.link {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--main-white);
+}
+.active {
+  font-weight: 700;
+}
+.wrapper {
+  display: flex;
+  justify-content: left;
+}

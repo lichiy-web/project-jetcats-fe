@@ -26,15 +26,16 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (error) {
-      if (error.includes('401')) {
-        toast.error('This user is not registered');
-      } else if (error.includes('Invalid') || error.includes('400')) {
-        toast.error('Incorrect email or password');
-      } else if (error.includes('500')) {
-        toast.error('Unable to connect to the server');
-      } else {
-        toast.error(error);
-      }
+      toast.dismiss();
+      console.log('Error caught in component:', error);
+    if (error?.toLowerCase().includes('unauthorized')) {
+      toast.error('User is not registered')
+    } else if (error?.includes('email') || error?.includes('password')) {
+      toast.error('Wrong email or password');
+    } else 
+    {
+      toast.error(error);
+    }
     }
   }, [error]);
 

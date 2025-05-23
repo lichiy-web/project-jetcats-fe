@@ -1,8 +1,10 @@
 // import { Plus } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import s from './ButtonAddTransaction.module.css';
+import { MODALS, toggleModal } from '../../redux/modals/slice';
+import { useDispatch } from 'react-redux';
 
-const ButtonAddTransaction = ({ onClick }) => {
+const ButtonAddTransaction = () => {
   const btn = useRef(null);
   useEffect(() => {
     const btnOffset = 24;
@@ -13,11 +15,16 @@ const ButtonAddTransaction = ({ onClick }) => {
       btn.current.style.right = btnOffset + 'px';
     });
   }, [btn]);
+
+  const dispatch = useDispatch();
+  const handleModals = modal => {
+    dispatch(toggleModal(modal));
+  };
   return (
     <button
       ref={btn}
       className={s.addTransactionButton}
-      onClick={onClick}
+      onClick={() => handleModals(MODALS.add)}
       aria-label="Add transaction"
     >
       <img src="/src/assets/+ btn.svg" alt="Add" />

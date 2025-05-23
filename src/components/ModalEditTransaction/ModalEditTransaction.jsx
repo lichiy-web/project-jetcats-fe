@@ -1,9 +1,9 @@
 import css from './ModalEditTransaction.module.css';
 import EditTransactionForm from '../EditTransactionForm/EditTransactionForm';
 import { useSelector } from 'react-redux';
-import { selectcIsModalEditTransAction } from '../../redux/modals/selectors';
+import { selectcIsModalEditTransaction } from '../../redux/modals/selectors.js';
 const ModalEditTransaction = () => {
-  const isModalEditTransaction = useSelector(selectcIsModalEditTransAction);
+  const isModalEditTransaction = useSelector(selectcIsModalEditTransaction);
   return (
     isModalEditTransaction && (
       <div className={css.wrap}>

@@ -19,7 +19,7 @@ const InputEmail = () => {
           type="email"
           name="email"
           id="email"
-          placeholder="Email"
+          placeholder="E-mail"
           className={clsx('inputLog', isError && 'inputLogError')}
         />
       </div>

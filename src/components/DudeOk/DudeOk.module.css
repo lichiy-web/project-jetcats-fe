@@ -1,0 +1,9 @@
+.dude {
+  position: absolute;
+  bottom: 40px;
+  right: 16px;
+  z-index: -1;
+  overflow: hidden;
+  width: 326px;
+  height: 239px;
+}

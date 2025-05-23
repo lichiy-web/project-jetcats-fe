@@ -46,9 +46,7 @@ const RegistrationForm = () => {
   };
   useEffect(() => {
     if (error) {
-      if (error.includes('401')) {
-        toast.error('This user is not registered');
-      } else if (error.includes('Invalid') || error.includes('400')) {
+      if (error.includes('Invalid') || error.includes('400')) {
         toast.error('Incorrect email or password');
       } else if (error.includes('500')) {
         toast.error('Unable to connect to the server');

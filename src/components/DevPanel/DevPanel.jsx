@@ -57,7 +57,7 @@ const DevPanel = () => {
           Login
         </NavLink>
         <button type="button" onClick={() => handleModals(MODALS.add)}>
-          {isModalAddTransaction ? 'Close' : 'Open'} AddTrans
+          {isModalAddTransaction ? 'Close' : 'Open'} ModalAdd
         </button>
         <button type="button" onClick={() => handleModals(MODALS.edit)}>
           {isModalEditTransaction ? 'Close' : 'Open'} EditTrans

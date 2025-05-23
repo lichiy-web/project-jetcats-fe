@@ -25,11 +25,13 @@ const LogoutModal = () => {
   const handleLogout = async () => {
     try {
       await dispatch(logOut()).unwrap();
-      navigate('/login');
     } catch (error) {
       toast.error('Logout failed:', error);
     } finally {
-      handleClose();
+      dispatch(toggleModal('isLogOut'));
+      setTimeout(() => {
+        navigate('/login');
+      }, 50);
     }
   };
 

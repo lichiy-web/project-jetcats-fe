@@ -7,7 +7,6 @@ import { toggleModal } from '../../redux/modals/slice.js';
 import { toast } from 'react-toastify';
 import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
-// import Logo from '../Logo/Logo';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import logo from '../../assets/logo-modal.svg';
 import css from './LogoutModal.module.css';

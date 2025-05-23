@@ -3,14 +3,10 @@ import css from './DevPanel.module.css';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { logIn, logOut } from '../../redux/auth/operations';
 import { NavLink } from 'react-router-dom';
-// <<<<<<< sidebar-desktop
-import { Link } from 'react-router-dom';
-//  =======
-// >>>>>>> dev
 import clsx from 'clsx';
 import {
   selectcIsModalAddTransaction,
-  selectcIsModalDeleteTransAction,
+  selectcIsModalDeleteTransaction,
   selectcIsModalEditTransAction,
   selectcIsModalLogOut,
 } from '../../redux/modals/selectors';
@@ -32,7 +28,7 @@ const DevPanel = () => {
   const isModalAddTransaction = useSelector(selectcIsModalAddTransaction);
   // console.log({ isModalAddTransaction });
   const isModalEditTransaction = useSelector(selectcIsModalEditTransAction);
-  const isModalDeleteTransaction = useSelector(selectcIsModalDeleteTransAction);
+  const isModalDeleteTransaction = useSelector(selectcIsModalDeleteTransaction);
   const isModalLogOut = useSelector(selectcIsModalLogOut);
 
   const handleAuth = () => {

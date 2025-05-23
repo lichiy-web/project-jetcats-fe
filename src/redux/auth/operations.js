@@ -41,7 +41,7 @@ export const logIn = createAsyncThunk(
       } = await appApi.get('/users/current');
       return { user, accessToken };
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

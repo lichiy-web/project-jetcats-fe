@@ -8,8 +8,10 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
-  opacity: 0.4;
+  /* background: linear-gradient(180deg, #355359 0%, #3b5d63 100%); */
+  /* opacity: 0.4; */
+  -webkit-backdrop-filter: blur(3.5px);
+  backdrop-filter: blur(3.5px);
 }
 .modal {
   background-color: var(--main-light-green);

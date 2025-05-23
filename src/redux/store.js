@@ -12,7 +12,10 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+// <<<<<<< HEAD
+// =======
 import { categoriesReducer } from './categories/slice';
+// >>>>>>> 752b2f100ea9b4351420f99319a10512d9939972
 import { transactionsReducer } from './transactions/slice';
 import { modalsReducer } from './modals/slice';
 
@@ -38,7 +41,10 @@ const persistConfigModals = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
+    // <<<<<<< HEAD
+    // =======
     categories: categoriesReducer,
+    // >>>>>>> 752b2f100ea9b4351420f99319a10512d9939972
     transactions: transactionsReducer,
     modals: persistReducer(persistConfigModals, modalsReducer),
   },

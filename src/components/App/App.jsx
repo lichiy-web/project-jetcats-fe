@@ -10,6 +10,7 @@ import Loader from '../Loader/Loader';
 import HomeTab from '../HomeTab/HomeTab';
 import DevPanel from '../DevPanel/DevPanel';
 import StatisticsTab from '../StatisticsTab/StatisticsTab';
+
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));
@@ -24,7 +25,6 @@ function App() {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  // const isRefreshing = false;
 
   return isRefreshing ? (
     <Loader isLoading={true} />

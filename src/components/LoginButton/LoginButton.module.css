@@ -1,0 +1,18 @@
+.btnWrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.9rem;
+  border: 1px solid #081222;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  background-color: #355359;
+  font-size: 1.12rem;
+  justify-content: center;
+  color: #fcfcfc;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

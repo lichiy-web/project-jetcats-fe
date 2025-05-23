@@ -85,6 +85,7 @@ button {
   transition: border-color 0.25s;
   width: max-content;
 }
+
 button:hover {
   border-color: #646cff;
 }
@@ -125,6 +126,7 @@ button:focus-visible {
   outline: none;
   background-color: transparent;
   width: 100%;
+  padding: 0.5rem 1rem;
 }
 
 .inputLog::placeholder {

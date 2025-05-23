@@ -12,12 +12,10 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { selectError } from '../../redux/transactions/selectors';
-// import Loader from '../Loader/Loader';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
   const handleSubmit = values => {
@@ -25,14 +23,6 @@ const LoginForm = () => {
     // console.log('відправка данних', values);
     navigate('/');
   };
-
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     navigate('/');
-  //   }
-  // }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     if (error) {

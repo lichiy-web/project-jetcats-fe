@@ -3,14 +3,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 34px;
+  border-radius: 1rem;
   background-color: var(--main-light-green);
-  min-width: 533px;
-  min-height: 519px;
+  min-width: 33.31rem;
+  min-height: 32.44rem;
   margin: 0 auto;
-
-  border-radius: 16px;
-  padding: 40px 60px 50px;
+  padding: 40px 60px 82px;
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {

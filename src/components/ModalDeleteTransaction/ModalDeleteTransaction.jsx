@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import DeleteForm from '../DeleteForm/DeleteForm';
-import { selectcIsModalDeleteTransAction } from '../../redux/modals/selectors';
+import { selectIsModalDeleteTransAction } from '../../redux/modals/selectors';
 
 const ModalDeleteTransaction = () => {
-  const isModaDeleteTransaction = useSelector(selectcIsModalDeleteTransAction);
+  const isModaDeleteTransaction = useSelector(selectIsModalDeleteTransAction);
   return (
     isModaDeleteTransaction && (
       <div>

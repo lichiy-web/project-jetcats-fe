@@ -14,7 +14,7 @@ const handleReject = (state, action) => {
 const handleSuccess = (state, action) => {
   state.error = null;
   state.loading = false;
-  state.items = action.payload;
+  state.items = action.payload.data;
 };
 
 const initialState = {

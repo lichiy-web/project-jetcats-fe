@@ -1,33 +1,44 @@
 import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
+import InputAmount from '../InputAmount/InputAmount';
+import InputComment from '../InputComment/InputComment';
 import ToggleDesc from '../ToggleDesc/ToggleDesc';
-// import InputAmount from '../InputAmount/InputAmount';
-// import InputComment from '../InputComment/InputComment';
-// import InputDate from '../InputDate/InputDate';
-// import ToggleDesc from '../ToggleDesc/ToggleDesc';
+import SaveButton from '../SaveButton/SaveButton';
+import InputCategory from '../InputCategory/InputCategory';
+import CustomDatePicker from '../CustomDatePicker/CustomDatePicker';
 import s from './AddTransactionForm.module.css';
-import { Formik, Form, Field } from 'formik';
-import { useState } from 'react';
+import { Formik, Form } from 'formik';
+import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useDispatch } from 'react-redux';
+import { fetchCategories } from '../../redux/categories/operations';
+import { addTransaction } from '../../redux/transactions/operations';
 
-const AddTransactionForm = () => {
+const AddTransactionForm = ({ onClose }) => {
   const validateSchema = Yup.object({
     amount: Yup.number().positive('Must be positive').required('Required'),
     date: Yup.date().required('Required'),
     comment: Yup.string().max(20),
+    category: Yup.string().when('type', {
+      is: 'expense',
+      then: schema => schema.required('Category is required'),
+      otherwise: schema => schema.notRequired(),
+    }),
   });
 
-  const handleBackdropClick = e => {
-    if (e.target === e.currentTarget) {
-      setIsModalOpen(false);
-    }
-  };
-  const [isModalOpen, setIsModalOpen] = useState(true);
-  if (!isModalOpen) return null;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
+  const [startDate, setStartDate] = useState(new Date());
+
   return (
-    <div className={s.backdrop} onClick={handleBackdropClick}>
+    <div className={s.backdrop}>
       <div className={s.modal} onClick={e => e.stopPropagation()}>
-        <CloseButton onClick={() => setIsModalOpen(false)} />
+        <CloseButton onClick={onClose} />
         <h2 className={s.title}>Add transaction</h2>
 
         <Formik
@@ -36,55 +47,68 @@ const AddTransactionForm = () => {
             amount: '',
             date: '',
             comment: '',
+            category: '',
           }}
           validationSchema={validateSchema}
           onSubmit={values => {
-            console.log('Submitted values:', values);
+            const formatDateToYYYYMMDD = date => {
+              const d = new Date(date);
+              const year = d.getFullYear();
+              const month = String(d.getMonth() + 1).padStart(2, '0');
+              const day = String(d.getDate()).padStart(2, '0');
+              return `${year}-${month}-${day}`;
+            };
+
+            const payload = {
+              ...values,
+              date: formatDateToYYYYMMDD(values.date),
+            };
+
+            if (values.type === 'income') {
+              payload.category = {
+                name: 'Incomes',
+                type: 'income',
+              };
+            }
+
+            dispatch(addTransaction(payload))
+              .unwrap()
+              .then(() => {
+                onClose();
+              })
+              .catch(error => {
+                // Здесь можно обработать ошибку по необходимости
+              });
           }}
         >
           {({ values, setFieldValue }) => (
             <Form className={s.form}>
               <ToggleDesc values={values} setFieldValue={setFieldValue} />
-              <div className={s.inputWrapper}>
-                <Field
-                  name="amount"
-                  type="number"
-                  placeholder="0.00"
-                  className={`${s.input} ${s.inputGeneral}`}
-                />
 
-                <Field
-                  name="date"
-                  type="date"
-                  className={`${s.input} ${s.inputGeneral}`}
-                  max={new Date().toISOString().split('T')[0]}
-                />
+              <div className={s.wrapper}>
+                <InputCategory />
+                <div className={s.inputWrapper}>
+                  <InputAmount />
+                  <CustomDatePicker
+                    selectedDate={startDate}
+                    onChange={date => {
+                      setStartDate(date);
+                      setFieldValue('date', date);
+                    }}
+                  />
+                </div>
+
+                <InputComment />
               </div>
 
-              <Field
-                name="comment"
-                type="text"
-                placeholder="Comment"
-                className={`${s.input} ${s.inputComment}`}
-              />
-
               <div className={s.btnGroup}>
-                <button type="submit" className={s.submitBtn}>
-                  Save
-                </button>
-                <CancelButton />
+                <SaveButton />
+                <CancelButton onClick={onClose} />
               </div>
             </Form>
           )}
         </Formik>
       </div>
-      {/* <CloseButton />
-      <h3>ModalAddTransaction</h3>
-      <ToggleDesc />
-      <InputAmount />
-      <InputDate />
-      <InputComment />
-      <CancelButton /> */}
     </div>
   );
 };

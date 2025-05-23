@@ -5,13 +5,13 @@ import { logIn, logOut } from '../../redux/auth/operations';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import {
-  selectcIsModalAddTransaction,
-  selectcIsModalDeleteTransAction,
-  selectcIsModalEditTransAction,
-  selectcIsModalLogOut,
+  selectIsModalAddTransaction,
+  selectIsModalDeleteTransAction,
+  selectIsModalEditTransAction,
+  selectIsModalLogOut,
 } from '../../redux/modals/selectors';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
-import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
+import { useEffect } from 'react';
 
 const IS_DEV_MODE = import.meta.env.DEV;
 const JetCatsCreds = {
@@ -26,11 +26,11 @@ const buildLinkClass = ({ isActive }) => {
 const DevPanel = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isModalAddTransaction = useSelector(selectcIsModalAddTransaction);
+  const isModalAddTransaction = useSelector(selectIsModalAddTransaction);
   // console.log({ isModalAddTransaction });
-  const isModalEditTransaction = useSelector(selectcIsModalEditTransAction);
-  const isModalDeleteTransaction = useSelector(selectcIsModalDeleteTransAction);
-  const isModalLogOut = useSelector(selectcIsModalLogOut);
+  const isModalEditTransaction = useSelector(selectIsModalEditTransAction);
+  const isModalDeleteTransaction = useSelector(selectIsModalDeleteTransAction);
+  const isModalLogOut = useSelector(selectIsModalLogOut);
 
   const handleAuth = () => {
     isLoggedIn ? dispatch(logOut()) : dispatch(logIn(JetCatsCreds));
@@ -39,6 +39,7 @@ const DevPanel = () => {
     // console.log(modal);
     dispatch(toggleModal(modal));
   };
+
   return (
     IS_DEV_MODE && (
       <div className={css['dev-panel']}>
@@ -59,7 +60,6 @@ const DevPanel = () => {
         </NavLink>
         <button type="button" onClick={() => handleModals(MODALS.add)}>
           {isModalAddTransaction ? 'Close' : 'Open'} ModalAddTransaction
-          <ModalAddTransaction />
         </button>
         <button type="button" onClick={() => handleModals(MODALS.edit)}>
           {isModalEditTransaction ? 'Close' : 'Open'} EditTrans

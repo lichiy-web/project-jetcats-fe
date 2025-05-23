@@ -52,9 +52,9 @@
   bottom: -2px;
   height: 44px;
   width: 44px;
-  background-color: var(--main-yellow); /* неактивное положение */
+  background-color: var(--main-yellow);
   border-radius: 30px;
-  transition: transform 0.4s, background-color 0.4s;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .toggleInput:focus + .toggleSlider {

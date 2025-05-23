@@ -4,22 +4,22 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  gap: 8px;
-  border: 1px solid #081222;
-  border-radius: 8px;
-  padding: 11px 68px;
-  width: 410px;
-  height: 44px;
-  background-color: #508f8c;
+  gap: 0.5rem;
+  border: 1px solid var(--main-black);
+  border-radius: 0.5rem;
+  padding: 0.6875rem 4.25rem;
+  width: 25.625rem;
+  height: auto;
+  background-color: var(--main-light-green);
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem;
   text-align: center;
-  color: #081222;
+  color: var(--main-black);
   transition: all 350ms ease-in-out;
 }
 
 .btn:hover {
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
-  color: #fcfcfc;
+  color: var(--main-white);
 }

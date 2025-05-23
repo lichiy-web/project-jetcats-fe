@@ -4,7 +4,7 @@ import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
 
 const ModalAddTransaction = () => {
   const isModalAddTransaction = useSelector(selectcIsModalAddTransaction);
-  // console.log(isModalAddTransaction);
+  console.log({ isModalAddTransaction });
   return (
     isModalAddTransaction && (
       <div>

@@ -1,0 +1,31 @@
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 500;
+  width: 409px;
+  gap: 14px;
+  border: 1px solid var(--main-black);
+}
+
+.input {
+  font-size: 18px;
+  color: var(--main-black);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--main-black);
+  opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .inputWrapper {
+    width: 256px;
+    gap: 12px;
+  }
+}

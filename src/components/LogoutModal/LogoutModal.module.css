@@ -1,0 +1,51 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--main-Bg-lighter, rgba(46, 47, 66, 0.4));
+  -webkit-backdrop-filter: blur(3.5px);
+  backdrop-filter: blur(3.5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  padding: 3.3rem 3.875rem 2.9rem;
+  width: 100%;
+  max-width: 33.3rem; /* ~533px */
+  height: auto;
+  border-radius: 1rem;
+  background: var(--main-Light-green, #508f8c);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 11.375rem;  /* 182px */
+  height: 5.875rem;  /* 94px */
+}
+
+.message {
+  color: var(--main-Black, #081222);
+  text-align: center;
+  font-size: 1.125rem; /* 18px */
+  margin-top: 2.375rem; /* 38px */
+  margin-bottom: 1.5rem; /* 24px */
+}

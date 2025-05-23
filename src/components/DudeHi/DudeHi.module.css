@@ -1,9 +1,7 @@
 .dude {
   position: absolute;
-  bottom: 35px;
+  bottom: 40px;
   right: 16px;
+  z-index: -1;
+  overflow: hidden;
 }
-/* .img {
-  width: 222px;
-  height: 166px;
-} */

@@ -11,7 +11,6 @@ import {
   selectcIsModalLogOut,
 } from '../../redux/modals/selectors';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
-import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
 
 const IS_DEV_MODE = import.meta.env.DEV;
 const JetCatsCreds = {
@@ -58,8 +57,7 @@ const DevPanel = () => {
           Login
         </NavLink>
         <button type="button" onClick={() => handleModals(MODALS.add)}>
-          {isModalAddTransaction ? 'Close' : 'Open'} ModalAddTransaction
-          <ModalAddTransaction />
+          {isModalAddTransaction ? 'Close' : 'Open'} ModalAdd
         </button>
         <button type="button" onClick={() => handleModals(MODALS.edit)}>
           {isModalEditTransaction ? 'Close' : 'Open'} EditTrans

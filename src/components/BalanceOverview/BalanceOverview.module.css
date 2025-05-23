@@ -1,12 +1,13 @@
 .container {
   border-radius: 16px;
-  padding: 24px;
-  width: 448px;
+  padding: 23px 27px 44px 24px;
+  width: 451px;
   height: 469px;
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
 }
 .dudeWrapper {
-  display: flex;
-  margin-top: 21px;
-  justify-content: center;
+  position: static;
+  overflow: hidden;
+  max-width: 100%;
+  justify-self: center;
 }

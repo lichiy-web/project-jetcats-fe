@@ -24,7 +24,7 @@ const TransactionItem = ({ transaction }) => {
         <td>{formatDate(transaction.date)}</td>
         <td>{sign}</td>
         <td>{categoryName}</td>
-        <td>{transaction.comment}</td>
+        <td className={s.expandableCell}>{transaction.comment}</td>
         <td>{transaction.sum.toFixed(2)}</td>
         <td>
           <div className={s.buttonWrapper}>

@@ -1,18 +1,33 @@
-.homeTabContainer {
-  overflow-y: auto;
-  border-radius: 16px;
-  padding: 32px 27px;
-  width: 757px;
-
-  padding-bottom: 80px;
-  height: 585px;
-  padding: 1rem;
+.homeTabWrapContainer {
+  width: 752px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
   position: relative;
-  /* perspective: 0px; */
-  /* filter: brightness(100%); */
+  border-radius: 16px;
+}
+.homeTabContainer::-webkit-scrollbar {
+  width: 10px;
+  height: 103px;
+  background-color: #c5c5c5;
+}
 
+.homeTabContainer::-webkit-scrollbar-thumb {
+  border-radius: 64px;
+  width: 4px;
+
+  background: var(--main-light-green);
+}
+.homeTabContainer {
+  overflow: visible;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 32px 13px 32px 27px;
+  /* width: 752px; */
+  width: 739px;
+  height: 585px;
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%); */
+  position: relative;
 }
 
 @media (min-width: 1280px) {

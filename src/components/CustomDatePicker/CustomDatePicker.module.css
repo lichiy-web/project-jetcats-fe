@@ -32,7 +32,7 @@
 .iconWrapper {
   position: absolute;
   right: 10px;
-  top: 35%;
+  top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
   color: var(--main-black);

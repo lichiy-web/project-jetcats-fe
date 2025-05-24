@@ -3,7 +3,7 @@ import CloseButton from '../CloseButton/CloseButton';
 import InputAmount from '../InputAmount/InputAmount';
 import InputComment from '../InputComment/InputComment';
 import ToggleDesc from '../ToggleDesc/ToggleDesc';
-import SaveButton from '../SaveButton/SaveButton';
+import AddButton from '../AddButton/AddButton';
 import InputCategory from '../InputCategory/InputCategory';
 import CustomDatePicker from '../CustomDatePicker/CustomDatePicker';
 import s from './AddTransactionForm.module.css';
@@ -14,8 +14,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
 import { fetchCategories } from '../../redux/categories/operations';
 import { addTransaction } from '../../redux/transactions/operations';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/auth/selectors';
 
 const AddTransactionForm = ({ onClose }) => {
   const validateSchema = Yup.object({
@@ -36,9 +34,6 @@ const AddTransactionForm = ({ onClose }) => {
   }, [dispatch]);
 
   const [startDate, setStartDate] = useState(new Date());
-
-  const user = useSelector(selectUser);
-  const userId = user?._id;
 
   return (
     <div className={s.backdrop}>
@@ -70,14 +65,10 @@ const AddTransactionForm = ({ onClose }) => {
               sum: Number(values.sum),
               date: formatDateToYYYYMMDD(values.date),
               comment: values.comment,
-              userId: userId,
             };
 
             if (values.type === 'income') {
-              payload.category = {
-                name: 'Incomes',
-                type: 'income',
-              };
+              payload.category = '6825eae52bcfe457b4ce5b14';
             }
 
             dispatch(addTransaction(payload))
@@ -111,7 +102,7 @@ const AddTransactionForm = ({ onClose }) => {
               </div>
 
               <div className={s.btnGroup}>
-                <SaveButton />
+                <AddButton />
                 <CancelButton onClick={onClose} />
               </div>
             </Form>

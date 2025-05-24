@@ -1,10 +1,10 @@
-import s from './SaveButton.module.css';
+import s from './AddButton.module.css';
 
 const SaveButton = () => {
   return (
     <div>
       <button type="submit" className={s.saveBtn}>
-        Save
+        Add
       </button>
     </div>
   );

@@ -3,23 +3,33 @@ import s from './CurrencyItem.module.css';
 import {
   selectCurrencyData,
   selectCurrencyError,
-  selectCurrencyLoading,
-} from '../../redux/currencyItem/currencySelectors';
+} from '../../redux/currency/selectors';
 import { useEffect } from 'react';
-import { fetchCurrencyRates } from '../../redux/currencyItem/currencySlice';
+import { fetchCurrencyRates } from '../../redux/currency/operations';
+import { toast, Slide } from 'react-toastify';
 
 const CurrencyItem = () => {
   const dispatch = useDispatch();
   const data = useSelector(selectCurrencyData);
-  const loading = useSelector(selectCurrencyLoading);
   const error = useSelector(selectCurrencyError);
 
   useEffect(() => {
     dispatch(fetchCurrencyRates());
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (error) {
+    toast.error('Failed to load currency rates', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: 'light',
+      transition: Slide,
+    });
+  }
 
   return (
     <div>

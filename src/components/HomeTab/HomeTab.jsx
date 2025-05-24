@@ -4,10 +4,18 @@ import ModalDeleteTransaction from '../ModalDeleteTransaction/ModalDeleteTransac
 import ModalEditTransaction from '../ModalEditTransaction/ModalEditTransaction';
 import TransactionList from '../TransactionList/TransactionList';
 import s from './HomeTab.module.css';
-// import { fetchTransactions } from '../../redux/transactions/operations';
-// import { fetchCategories } from '../../redux/categories/operations';
+import { fetchTransactions } from '../../redux/transactions/operations';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCategories } from '../../redux/categories/operations';
 
 const HomeTab = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+    dispatch(fetchCategories());
+  }, [dispatch]);
   return (
     <>
       <section className={s.homeTabContainer}>

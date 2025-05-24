@@ -1,8 +1,9 @@
-export const selectcModals = state => state.modals;
+export const selectModals = state => state.modals;
+
 export const selectIsModalAddTransaction = state =>
   state.modals.isAddTransaction;
-export const selectcIsModalEditTransaction = state =>
+export const selectIsModalEditTransaction = state =>
   state.modals.isEditTransaction;
-export const selectcIsModalDeleteTransaction = state =>
+export const selectIsModalDeleteTransaction = state =>
   state.modals.isDeleteTransaction;
-export const selectcIsModalLogOut = state => state.modals.isLogOut;
+export const selectIsModalLogOut = state => state.modals.isLogOut;

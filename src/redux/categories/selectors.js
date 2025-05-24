@@ -1,1 +1,1 @@
-export const selectcCategories = state => state.categories.item;
+export const selectCategories = state => state.categories.items;

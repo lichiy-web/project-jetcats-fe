@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
-import HomeTab from '../HomeTab/HomeTab';
+// import HomeTab from '../HomeTab/HomeTab';
 import SideBar from '../SideBar/SideBar';
 
 const UserAccountLayout = () => {

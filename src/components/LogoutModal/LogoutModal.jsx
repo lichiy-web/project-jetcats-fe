@@ -7,9 +7,8 @@ import { toggleModal } from '../../redux/modals/slice.js';
 import { toast } from 'react-toastify';
 import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
-// import Logo from '../Logo/Logo';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import logo from '../../assets/logo-modal.svg'
+import logo from '../../assets/logo-modal.svg';
 import css from './LogoutModal.module.css';
 
 Modal.setAppElement('#root');
@@ -26,11 +25,13 @@ const LogoutModal = () => {
   const handleLogout = async () => {
     try {
       await dispatch(logOut()).unwrap();
-      navigate('/login');
     } catch (error) {
       toast.error('Logout failed:', error);
     } finally {
-      handleClose();
+      dispatch(toggleModal('isLogOut'));
+      setTimeout(() => {
+        navigate('/login');
+      }, 50);
     }
   };
 

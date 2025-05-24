@@ -1,7 +1,7 @@
 import css from './ModalEditTransaction.module.css';
 import EditTransactionForm from '../EditTransactionForm/EditTransactionForm';
 import { useSelector } from 'react-redux';
-import { selectcIsModalEditTransaction } from '../../redux/modals/selectors.js';
+import { selectcIsModalEditTransaction } from '../../redux/modals/selectors';
 const ModalEditTransaction = () => {
   const isModalEditTransaction = useSelector(selectcIsModalEditTransaction);
   return (

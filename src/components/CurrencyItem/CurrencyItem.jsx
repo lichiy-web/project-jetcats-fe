@@ -1,59 +1,29 @@
-import { useEffect, useState } from 'react';
-import { currencyApi } from '../../redux/api/api';
+import { useDispatch, useSelector } from 'react-redux';
 import s from './CurrencyItem.module.css';
-
-const CURRENCY_CACHE_KEY = 'monobank_currency_data';
-const CACHE_TTL = 60 * 60 * 1000;
+import {
+  selectCurrencyData,
+  selectCurrencyError,
+  selectCurrencyLoading,
+} from '../../redux/currencyItem/currencySelectors';
+import { useEffect } from 'react';
+import { fetchCurrencyRates } from '../../redux/currencyItem/currencySlice';
 
 const CurrencyItem = () => {
-  const [currencyData, setCurrencyData] = useState([]);
+  const dispatch = useDispatch();
+  const data = useSelector(selectCurrencyData);
+  const loading = useSelector(selectCurrencyLoading);
+  const error = useSelector(selectCurrencyError);
 
   useEffect(() => {
-    const fetchCurrency = async () => {
-      try {
-        const cached = JSON.parse(localStorage.getItem(CURRENCY_CACHE_KEY));
+    dispatch(fetchCurrencyRates());
+  }, [dispatch]);
 
-        const now = Date.now();
-
-        if (cached && now - cached.timestamp < CACHE_TTL) {
-          setCurrencyData(cached.data);
-          return;
-        }
-
-        const response = await currencyApi.get('/bank/currency');
-        const filtered = response.data.filter(
-          ({ currencyCodeA, currencyCodeB }) =>
-            (currencyCodeA === 840 || currencyCodeA === 978) &&
-            currencyCodeB === 980
-        );
-
-        const formatted = filtered.map(item => ({
-          currency:
-            item.currencyCodeA === 840
-              ? 'USD'
-              : item.currencyCodeA === 978
-              ? 'EUR'
-              : '',
-          purchase: item.rateBuy?.toFixed(2) || item.rateCross?.toFixed(2),
-          sale: item.rateSell?.toFixed(2) || item.rateCross?.toFixed(2),
-        }));
-
-        setCurrencyData(formatted);
-        localStorage.setItem(
-          CURRENCY_CACHE_KEY,
-          JSON.stringify({ data: formatted, timestamp: now })
-        );
-      } catch (error) {
-        console.error('Помилка завантаження курсу валют:', error);
-      }
-    };
-
-    fetchCurrency();
-  }, []);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div>
-      {currencyData.map(({ currency, purchase, sale }) => (
+      {data.map(({ currency, purchase, sale }) => (
         <ul key={currency} className={s.currencyList}>
           <li className={s.item}>{currency}</li>
           <li className={s.item}>{purchase}</li>

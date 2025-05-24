@@ -22,11 +22,12 @@ const TransactionList = () => {
     <div className={s.transactionTableContainer}>
       <table className={s.transactionTable}>
         <thead className={s.transactionTableHeader}>
-          <tr>
+          <tr className={s.transactionTableRow}>
             <th>Date</th>
             <th>Type</th>
             <th>Category</th>
             <th>Comment</th>
+
             <th>Sum</th>
           </tr>
         </thead>

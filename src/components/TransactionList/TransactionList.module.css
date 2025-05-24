@@ -1,23 +1,12 @@
 .transactionTable {
-  width: 100%;
   border-collapse: collapse;
   color: var(--main-white);
+  height: 48px;
 }
 
 .transactionTableHeader {
   height: 48px;
   background-color: transparent;
-}
-
-.transactionTable td {
-  padding: 0.75rem;
-  font-size: 0.95rem;
-  vertical-align: middle;
-}
-
-.transactionTable tbody tr:nth-child(even) {
-  background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
-  border-radius: 16px;
 }
 
 .transactionTable th {
@@ -28,6 +17,18 @@
   color: var(--main-white);
   border-bottom: none;
 }
+
+.transactionTable td {
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  height: 48px;
+}
+.transactionTable tbody tr:nth-child(even) {
+  background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
+  border-radius: 16px;
+}
+
 .transactionTable tbody tr:nth-child(even) td:first-child {
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
@@ -37,7 +38,13 @@
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
 }
+
 .transactionTable td:nth-child(2),
 .transactionTable th:nth-child(2) {
   text-align: center;
+}
+
+.transactionTable td:nth-child(1),
+.transactionTable th:nth-child(1) {
+  white-space: nowrap;
 }

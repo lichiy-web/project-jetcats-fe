@@ -13,6 +13,7 @@ const ModalDeleteTransaction = ({ transactionId }) => {
   const handleClose = () => {
     dispatch(toggleModal(MODALS.delete));
   };
+
   return (
     isModaDeleteTransaction && (
       <Modal

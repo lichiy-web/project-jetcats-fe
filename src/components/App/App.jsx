@@ -10,7 +10,7 @@ import Loader from '../Loader/Loader';
 import HomeTab from '../HomeTab/HomeTab';
 import DevPanel from '../DevPanel/DevPanel';
 import StatisticsTab from '../StatisticsTab/StatisticsTab';
-
+import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage'));
@@ -33,7 +33,8 @@ function App() {
     <div className="main-container">
       <DevPanel />
       {/* <Loader isLoading={isLoadding} /> */}
-      <Suspense fallback={<Loader />}>
+      <ModalAddTransaction />
+      <Suspense fallback={<Loader isLoading />}>
         <Routes>
           <Route
             path="/"

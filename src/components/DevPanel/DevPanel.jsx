@@ -30,7 +30,6 @@ const DevPanel = () => {
   const isModalEditTransaction = useSelector(selectcIsModalEditTransaction);
   const isModalDeleteTransaction = useSelector(selectcIsModalDeleteTransaction);
   const isModalLogOut = useSelector(selectcIsModalLogOut);
-
   const handleAuth = () => {
     isLoggedIn ? dispatch(logOut()) : dispatch(logIn(JetCatsCreds));
   };
@@ -38,6 +37,7 @@ const DevPanel = () => {
     // console.log(modal);
     dispatch(toggleModal(modal));
   };
+
   return (
     IS_DEV_MODE && (
       <div className={css['dev-panel']}>
@@ -57,7 +57,7 @@ const DevPanel = () => {
           Login
         </NavLink>
         <button type="button" onClick={() => handleModals(MODALS.add)}>
-          {isModalAddTransaction ? 'Close' : 'Open'} AddTrans
+          {isModalAddTransaction ? 'Close' : 'Open'} ModalAddTransaction
         </button>
         <button type="button" onClick={() => handleModals(MODALS.edit)}>
           {isModalEditTransaction ? 'Close' : 'Open'} EditTrans

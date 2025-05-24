@@ -1,6 +1,5 @@
 export const selectcModals = state => state.modals;
-
-export const selectcIsModalAddTransaction = state =>
+export const selectIsModalAddTransaction = state =>
   state.modals.isAddTransaction;
 export const selectcIsModalEditTransaction = state =>
   state.modals.isEditTransaction;

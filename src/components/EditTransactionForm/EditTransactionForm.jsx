@@ -1,9 +1,9 @@
 import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
+import CustomDatePicker from '../CustomDatePicker/CustomDatePicker';
 import InputAmount from '../InputAmount/InputAmount';
 import InputCategory from '../InputCategory/InputCategory';
 import InputComment from '../InputComment/InputComment';
-import InputDate from '../InputDate/InputDate';
 import ToggleDesc from '../ToggleDesc/ToggleDesc';
 
 const EditTransactionForm = () => {
@@ -13,7 +13,7 @@ const EditTransactionForm = () => {
       <ToggleDesc />
       <InputCategory />
       <InputAmount />
-      <InputDate />
+      <CustomDatePicker />
       <InputComment />
       <CancelButton />
     </div>

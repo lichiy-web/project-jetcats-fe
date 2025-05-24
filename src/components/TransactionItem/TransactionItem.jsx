@@ -3,24 +3,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransaction } from '../../redux/transactions/operations';
 import ModalEditTransaction from '../ModalEditTransaction/ModalEditTransaction';
 import s from './TransactionItem.module.css';
+import { format } from 'date-fns';
 
 const TransactionItem = ({ transaction }) => {
   const dispatch = useDispatch();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const categories = useSelector(state => state.categories.items);
-
-  const handleDelete = () => dispatch(deleteTransaction(transaction.id));
+  const formatDate = isoDate => format(new Date(isoDate), 'dd.MM.yy');
+  const handleDelete = () => dispatch(deleteTransaction(transaction._id));
   const toggleEditModal = () => setIsEditModalOpen(prev => !prev);
   const isIncome = transaction.type === 'income';
   const sign = isIncome ? '+' : '-';
 
-  const category = categories.find(cat => cat.id === transaction.categoryId);
+  const category = categories.find(cat => cat._id === transaction.category);
   const categoryName = category ? category.name : 'Unknown';
 
   return (
     <>
       <tr className={s.transactionRow}>
-        <td>{transaction.date}</td>
+        <td>{formatDate(transaction.date)}</td>
         <td>{sign}</td>
         <td>{categoryName}</td>
         <td>{transaction.comment}</td>

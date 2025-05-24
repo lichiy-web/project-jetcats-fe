@@ -21,17 +21,19 @@ const UserAccountLayout = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  // const isLoadding = useSelector(selectIsLoadding);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader isLoading={true} />
+    <Loader />
   ) : (
     <div className="main-container">
       <DevPanel />
-      <Suspense fallback={<Loader isLoading />}>
+      {/* <Loader isLoading={isLoadding} /> */}
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route
             path="/"

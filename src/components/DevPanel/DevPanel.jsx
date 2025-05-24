@@ -5,10 +5,10 @@ import { logIn, logOut } from '../../redux/auth/operations';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import {
-  selectcIsModalAddTransaction,
-  selectcIsModalDeleteTransaction,
-  selectcIsModalEditTransaction,
-  selectcIsModalLogOut,
+  selectIsModalAddTransaction,
+  selectIsModalDeleteTransaction,
+  selectIsModalEditTransaction,
+  selectIsModalLogOut,
 } from '../../redux/modals/selectors';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
 
@@ -25,11 +25,11 @@ const buildLinkClass = ({ isActive }) => {
 const DevPanel = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isModalAddTransaction = useSelector(selectcIsModalAddTransaction);
+  const isModalAddTransaction = useSelector(selectIsModalAddTransaction);
   // console.log({ isModalAddTransaction });
-  const isModalEditTransaction = useSelector(selectcIsModalEditTransaction);
-  const isModalDeleteTransaction = useSelector(selectcIsModalDeleteTransaction);
-  const isModalLogOut = useSelector(selectcIsModalLogOut);
+  const isModalEditTransaction = useSelector(selectIsModalEditTransaction);
+  const isModalDeleteTransaction = useSelector(selectIsModalDeleteTransaction);
+  const isModalLogOut = useSelector(selectIsModalLogOut);
 
   const handleAuth = () => {
     isLoggedIn ? dispatch(logOut()) : dispatch(logIn(JetCatsCreds));

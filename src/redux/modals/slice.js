@@ -3,15 +3,15 @@ import { logOut } from '../auth/operations';
 
 const initialState = {
   isAddTransaction: false,
-  isEditTransAction: false,
-  isDeleteTransAction: false,
+  isEditTransaction: false,
+  isDeleteTransaction: false,
   isLogOut: false,
 };
 
 export const MODALS = {
   add: 'AddTransaction',
-  edit: 'EditTransAction',
-  delete: 'DeleteTransAction',
+  edit: 'EditTransaction',
+  delete: 'DeleteTransaction',
   logout: 'LogOut',
 };
 

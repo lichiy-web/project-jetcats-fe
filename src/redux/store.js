@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
 // import { filtersReducer } from './filters/slice';
+import summaryStatisticReducer from './summary/summaryStatisticSlice';
 import {
   persistStore,
   persistReducer,
@@ -41,6 +42,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     transactions: transactionsReducer,
     modals: persistReducer(persistConfigModals, modalsReducer),
+    summaryStatistic: summaryStatisticReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

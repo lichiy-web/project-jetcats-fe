@@ -11,6 +11,7 @@
   },
   "author": "Eugene Lykhosherstov",
   "dependencies": {
+    "@radix-ui/react-switch": "^1.2.5",
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
@@ -45,6 +46,6 @@
     "globals": "^15.14.0",
     "prop-types": "^15.8.1",
     "vite": "^6.0.5",
-    "vite-plugin-svgr": "^4.3.0"
+    "vite-plugin-svg-sprite": "^0.6.2"
   }
 }

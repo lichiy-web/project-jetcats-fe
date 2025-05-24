@@ -1,0 +1,26 @@
+.categoryContainer {
+  width: 300px;
+
+  padding: 12p;
+
+  border: solid 1px #ffff;
+}
+
+.categoryTitle {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoryName {
+  display: flex;
+  gap: 0 12px;
+}
+
+.categoryColor {
+  width: 42px;
+  height: 42px;
+
+  border: solid #ffff;
+}

@@ -1,0 +1,15 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="expenseIcon" viewBox="0 0 32 32">
+<path fill="#b30202" style="fill: var(--color1, #b30202)" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+<path fill="none" stroke="#fcfcfc" style="stroke: var(--color2, #fcfcfc)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.4545" d="M8.727 16h14.545"></path>
+</symbol>
+
+<symbol id="incomeIcon" viewBox="0 0 32 32">
+<path fill="#dfad3f" style="fill: var(--color3, #dfad3f)" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+<path fill="none" stroke="#fcfcfc" style="stroke: var(--color2, #fcfcfc)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.4545" d="M16 8.727v14.545"></path>
+<path fill="none" stroke="#fcfcfc" style="stroke: var(--color2, #fcfcfc)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.4545" d="M8.727 16h14.545"></path>
+</symbol>
+
+</defs>
+</svg>

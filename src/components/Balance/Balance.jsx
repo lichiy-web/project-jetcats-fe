@@ -5,7 +5,10 @@ import { selectTransactions } from '../../redux/transactions/selectors';
 const Balance = () => {
   const transactions = useSelector(selectTransactions);
   const balance = Array.isArray(transactions)
-    ? transactions.reduce((acc, transaction) => acc + transaction.amount, 0)
+    ? transactions.reduce(
+        (acc, transaction) => acc + Number(transaction.sum),
+        0
+      )
     : 0;
   // const balance = transactions.reduce((acc, t) => {
   //   return t.type === 'income' ? acc + t.amount : acc - t.amount;
@@ -13,7 +16,15 @@ const Balance = () => {
   return (
     <div className={s.container}>
       <h1 className={s.title}>Your balance</h1>
-      <p className={s.amount}>{balance.toFixed(2)} UAH</p>
+      <p className={s.amount}>
+        {balance
+          .toLocaleString('uk-UA', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })
+          .replace(',', '.')}{' '}
+        UAH
+      </p>
     </div>
   );
 };

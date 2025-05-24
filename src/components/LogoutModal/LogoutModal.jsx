@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../redux/auth/operations.js';
-import { selectcIsModalLogOut } from '../../redux/modals/selectors.js';
+import { selectIsModalLogOut } from '../../redux/modals/selectors.js';
 import { toggleModal } from '../../redux/modals/slice.js';
 import { toast } from 'react-toastify';
 import CancelButton from '../CancelButton/CancelButton';
@@ -16,7 +16,7 @@ Modal.setAppElement('#root');
 const LogoutModal = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isModalLogOut = useSelector(selectcIsModalLogOut);
+  const isModalLogOut = useSelector(selectIsModalLogOut);
 
   const handleClose = () => {
     dispatch(toggleModal('LogOut'));

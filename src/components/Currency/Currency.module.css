@@ -1,7 +1,9 @@
 .list {
   display: flex;
+  list-style: none;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0;
   width: 100%;
   border-radius: 12px;
   margin-bottom: 16px;

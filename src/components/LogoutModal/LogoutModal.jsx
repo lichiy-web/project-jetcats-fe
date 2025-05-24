@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import { selectcIsModalLogOut } from '../../redux/modals/selectors';
+import { selectIsModalLogOut } from '../../redux/modals/selectors';
 import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
 import Logo from '../Logo/Logo';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
 const LogoutModal = () => {
-  const isModalLogOut = useSelector(selectcIsModalLogOut);
+  const isModalLogOut = useSelector(selectIsModalLogOut);
   return (
     isModalLogOut && (
       <div>

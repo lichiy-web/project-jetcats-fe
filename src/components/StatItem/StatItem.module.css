@@ -1,0 +1,42 @@
+.tableItemWrapper {
+  display: flex;
+  flex-direction: column;
+
+  padding: 19px 28px 19px 20px;
+  position: relative;
+}
+
+.topContentWrapper {
+  display: flex;
+  align-items: center;
+}
+.colorBoxCategory {
+  width: 24px;
+  height: 24px;
+
+  /* background-color: aqua; */
+  flex-shrink: 0;
+}
+
+.itemTitleWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 24px;
+}
+
+.titleItemCategorySum {
+  color: var(--main-white);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.itemBottomLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--main-white);
+  opacity: 0.2;
+}

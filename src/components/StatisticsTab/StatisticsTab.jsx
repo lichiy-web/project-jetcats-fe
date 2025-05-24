@@ -8,7 +8,6 @@ import { setIsIncome } from '../../redux/summary/summaryStatisticSlice';
 import { fetchSummary } from '../../redux/summary/summaryStatisticOperations';
 
 import s from './StatisticsTab.module.css';
-import StatisticsTable from '../StatisticsTable/StatisticsTable';
 
 const StatisticsTab = () => {
   const dispatch = useDispatch();
@@ -22,6 +21,11 @@ const StatisticsTab = () => {
 
   const incomeExpenseData = isIncome === 'income' ? incomeData : expenseData;
 
+  const totalSum = incomeExpenseData.reduce(
+    (sum, entry) => sum + entry.value,
+    0
+  );
+
   useEffect(() => {
     dispatch(fetchSummary());
   }, [dispatch]);
@@ -33,10 +37,12 @@ const StatisticsTab = () => {
         handleToggleChange={handleToggleChange}
         incomeExpenseData={incomeExpenseData}
         isIncome={isIncome}
+        totalSum={totalSum}
       />
       <StatisticsDashboard
         isIncome={isIncome}
         incomeExpenseData={incomeExpenseData}
+        totalSum={totalSum}
       />
     </div>
   );

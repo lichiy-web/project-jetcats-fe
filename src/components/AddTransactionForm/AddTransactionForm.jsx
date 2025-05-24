@@ -14,10 +14,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
 import { fetchCategories } from '../../redux/categories/operations';
 import { addTransaction } from '../../redux/transactions/operations';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/selectors';
 
 const AddTransactionForm = ({ onClose }) => {
   const validateSchema = Yup.object({
-    amount: Yup.number().positive('Must be positive').required('Required'),
+    sum: Yup.number().positive('Must be positive').required('Required'),
     date: Yup.date().required('Required'),
     comment: Yup.string().max(20),
     category: Yup.string().when('type', {
@@ -35,6 +37,9 @@ const AddTransactionForm = ({ onClose }) => {
 
   const [startDate, setStartDate] = useState(new Date());
 
+  const user = useSelector(selectUser);
+  const userId = user?._id;
+
   return (
     <div className={s.backdrop}>
       <div className={s.modal} onClick={e => e.stopPropagation()}>
@@ -44,7 +49,7 @@ const AddTransactionForm = ({ onClose }) => {
         <Formik
           initialValues={{
             type: 'expense',
-            amount: '',
+            sum: '',
             date: '',
             comment: '',
             category: '',
@@ -60,8 +65,12 @@ const AddTransactionForm = ({ onClose }) => {
             };
 
             const payload = {
-              ...values,
+              type: values.type,
+              category: values.category,
+              sum: Number(values.sum),
               date: formatDateToYYYYMMDD(values.date),
+              comment: values.comment,
+              userId: userId,
             };
 
             if (values.type === 'income') {

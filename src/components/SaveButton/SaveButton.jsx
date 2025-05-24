@@ -4,7 +4,7 @@ const SaveButton = () => {
   return (
     <div>
       <button type="submit" className={s.saveBtn}>
-        Save
+        Add
       </button>
     </div>
   );

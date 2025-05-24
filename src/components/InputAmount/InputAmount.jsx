@@ -5,12 +5,12 @@ const InputAmount = () => {
   return (
     <div className={s.wrapper}>
       <Field
-        name="amount"
+        name="sum"
         type="number"
         placeholder="0.00"
         className={s.inputAmount}
       />
-      <ErrorMessage name="amount" component="div" className={s.error} />
+      <ErrorMessage name="sum" component="div" className={s.error} />
     </div>
   );
 };

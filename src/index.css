@@ -23,12 +23,11 @@
   --third-family: Circe, sans-serif;
 }
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
   /*Перевизначає колір текста автозаповнення input, який вшитий у браузер*/
-  -webkit-text-fill-color: #081222;  
+  -webkit-text-fill-color: #081222;
   /*Перевизначає колір фону автозаповнення input, який вшитий у браузер*/
   -webkit-box-shadow: 0 0 0px 40rem #508f8c inset;
 }

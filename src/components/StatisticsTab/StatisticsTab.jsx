@@ -1,15 +1,43 @@
-import Chart from '../Chart/Chart';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import StatisticsDashboard from '../StatisticsDashboard/StatisticsDashboard';
-import ToggleDesc from '../ToggleDesc/ToggleDesc';
+import StatisticsTabToggleAndChart from '../StatisticsTabToggleAndChart/StatisticsTabToggleAndChart';
+import { summaryStatisticSelector } from '../../redux/summary/summaryStatisticSelector';
+import { setIsIncome } from '../../redux/summary/summaryStatisticSlice';
+import { fetchSummary } from '../../redux/summary/summaryStatisticOperations';
+
+import s from './StatisticsTab.module.css';
+import StatisticsTable from '../StatisticsTable/StatisticsTable';
 
 const StatisticsTab = () => {
-  console.timeLog('Entered StatisticsTab!');
+  const dispatch = useDispatch();
+  const { isIncome, incomeData, expenseData } = useSelector(
+    summaryStatisticSelector
+  ); // according to initialState (summaryStatisticSlice)
+
+  const handleToggleChange = incomeExpenseType => {
+    dispatch(setIsIncome(incomeExpenseType));
+  };
+
+  const incomeExpenseData = isIncome === 'income' ? incomeData : expenseData;
+
+  useEffect(() => {
+    dispatch(fetchSummary());
+  }, [dispatch]);
+
   return (
-    <div>
-      <h3>StatisticsTab</h3>
-      <ToggleDesc />
-      <StatisticsDashboard />
-      <Chart />
+    <div className={s.statisticsContainer}>
+      {/* <h3>===StatisticsTab===</h3> */}
+      <StatisticsTabToggleAndChart
+        handleToggleChange={handleToggleChange}
+        incomeExpenseData={incomeExpenseData}
+        isIncome={isIncome}
+      />
+      <StatisticsDashboard
+        isIncome={isIncome}
+        incomeExpenseData={incomeExpenseData}
+      />
     </div>
   );
 };

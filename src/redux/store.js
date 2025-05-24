@@ -19,6 +19,7 @@ import { categoriesReducer } from './categories/slice';
 import { transactionsReducer } from './transactions/slice';
 import { modalsReducer } from './modals/slice';
 import { currencyReducer } from './currencyItem/currencySlice';
+import summaryStatisticReducer from './summary/summaryStatisticSlice';
 
 const persistConfig = {
   key: 'root',
@@ -49,6 +50,7 @@ export const store = configureStore({
     transactions: transactionsReducer,
     currency: currencyReducer,
     modals: persistReducer(persistConfigModals, modalsReducer),
+    summaryStatistic: summaryStatisticReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

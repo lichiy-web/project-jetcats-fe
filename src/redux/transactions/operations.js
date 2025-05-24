@@ -4,10 +4,13 @@ import { appApi } from '../api/api';
 export const fetchTransactions = createAsyncThunk(
   'transactions/fetchAll',
   async (signal, thunkAPI) => {
-    return appApi
-      .get('/transactions', { signal: signal })
-      .then(({ data }) => data)
-      .catch(error => thunkAPI.rejectWithValue(error.message));
+    return (
+      appApi
+        .get('/transactions', { signal: signal })
+        // .then(({ data }) => data)
+        .then(({ data }) => data.data.transactions)
+        .catch(error => thunkAPI.rejectWithValue(error.message))
+    );
   }
 );
 

@@ -1,7 +1,6 @@
 .dude {
-  position: absolute;
-  bottom: 40px;
-  right: 16px;
-  z-index: -1;
-  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }

@@ -92,6 +92,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+svg {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  padding: 0;
+  margin: 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -103,16 +113,6 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-svg {
-  display: block;
-
-  width: 100%;
-  height: auto;
-
-  padding: 0;
-  margin: 0;
 }
 
 /* Common login/register inputs */

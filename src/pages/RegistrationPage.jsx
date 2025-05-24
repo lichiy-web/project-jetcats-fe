@@ -8,7 +8,7 @@ const RegistrationPage = () => {
   });
 
   return (
-    <div className="wrapper">
+    <div className="wrapperLog">
       <AuthCard formType="register" />
       {!isMobile && <DudeOk />}
     </div>

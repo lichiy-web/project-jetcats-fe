@@ -14,7 +14,7 @@ const AuthCard = ({ formType }) => {
     <div className={clsx(css.wrapper, formType === 'login' && css.login)}>
       <Logo />
       {formType === 'register' ? <RegistrationForm /> : <LoginForm />}
-      {isMobile && <DudeHi isMobile={isMobile} />}
+      {isMobile && formType === 'login' && <DudeHi isMobile={isMobile} />}
     </div>
   );
 };

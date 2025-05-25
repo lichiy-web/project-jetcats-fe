@@ -19,7 +19,7 @@ const AddTransactionForm = ({ onClose }) => {
   const validateSchema = Yup.object({
     sum: Yup.number().positive('Must be positive').required('Required'),
     date: Yup.date().required('Required'),
-    comment: Yup.string().max(20),
+    comment: Yup.string().max(192),
     category: Yup.string().when('type', {
       is: 'expense',
       then: schema => schema.required('Category is required'),
@@ -45,7 +45,7 @@ const AddTransactionForm = ({ onClose }) => {
           initialValues={{
             type: 'expense',
             sum: '',
-            date: '',
+            date: new Date(),
             comment: '',
             category: '',
           }}

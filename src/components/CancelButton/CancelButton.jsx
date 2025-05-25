@@ -1,8 +1,8 @@
 import css from './CancelButton.module.css';
-const CancelBtn = ({ onClick }) => {
+const CancelBtn = ({ onClick, className = '' }) => {
   return (
     <div>
-      <button onClick={onClick} className={css.btn}>
+      <button onClick={onClick} className={`${css.btn} ${className || ''}`}>
         Cancel
       </button>
     </div>

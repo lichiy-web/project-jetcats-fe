@@ -24,16 +24,18 @@ const DeleteForm = ({ transactionId }) => {
   };
 
   return (
-    <div className={css.container}>
+    <>
       <CloseButton onClick={handleCancel} />
-      <Logo />
-      <p className={css.text}>Are you sure you want to Delete?</p>
+      <div className={css.container}>
+        <Logo />
+        <p className={css.text}>Are you sure you want to Delete?</p>
 
-      <button onClick={handleDelete} className={css.deleteBtn}>
-        Delete
-      </button>
-      <CancelButton className={css.cancelBtn} onClick={handleCancel} />
-    </div>
+        <button onClick={handleDelete} className={css.deleteBtn}>
+          Delete
+        </button>
+        <CancelButton className={css.cancelBtn} onClick={handleCancel} />
+      </div>
+    </>
   );
 };
 

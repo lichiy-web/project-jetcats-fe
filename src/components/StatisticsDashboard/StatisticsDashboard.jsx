@@ -29,7 +29,7 @@ const StatisticsDashboard = () => {
   const currentYear = new Date().getFullYear();
 
   const yearOptions = Array.from({ length: 5 }, (_, i) => {
-    const year = currentYear - i;
+    const year = currentYear - (4 - i);
     return { value: year.toString(), label: year.toString() };
   });
   const today = new Date();

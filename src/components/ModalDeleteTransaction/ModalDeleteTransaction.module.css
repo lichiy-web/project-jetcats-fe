@@ -8,8 +8,6 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  /* background: linear-gradient(180deg, #355359 0%, #3b5d63 100%); */
-  /* opacity: 0.4; */
   -webkit-backdrop-filter: blur(3.5px);
   backdrop-filter: blur(3.5px);
 }
@@ -23,5 +21,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3.3125rem 7.4375rem 2.9375rem;
+  padding: 3.3125rem 7.8125rem 2.9375rem;
+  border-radius: 1rem;
 }

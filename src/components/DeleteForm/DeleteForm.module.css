@@ -9,6 +9,7 @@
   font-size: 1.125rem;
   text-align: center;
   color: var(--main-white);
+  margin-bottom: 1.3125rem;
   transition: all 350ms ease-in-out;
 }
 .deleteBtn:hover,

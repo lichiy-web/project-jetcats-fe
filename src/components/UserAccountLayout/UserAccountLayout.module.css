@@ -27,7 +27,7 @@
 /* ========== TABLET ========== */
 @media screen and (min-width: 768px) {
   .pageWrapper {
-    max-width: 44rem;
+    max-width: 48rem;
     padding: 1.5rem;
     gap: 2rem;
   }
@@ -45,12 +45,12 @@
 /*//////////////////*/
   .navigation {
     width: 100%;
-    max-width: 21.125rem;
+    max-width: 21rem;
   }
 
   .balance {
     width: 100%;
-    max-width: 21.125rem;
+    max-width: 21rem;
   }
 
   .balanceOverview {
@@ -59,7 +59,6 @@
   }
 /*//////////////////*/
   .mainContent {
-    width: 100%;
     max-width: 44rem;
   }
 }
@@ -68,9 +67,13 @@
 @media screen and (min-width: 1280px) {
   .pageWrapper {
     flex-direction: row;
-    max-width: 77rem;
+    max-width: 80rem;
     min-height: calc(100vh - 80px);
     padding: 2rem 1.5rem 1.5rem;
     gap: 1.5rem;
+  }
+
+  .mainContent {
+    max-width: 47.3125rem;
   }
 }

@@ -2,14 +2,13 @@
   border-radius: 0.5rem;
   padding: 0.6875rem 4.9375rem;
   width: 100%;
-  max-width: 13.375rem;
+  max-width: 25.625 rem;
   height: auto;
   background-color: var(--main-red);
   font-weight: 500;
   font-size: 1.125rem;
   text-align: center;
   color: var(--main-white);
-  margin-bottom: 1.3125rem;
   transition: all 350ms ease-in-out;
 }
 .deleteBtn:hover,
@@ -18,18 +17,16 @@
   color: var(--main-black);
   outline: none;
 }
+.logo {
+  width: 11.375rem;
+  height: 5.875rem;
+}
 .text {
   font-size: 1.125rem;
   text-align: center;
   color: var(--main-black);
   margin-top: 2.375rem;
   margin-bottom: 1.5rem;
-}
-.cancelBtn {
-  width: 100%;
-  max-width: 13.375rem !important;
-  height: auto;
-  padding: 0.6875rem 4.9375rem !important;
 }
 .container {
   position: relative;

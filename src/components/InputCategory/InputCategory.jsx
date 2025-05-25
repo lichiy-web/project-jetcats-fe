@@ -66,7 +66,7 @@ const InputCategory = () => {
           )}
         </span>
       </div>
-      <ErrorMessage name="date" component="div" className={s.error} />
+      <ErrorMessage name="category" component="div" className={s.error} />
     </div>
   );
 };

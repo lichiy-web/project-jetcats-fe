@@ -18,10 +18,13 @@ const UserAccountLayout = () => {
 
   return (
     <div>
-      <Header />
+      <div className={css.header}>
+        <Header />
+      </div>
+
       <div className={css.pageWrapper}>
         {isDesktop && <SideBar />}
-        
+
         {isTablet && (
           <div className={css.tabletWrapper}>
             <div className={css.tabletSidebar}>
@@ -32,9 +35,7 @@ const UserAccountLayout = () => {
                 <Balance />
               </div>
             </div>
-            <BalanceOverview
-              className={css.balanceOverview}
-            />
+            <BalanceOverview className={css.balanceOverview} />
           </div>
         )}
 

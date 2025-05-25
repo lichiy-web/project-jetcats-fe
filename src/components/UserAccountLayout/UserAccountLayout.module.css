@@ -25,7 +25,7 @@
     padding: 1.5rem;
     gap: 2rem;
   }
-/*//////////////////*/
+
   .tabletWrapper {
     display: flex;
     gap: 2rem;
@@ -36,7 +36,7 @@
     flex-direction: column;
     gap: 1.5rem;
   }
-
+/*//////////////////*/
   .navigation {
     width: 100%;
     max-width: 21.125rem;

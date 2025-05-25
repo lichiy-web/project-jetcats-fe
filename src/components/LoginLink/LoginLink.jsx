@@ -1,7 +1,11 @@
-import css from './LoginLink.module.css';
+import { Link } from 'react-router-dom';
 
 const LoginLink = () => {
-  return <div className={css.btnWrapper}>LogIn</div>;
+  return (
+    <Link to="/login" className="btnWrapper">
+      LogIn
+    </Link>
+  );
 };
 
 export default LoginLink;

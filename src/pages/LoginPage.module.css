@@ -1,13 +1,11 @@
 .page {
-  background-color: #22363a;
   width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  min-height: 100vh;
 }
-/* linear-gradient(180deg, #294045 0%, #1e2f33 100%); */
 
 .content {
   width: 100%;

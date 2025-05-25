@@ -5,7 +5,7 @@ import css from './StatisticsDashboard.module.css';
 import Select from 'react-select';
 import { SlArrowDown } from 'react-icons/sl';
 import { components } from 'react-select';
-const StatisticsDashboard = () => {
+const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const initialValues = {
     month: 'may',
     year: '2025',
@@ -208,7 +208,10 @@ const StatisticsDashboard = () => {
           );
         }}
       </Formik>
-      <StatisticsTable />
+      <StatisticsTable
+        incomeExpenseData={incomeExpenseData}
+        totalSum={totalSum}
+      />
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { selectcIsModalAddTransaction } from '../../redux/modals/selectors';
+import { selectIsModalAddTransaction } from '../../redux/modals/selectors';
 import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
 
 const ModalAddTransaction = () => {
-  const isModalAddTransaction = useSelector(selectcIsModalAddTransaction);
+  const isModalAddTransaction = useSelector(selectIsModalAddTransaction);
   console.log({ isModalAddTransaction });
   return (
     isModalAddTransaction && (

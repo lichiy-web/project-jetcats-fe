@@ -36,7 +36,7 @@ const StatisticsTable = ({ incomeExpenseData, totalSum }) => {
             isIncome === 'income' ? s.totalTableSum : s.totalTableSumRed
           }
         >
-          ${Number(totalSum).toFixed(2)}
+          {Number(totalSum).toFixed(2)}
         </span>
       </div>
     </div>

@@ -8,7 +8,6 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
-// import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { selectError } from '../../redux/transactions/selectors';

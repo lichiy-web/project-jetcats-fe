@@ -3,7 +3,7 @@ import { MdEmail } from 'react-icons/md';
 import clsx from 'clsx';
 
 const InputEmail = () => {
-  const [field, meta] = useField('email');
+  const [, meta] = useField('email');
   const isError = meta.touched && meta.error;
 
   return (

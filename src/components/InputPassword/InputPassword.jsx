@@ -3,7 +3,7 @@ import { RiLockPasswordFill } from 'react-icons/ri';
 import clsx from 'clsx';
 
 const InputPassword = () => {
-  const [field, meta] = useField('password');
+  const [, meta] = useField('password');
   const isError = meta.touched && meta.error;
 
   return (

@@ -1,0 +1,22 @@
+.ChartWrapper {
+  display: flex;
+  margin-top: 34px;
+  /* width: 100%; */
+  /* height: 400px; */
+  width: 288px;
+  max-width: 288px;
+}
+
+.chartContainer {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.totalSum {
+  fill: var(--main-White, #fcfcfc);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}

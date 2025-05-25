@@ -1,0 +1,13 @@
+.statisticsContainer {
+  display: flex;
+  align-items: start;
+  width: 757px;
+  height: 100%;
+
+  padding: 16px 32px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  flex-shrink: 0;
+}

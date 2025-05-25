@@ -2,7 +2,7 @@ import { Field, Form, Formik } from 'formik';
 import StatisticsTable from '../StatisticsTable/StatisticsTable';
 import { useEffect, useId, useState } from 'react';
 import css from './StatisticsDashboard.module.css';
-const StatisticsDashboard = () => {
+const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const initialValues = {
     month: 'may',
     year: '2025',
@@ -22,7 +22,6 @@ const StatisticsDashboard = () => {
 
   return (
     <div>
-      StatisticsDashboard
       <Formik initialValues={initialValues}>
         {({ handleChange, handleBlur }) => {
           return (
@@ -82,7 +81,10 @@ const StatisticsDashboard = () => {
           );
         }}
       </Formik>
-      <StatisticsTable />
+      <StatisticsTable
+        incomeExpenseData={incomeExpenseData}
+        totalSum={totalSum}
+      />
     </div>
   );
 };

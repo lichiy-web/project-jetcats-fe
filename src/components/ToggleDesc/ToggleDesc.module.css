@@ -1,0 +1,70 @@
+.toggleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.labelContainer {
+  display: flex;
+  align-items: center;
+}
+
+.labelTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--main-white);
+}
+
+.switchBlock {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  width: 80px;
+  height: 40px;
+}
+
+.switchInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switchSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--main-white);
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.switchCircle {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 200ms ease-in;
+}
+
+.toggleIcon {
+  z-index: 100;
+}
+
+.switchInput:checked + .switchSlider .switchCircle {
+  transform: translateX(40px);
+}

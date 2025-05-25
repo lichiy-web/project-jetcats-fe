@@ -190,6 +190,28 @@ button:focus-visible {
   color: var(--main-black);
 }
 
+.btnSubmitWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 8px;
+  padding: 10px;
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  font-size: 18px;
+  justify-content: center;
+  color: #fcfcfc;
+}
+
+.wrapperLog {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 767px) {
   .inputLogWrapper {
     width: 256px;

@@ -1,7 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import AuthCard from '../components/AuthCard/AuthCard';
 import DudeOk from '../components/DudeOk/DudeOk';
-import css from './RegistrationPage.module.css';
 
 const RegistrationPage = () => {
   const isMobile = useMediaQuery({
@@ -9,7 +8,7 @@ const RegistrationPage = () => {
   });
 
   return (
-    <div className={css.wrapper}>
+    <div className="wrapperLog">
       <AuthCard formType="register" />
       {!isMobile && <DudeOk />}
     </div>

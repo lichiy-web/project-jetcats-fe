@@ -1,8 +1,6 @@
-import css from './RegisterButton.module.css';
-
 const RegisterButton = () => {
   return (
-    <button type="submit" className={css.btnWrapper}>
+    <button type="submit" className="btnSubmitWrapper">
       Register
     </button>
   );

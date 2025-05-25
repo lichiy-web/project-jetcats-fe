@@ -1,9 +1,13 @@
 .form {
   display: flex;
   flex-direction: column;
-  background-color: var(--main-light-green);
+  background-color: transparent;
+  justify-content: space-between;
   gap: 2.19rem;
   width: 100%;
+  max-width: 25.56rem;
+  min-height: 16.25rem;
+  padding-bottom: 32px;
 }
 
 .inputFields,
@@ -15,10 +19,10 @@
 
 @media screen and (max-width: 767px) {
   .form {
-    gap: 50px;
+    gap: 16px;
   }
   .inputFields,
   .btnFields {
-    gap: 45px;
+    gap: 16px;
   }
 }

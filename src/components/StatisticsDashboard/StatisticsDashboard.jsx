@@ -2,14 +2,10 @@ import { Form, Formik } from 'formik';
 import StatisticsTable from '../StatisticsTable/StatisticsTable';
 import { useEffect, useState } from 'react';
 import css from './StatisticsDashboard.module.css';
-<<<<<<< HEAD
-const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
-=======
 import Select from 'react-select';
 import { SlArrowDown } from 'react-icons/sl';
 import { components } from 'react-select';
-const StatisticsDashboard = () => {
->>>>>>> 4075de2df98eea249571a7b44eef2a0d6001e296
+const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const initialValues = {
     month: 'may',
     year: '2025',

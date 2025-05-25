@@ -14,13 +14,9 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { transactionsReducer } from './transactions/slice';
 import { modalsReducer } from './modals/slice';
-<<<<<<< HEAD
-import { currencyReducer } from './currencyItem/currencySlice';
 import summaryStatisticReducer from './summary/summaryStatisticSlice';
-=======
 import { currencyReducer } from './currency/slice';
 import { categoriesReducer } from './categories/slice';
->>>>>>> 4075de2df98eea249571a7b44eef2a0d6001e296
 
 const persistConfig = {
   key: 'root',

@@ -1,3 +1,15 @@
+.comment {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 5em;
+}
+
+.transactionRow:focus>.comment>.commentContent {
+  position: relative;
+  width: 100%;
+}
+
 .buttonWrapper {
   display: flex;
   gap: 8px;

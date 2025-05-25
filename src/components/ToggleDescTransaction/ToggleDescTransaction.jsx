@@ -1,5 +1,5 @@
 import { useFormikContext } from 'formik';
-import s from './ToggleDesc.module.css';
+import s from './ToggleDescTransaction.module.css';
 
 const ToggleDesc = () => {
   const { values, setFieldValue } = useFormikContext();

@@ -1,6 +1,6 @@
 import Chart from '../Chart/Chart';
 import StatisticsDashboard from '../StatisticsDashboard/StatisticsDashboard';
-import ToggleDesc from '../ToggleDesc/ToggleDesc';
+import ToggleDesc from '../ToggleDescTransaction/ToggleDescTransaction';
 
 const StatisticsTab = () => {
   console.timeLog('Entered StatisticsTab!');

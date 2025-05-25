@@ -1,0 +1,54 @@
+.tableContainer {
+  width: 100%;
+  max-width: 395px;
+  margin-top: 20px;
+
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.tableHeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
+
+  padding: 16px 28px;
+}
+
+.statisticsTableBody {
+  margin: 0;
+  padding: 0;
+}
+
+.headerItem {
+  color: var(--main-white);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.totalTableSumWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 16px 28px 16px 28px;
+}
+
+.totalTableIncomeExpense {
+  color: var(--main-white);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.totalTableSum {
+  color: var(--main-light-green);
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+.totalTableSumRed {
+  color: var(--main-light-red);
+  font-size: 14px;
+  font-weight: 600;
+}

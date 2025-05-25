@@ -4,7 +4,7 @@ import InputAmount from '../InputAmount/InputAmount';
 import InputCategory from '../InputCategory/InputCategory';
 import InputComment from '../InputComment/InputComment';
 import InputDate from '../InputDate/InputDate';
-import ToggleDesc from '../ToggleDesc/ToggleDesc';
+import ToggleDesc from '../ToggleDescTransaction/ToggleDescTransaction';
 
 const EditTransactionForm = () => {
   return (

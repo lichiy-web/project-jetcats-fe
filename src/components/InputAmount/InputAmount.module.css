@@ -25,3 +25,7 @@
   flex-direction: column;
   gap: 1px;
 }
+
+.error {
+  color: var(--main-red);
+}

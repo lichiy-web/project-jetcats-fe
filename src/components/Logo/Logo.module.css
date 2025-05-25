@@ -4,12 +4,13 @@
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 17px;
   text-align: center;
-  color: #081222;
-  /* color: var(--main-white); */
+  color: var(--main-white);
 }
 
 .logoIcon {
   fill: var(--main-black);
+  width: 30px;
+  height: 30px;
 }

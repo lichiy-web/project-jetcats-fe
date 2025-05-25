@@ -10,6 +10,8 @@ import Loader from '../Loader/Loader';
 import HomeTab from '../HomeTab/HomeTab';
 import DevPanel from '../DevPanel/DevPanel';
 import StatisticsTab from '../StatisticsTab/StatisticsTab';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
@@ -73,6 +75,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      <ToastContainer />
     </div>
   );
 }

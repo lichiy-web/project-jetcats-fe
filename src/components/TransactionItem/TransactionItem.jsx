@@ -20,11 +20,13 @@ const TransactionItem = ({ transaction }) => {
 
   return (
     <>
-      <tr className={s.transactionRow}>
+      <tr className={s.transactionRow} tabIndex="1">
         <td>{formatDate(transaction.date)}</td>
         <td>{sign}</td>
         <td>{categoryName}</td>
-        <td>{transaction.comment}</td>
+        <td className={s.comment} title={transaction.comment}>
+          {transaction.comment}
+        </td>
         <td>{transaction.sum.toFixed(2)}</td>
         <td>
           <div className={s.buttonWrapper}>

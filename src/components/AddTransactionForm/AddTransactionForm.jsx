@@ -2,7 +2,6 @@ import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
 import InputAmount from '../InputAmount/InputAmount';
 import InputComment from '../InputComment/InputComment';
-import ToggleDesc from '../ToggleDesc/ToggleDesc';
 import AddButton from '../AddButton/AddButton';
 import InputCategory from '../InputCategory/InputCategory';
 import CustomDatePicker from '../CustomDatePicker/CustomDatePicker';
@@ -14,6 +13,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
 import { fetchCategories } from '../../redux/categories/operations';
 import { addTransaction } from '../../redux/transactions/operations';
+import ToggleDescTransaction from '../ToggleDescTransaction/ToggleDescTransaction';
 
 const AddTransactionForm = ({ onClose }) => {
   const validateSchema = Yup.object({
@@ -83,7 +83,10 @@ const AddTransactionForm = ({ onClose }) => {
         >
           {({ values, setFieldValue }) => (
             <Form className={s.form}>
-              <ToggleDesc values={values} setFieldValue={setFieldValue} />
+              <ToggleDescTransaction
+                values={values}
+                setFieldValue={setFieldValue}
+              />
 
               <div className={s.wrapper}>
                 <InputCategory />

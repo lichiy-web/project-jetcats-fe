@@ -42,15 +42,24 @@ const slice = createSlice({
       })
       .addCase(fetchTransactions.rejected, handleReject)
       .addCase(addTransaction.pending, handlePending)
+
       .addCase(addTransaction.fulfilled, (state, action) => {
         state.loading = false;
-        state.items.push(action.payload);
+        if (action.payload.data?.transaction) {
+          state.items.unshift(action.payload.data.transaction);
+        }
       })
+
       .addCase(addTransaction.rejected, handleReject)
       .addCase(patchTransaction.pending, handlePending)
+
       .addCase(patchTransaction.fulfilled, (state, action) => {
         state.loading = false;
-        state.items.push(action.payload);
+        state.items = state.items.map(item =>
+          item._id === action.payload.transaction._id
+            ? action.payload.transaction
+            : item
+        );
       })
       .addCase(patchTransaction.rejected, handleReject)
       .addCase(deleteTransaction.pending, handlePending)

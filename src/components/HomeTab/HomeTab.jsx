@@ -18,13 +18,15 @@ const HomeTab = () => {
   }, [dispatch]);
   return (
     <>
-      <section className={s.homeTabContainer}>
-        <TransactionList />
-        <ButtonAddTransaction />
-        <ModalAddTransaction />
-        <ModalDeleteTransaction />
-        <ModalEditTransaction />
-      </section>
+      <div className={s.list}>
+        <section className={s.homeTabContainer}>
+          <TransactionList />
+          <ButtonAddTransaction />
+          <ModalAddTransaction />
+          <ModalDeleteTransaction />
+          <ModalEditTransaction />
+        </section>
+      </div>
     </>
   );
 };

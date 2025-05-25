@@ -14,6 +14,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { transactionsReducer } from './transactions/slice';
 import { modalsReducer } from './modals/slice';
+import summaryStatisticReducer from './summary/summaryStatisticSlice';
 import { currencyReducer } from './currency/slice';
 import { categoriesReducer } from './categories/slice';
 
@@ -50,6 +51,7 @@ export const store = configureStore({
     transactions: transactionsReducer,
     currency: persistReducer(persistConfigCurrency, currencyReducer),
     modals: persistReducer(persistConfigModals, modalsReducer),
+    summaryStatistic: summaryStatisticReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

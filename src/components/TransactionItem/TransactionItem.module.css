@@ -2,7 +2,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 5em;
+  max-width: 10em;
 }
 
 .transactionRow:focus>.comment>.commentContent {

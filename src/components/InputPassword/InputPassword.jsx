@@ -1,24 +1,29 @@
-import styles from './InputPassword.module.css';
+import { useField, Field, ErrorMessage } from 'formik';
 import { RiLockPasswordFill } from 'react-icons/ri';
-import { ErrorMessage, Field } from 'formik';
+import clsx from 'clsx';
 
 const InputPassword = () => {
+  const [field, meta] = useField('password');
+  const isError = meta.touched && meta.error;
+
   return (
-    <div>
-      <label className={styles.label} htmlFor="password">
+    <div className="fieldLogWrapper">
+      <label className="labelLog" htmlFor="password">
         Password
       </label>
-      <div className={"inputLogWrapper"}>
-        <RiLockPasswordFill size={24} color="#081222" />
+      <div
+        className={clsx('inputLogWrapper', isError && 'inputLogWrapperError')}
+      >
+        <RiLockPasswordFill size={24} color={isError ? '#b20202' : '#081222'} />
         <Field
           type="password"
           name="password"
           id="password"
           placeholder="Password"
-          className={"inputLog"}
+          className={clsx('inputLog', isError && 'inputLogError')}
         />
       </div>
-      <ErrorMessage name="password" component="div" className={styles.error} />
+      <ErrorMessage name="password" component="div" className="error" />
     </div>
   );
 };

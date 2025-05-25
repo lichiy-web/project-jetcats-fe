@@ -6,7 +6,7 @@ export const fetchCategories = createAsyncThunk(
   async (signal, thunkAPI) => {
     return appApi
       .get('/categories', { signal: signal })
-      .then(({ data }) => data)
+      .then(({ data }) => data.data)
       .catch(error => thunkAPI.rejectWithValue(error.message));
   }
 );

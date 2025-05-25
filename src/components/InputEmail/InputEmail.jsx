@@ -1,24 +1,29 @@
-import { ErrorMessage, Field } from 'formik';
-import styles from './InputEmail.module.css';
+import { ErrorMessage, Field, useField } from 'formik';
 import { MdEmail } from 'react-icons/md';
+import clsx from 'clsx';
 
 const InputEmail = () => {
+  const [field, meta] = useField('email');
+  const isError = meta.touched && meta.error;
+
   return (
-    <div>
-      <label htmlFor="email" className={styles.label}>
+    <div className="fieldLogWrapper">
+      <label htmlFor="email" className="labelLog">
         Email
       </label>
-      <div className="inputLogWrapper">
-        <MdEmail size={24} color="#081222" />
+      <div
+        className={clsx('inputLogWrapper', isError && 'inputLogWrapperError')}
+      >
+        <MdEmail size={24} color={isError ? '#b20202' : '#081222'} />
         <Field
           type="email"
           name="email"
           id="email"
-          placeholder="Email"
-          className="inputLog"
+          placeholder="E-mail"
+          className={clsx('inputLog', isError && 'inputLogError')}
         />
       </div>
-      <ErrorMessage name="email" component="div" className={styles.error} />
+      <ErrorMessage name="email" component="div" className="error" />
     </div>
   );
 };

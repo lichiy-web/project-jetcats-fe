@@ -1,14 +1,16 @@
+import { useMediaQuery } from 'react-responsive';
 import AuthCard from '../components/AuthCard/AuthCard';
 import DudeHi from '../components/DudeHi/DudeHi';
-import css from './LoginPage.module.css'
 
 const LoginPage = () => {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
+
   return (
-    <div className={css.page}>
-      <div className={css.content}>
-      <AuthCard formType="login"/>
-      <DudeHi />
-      </div>
+    <div className="wrapperLog">
+      <AuthCard formType="login" />
+      {!isMobile && <DudeHi />}
     </div>
   );
 };

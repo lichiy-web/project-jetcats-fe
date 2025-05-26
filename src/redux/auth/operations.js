@@ -13,15 +13,19 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data: user } = await appApi.post('/auth/register', credentials);
+      const {
+        data: { data: user },
+      } = await appApi.post('/auth/register', credentials);
       const { email, password } = credentials;
       const {
-        data: { accessToken },
-      } = appApi.post('/auth/login', { email, password });
+        data: {
+          data: { accessToken },
+        },
+      } = await appApi.post('/auth/login', { email, password });
       setAuthHeader(accessToken);
       return { user, accessToken };
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

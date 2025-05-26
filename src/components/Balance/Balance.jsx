@@ -5,10 +5,10 @@ import { selectTransactions } from '../../redux/transactions/selectors';
 const Balance = () => {
   const transactions = useSelector(selectTransactions);
   const balance = Array.isArray(transactions)
-    ? transactions.reduce(
-        (acc, transaction) => acc + Number(transaction.sum),
-        0
-      )
+    ? transactions.reduce((acc, transaction) => {
+        const amount = Number(transaction.sum);
+        return transaction.type === 'expense' ? acc - amount : acc + amount;
+      }, 0)
     : 0;
   // const balance = transactions.reduce((acc, t) => {
   //   return t.type === 'income' ? acc + t.amount : acc - t.amount;

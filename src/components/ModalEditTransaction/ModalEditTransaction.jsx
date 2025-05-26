@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectIsModalEditTransaction } from '../../redux/modals/selectors';
+import { useDispatch } from 'react-redux';
+// import { selectIsModalEditTransaction } from '../../redux/modals/selectors';
 import { toggleModal, MODALS } from '../../redux/modals/slice';
 import EditTransactionForm from '../EditTransactionForm/EditTransactionForm';
 import s from './ModalEditTransaction.module.css';
@@ -9,6 +9,7 @@ Modal.setAppElement('#root');
 
 const ModalEditTransaction = () => {
   const isModalEditTransaction = useSelector(selectIsModalEditTransaction);
+
   const dispatch = useDispatch();
   const closeModal = () => {
     dispatch(toggleModal(MODALS.edit));
@@ -16,7 +17,8 @@ const ModalEditTransaction = () => {
 
   return (
     <Modal
-      isOpen={isModalEditTransaction}
+      // isOpen={isModalEditTransaction}
+      isOpen={isOpen}
       onRequestClose={closeModal}
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
@@ -24,7 +26,7 @@ const ModalEditTransaction = () => {
       className={s.modalContent}
       contentLabel="Edit Transaction Modal"
     >
-      <EditTransactionForm onClose={closeModal} />
+      <EditTransactionForm onClose={onClose} transaction={transaction} />
     </Modal>
   );
 };

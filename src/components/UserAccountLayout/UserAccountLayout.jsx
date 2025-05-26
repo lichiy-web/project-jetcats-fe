@@ -3,9 +3,9 @@ import { useMediaQuery } from 'react-responsive';
 import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import SideBar from '../SideBar/SideBar';
-import MobNavigation from '../MobNavigation/MobNavigation';
 import css from './UserAccountLayout.module.css';
 import Balance from '../Balance/Balance';
+import Navigation from '../Navigation/Navigation';
 
 const UserAccountLayout = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -21,7 +21,7 @@ const UserAccountLayout = () => {
         {isTabletOrAbove && <SideBar />}
         {isMobile && (
           <>
-            <MobNavigation /> {isHomePage && <Balance />}
+            <Navigation /> {isHomePage && <Balance />}
           </>
         )}
         <main className={css.mainContent}>

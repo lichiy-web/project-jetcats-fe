@@ -4,9 +4,12 @@ import { appApi } from '../api/api.js';
 // thunk to get data through API
 export const fetchSummary = createAsyncThunk(
   'summaryStatistic/fetchSummary',
-  async (_, { rejectWithValue }) => {
+  async (period, { rejectWithValue }) => {
     try {
-      const response = await appApi.get('/transactions/summary');
+      console.log({ period });
+      const response = await appApi.get(
+        `/transactions/summary?period=${period}`
+      );
       return response.data.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);

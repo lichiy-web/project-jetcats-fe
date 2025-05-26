@@ -6,6 +6,12 @@
   font-weight: 700;
   font-size: 17px;
   text-align: center;
+  color: var(--main-white);
+}
+
+.logo.auth {
+  color: var(--main-black);
+  font-size: 30px;
 }
 
 .logoIcon {
@@ -36,6 +42,7 @@
   }
 }
 
-.title {
-  color: var(--main-white);
+.logoIcon.auth {
+  width: 46px;
+  height: 36px;
 }

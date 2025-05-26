@@ -40,14 +40,15 @@ const RegistrationForm = () => {
   const error = useSelector(selectError);
 
   const handleSubmit = values => {
-    dispatch(register(values));
-    console.log(values);
-    // navigate('/');
+    const { name, email, password } = values;
+    console.log({ name, email, password });
+    dispatch(register({ name, email, password }));
+    !error && navigate('/');
   };
   useEffect(() => {
     if (error) {
-      if (error.includes('Invalid') || error.includes('400')) {
-        toast.error('Incorrect email or password');
+      if (error.includes('Email in use') || error.includes('409')) {
+        toast.error('Email already in use');
       } else if (error.includes('500')) {
         toast.error('Unable to connect to the server');
       } else {

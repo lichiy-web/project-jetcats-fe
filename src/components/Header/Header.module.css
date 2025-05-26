@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 16px 18px 30px;
+  padding: 7px 16px 17px 30px;
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
 }
 
@@ -14,4 +14,15 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 11px;
+  }
+}
+@media (max-width: 320px) {
+  .header {
+    padding: 7px 16px;
+  }
 }

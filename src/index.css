@@ -84,6 +84,7 @@ button {
   transition: border-color 0.25s;
   width: max-content;
 }
+
 button:hover {
   border-color: #646cff;
 }
@@ -107,13 +108,23 @@ button:focus-visible {
 
 /* Common login/register inputs */
 
-.inputLogWrapper {
+/* .inputLogWrapper {
   display: flex;
   align-items: center;
   gap: 0.9rem;
   border: 1px solid var(--main-black);
   border-radius: 0.5rem;
   padding: 0.6rem;
+} */
+
+.inputLogWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--main-black);
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 10px;
 }
 
 .inputLogWrapper svg {
@@ -183,6 +194,28 @@ button:focus-visible {
   font-size: 18px;
   justify-content: center;
   color: var(--main-black);
+}
+
+.btnSubmitWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 8px;
+  padding: 10px;
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  font-size: 18px;
+  justify-content: center;
+  color: #fcfcfc;
+}
+
+.wrapperLog {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 767px) {

@@ -1,17 +1,32 @@
-import { useSelector } from 'react-redux';
-import { selectcIsModalAddTransaction } from '../../redux/modals/selectors';
+import Modal from 'react-modal';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectIsModalAddTransaction } from '../../redux/modals/selectors';
+import { toggleModal, MODALS } from '../../redux/modals/slice';
 import AddTransactionForm from '../AddTransactionForm/AddTransactionForm';
+import s from './ModalAddTransaction.module.css';
+
+Modal.setAppElement('#root');
 
 const ModalAddTransaction = () => {
-  const isModalAddTransaction = useSelector(selectcIsModalAddTransaction);
-  console.log({ isModalAddTransaction });
+  const isModalAddTransaction = useSelector(selectIsModalAddTransaction);
+  const dispatch = useDispatch();
+
+  const closeModal = () => {
+    dispatch(toggleModal(MODALS.add));
+  };
+
   return (
-    isModalAddTransaction && (
-      <div>
-        <h1>AddTransactionForm</h1>
-        <AddTransactionForm />
-      </div>
-    )
+    <Modal
+      isOpen={isModalAddTransaction}
+      onRequestClose={closeModal}
+      shouldCloseOnOverlayClick={true}
+      shouldCloseOnEsc={true}
+      overlayClassName={s.modalOverlay}
+      className={s.modalContent}
+      contentLabel="Add Transaction Modal"
+    >
+      <AddTransactionForm onClose={closeModal} />
+    </Modal>
   );
 };
 

@@ -2,14 +2,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import Modal from 'react-modal';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
 import DeleteForm from '../DeleteForm/DeleteForm';
-import { selectcIsModalDeleteTransaction } from '../../redux/modals/selectors';
+import { selectIsModalDeleteTransaction } from '../../redux/modals/selectors';
 import css from './ModalDeleteTransaction.module.css';
 
 Modal.setAppElement('#root');
 
 const ModalDeleteTransaction = ({ transactionId }) => {
   const dispatch = useDispatch();
-  const isModaDeleteTransaction = useSelector(selectcIsModalDeleteTransaction);
+  const isModaDeleteTransaction = useSelector(selectIsModalDeleteTransaction);
   const handleClose = () => {
     dispatch(toggleModal(MODALS.delete));
   };

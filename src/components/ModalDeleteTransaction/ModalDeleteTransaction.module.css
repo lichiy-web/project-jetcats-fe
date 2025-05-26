@@ -8,8 +8,6 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  /* background: linear-gradient(180deg, #355359 0%, #3b5d63 100%); */
-  /* opacity: 0.4; */
   -webkit-backdrop-filter: blur(3.5px);
   backdrop-filter: blur(3.5px);
 }
@@ -17,11 +15,18 @@
   background-color: var(--main-light-green);
   position: relative;
   width: 100%;
-  max-width: 33.3rem;
+  max-width: 17.9375rem;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3.3125rem 7.4375rem 2.9375rem;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .modal {
+    max-width: 33.3rem;
+    padding: 3.3125rem 3.875rem 2.9375rem;
+  }
 }

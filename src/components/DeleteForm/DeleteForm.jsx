@@ -1,6 +1,6 @@
 import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
-import Logo from '../Logo/Logo';
+import logo from '../../assets/logo-modal.svg';
 import css from './DeleteForm.module.css';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
@@ -24,16 +24,18 @@ const DeleteForm = ({ transactionId }) => {
   };
 
   return (
-    <div className={css.container}>
+    <>
       <CloseButton onClick={handleCancel} />
-      <Logo />
-      <p className={css.text}>Are you sure you want to Delete?</p>
+      <div className={css.container}>
+        <img src={logo} alt="Spendy logo" className={css.logo} />
+        <p className={css.text}>Are you sure you want to Delete?</p>
 
-      <button onClick={handleDelete} className={css.deleteBtn}>
-        Delete
-      </button>
-      <CancelButton className={css.cancelBtn} onClick={handleCancel} />
-    </div>
+        <button onClick={handleDelete} className={css.deleteBtn}>
+          Delete
+        </button>
+        <CancelButton onClick={handleCancel} />
+      </div>
+    </>
   );
 };
 

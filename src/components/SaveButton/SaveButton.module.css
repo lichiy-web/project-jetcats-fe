@@ -1,0 +1,29 @@
+.saveBtn {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: var(--main-white);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #081222;
+  border-radius: 8px;
+  width: 410px;
+  height: 44px;
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  font-weight: 500;
+  text-align: center;
+  transition: all 350ms ease-in-out;
+}
+
+.saveBtn:hover {
+  border: 1px solid #081222;
+  color: var(--main-black);
+  background: var(--main-light-green);
+}
+
+@media (max: 320px) {
+  .saveBtn {
+    width: 271px;
+  }
+}

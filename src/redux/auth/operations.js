@@ -16,14 +16,12 @@ export const register = createAsyncThunk(
       const {
         data: { data: user },
       } = await appApi.post('/auth/register', credentials);
-      console.log({ user });
       const { email, password } = credentials;
       const {
         data: {
           data: { accessToken },
         },
       } = await appApi.post('/auth/login', { email, password });
-      console.log({ accessToken });
       setAuthHeader(accessToken);
       return { user, accessToken };
     } catch (error) {

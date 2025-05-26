@@ -74,7 +74,7 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
     })
     .catch(error => {
       console.log({ error });
-      if (error.includes('401')) {
+      if (error.status === 401) {
         thunkAPI.dispatch(refreshAccessToken());
       } else {
         thunkAPI.rejectWithValue(error.message);

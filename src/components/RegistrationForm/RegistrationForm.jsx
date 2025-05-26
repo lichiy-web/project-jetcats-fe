@@ -8,10 +8,9 @@ import InputPassword from '../InputPassword/InputPassword';
 import LoginLink from '../LoginLink/LoginLink';
 import RegisterButton from '../RegisterButton/RegisterButton';
 import css from './RegistrationForm.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../redux/auth/operations';
-import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 // Валідація з урахуванням backend-схеми
@@ -36,34 +35,19 @@ const initialValues = {
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let res = '';
 
   const handleSubmit = async values => {
     const { name, email, password } = values;
-    res = await dispatch(register({ name, email, password })).unwrap();
-    const error = res.payload;
-    if (error) {
+
+    try {
+      await dispatch(register({ name, email, password })).unwrap();
+      navigate('/');
+    } catch (error) {
       console.log(error);
+
       if (error.includes('400')) {
-        return toast.error('Not valid email');
+        toast.error('Not valid email');
       } else if (error.includes('Email in use') || error.includes('409')) {
-        return toast.error('Email already in use');
-      } else if (error.includes('500')) {
-        return toast.error('Unable to connect to the server');
-      } else {
-        return toast.error(error);
-      }
-    }
-
-    !error && navigate('/');
-  };
-
-  useEffect(() => {
-    const error = res.payload;
-    console.log(error);
-    if (error) {
-      console.log(error);
-      if (error.includes('Email in use') || error.includes('409')) {
         toast.error('Email already in use');
       } else if (error.includes('500')) {
         toast.error('Unable to connect to the server');
@@ -71,7 +55,7 @@ const RegistrationForm = () => {
         toast.error(error);
       }
     }
-  }, [res]);
+  };
 
   return (
     <Formik

@@ -17,11 +17,11 @@ export const register = createAsyncThunk(
       const { email, password } = credentials;
       const {
         data: { accessToken },
-      } = appApi.post('/auth/login', { email, password });
+      } = await appApi.post('/auth/login', { email, password });
       setAuthHeader(accessToken);
       return { user, accessToken };
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

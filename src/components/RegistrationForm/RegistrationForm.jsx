@@ -10,7 +10,6 @@ import RegisterButton from '../RegisterButton/RegisterButton';
 import css from './RegistrationForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectError } from '../../redux/transactions/selectors';
 import { register } from '../../redux/auth/operations';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
@@ -37,16 +36,33 @@ const initialValues = {
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const error = useSelector(selectError);
+  let res = '';
 
-  const handleSubmit = values => {
+  const handleSubmit = async values => {
     const { name, email, password } = values;
-    console.log({ name, email, password });
-    dispatch(register({ name, email, password }));
+    res = await dispatch(register({ name, email, password }));
+    const error = res.payload;
+    if (error) {
+      console.log(error);
+      if (error.includes('400')) {
+        return toast.error('Not valid email');
+      } else if (error.includes('Email in use') || error.includes('409')) {
+        return toast.error('Email already in use');
+      } else if (error.includes('500')) {
+        return toast.error('Unable to connect to the server');
+      } else {
+        return toast.error(error);
+      }
+    }
+
     !error && navigate('/');
   };
+
   useEffect(() => {
+    const error = res.payload;
+    console.log(error);
     if (error) {
+      console.log(error);
       if (error.includes('Email in use') || error.includes('409')) {
         toast.error('Email already in use');
       } else if (error.includes('500')) {
@@ -55,7 +71,7 @@ const RegistrationForm = () => {
         toast.error(error);
       }
     }
-  }, [error]);
+  }, [res]);
 
   return (
     <Formik

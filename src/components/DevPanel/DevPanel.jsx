@@ -11,6 +11,8 @@ import {
   selectIsModalLogOut,
 } from '../../redux/modals/selectors';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
+import { useState } from 'react';
+import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi';
 
 const IS_DEV_MODE = import.meta.env.DEV;
 const JetCatsCreds = {
@@ -37,6 +39,20 @@ const DevPanel = () => {
   const handleModals = modal => {
     // console.log(modal);
     dispatch(toggleModal(modal));
+  };
+  const [isPanelHidden, setIsPanelHidden] = useState(false);
+  const handleHidePanel = e => {
+    const hideBtn = e.currentTarget;
+    const btnWidth = hideBtn.clientWidth;
+    console.log({ hideBtn, btnWidth });
+    const panel = hideBtn.parentElement;
+    const panelWidth = panel.clientWidth;
+    console.log({ panel, panelWidth });
+    isPanelHidden
+      ? (panel.style.left = '0px')
+      : (panel.style.left = -panelWidth + btnWidth + 'px');
+    console.log('panel.style.left = ', panel.style.left);
+    setIsPanelHidden(!isPanelHidden);
   };
   return (
     IS_DEV_MODE && (
@@ -67,6 +83,9 @@ const DevPanel = () => {
         </button>
         <button type="button" onClick={() => handleModals(MODALS.logout)}>
           {isModalLogOut ? 'Close' : 'Open'} LogOut
+        </button>
+        <button className={css.hideBtn} type="button" onClick={handleHidePanel}>
+          {isPanelHidden ? <BiSolidRightArrow /> : <BiSolidLeftArrow />}
         </button>
       </div>
     )

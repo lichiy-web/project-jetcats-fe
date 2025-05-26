@@ -102,7 +102,7 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
             Delete
           </button>
           <button className={s.editButton} onClick={onEdit}>
-            <img src="/src/assets/Edit_Icon-min.svg" alt="Edit" />
+            <img src="./assets/Edit_Icon-min.svg" alt="Edit" />
           </button>
         </div>
       </li>
@@ -120,7 +120,7 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
       <td>
         <div className={s.buttonWrapper}>
           <button className={s.editButton} onClick={onEdit}>
-            <img src="/src/assets/Edit_Icon-min.svg" alt="Edit" />
+            <img src="./assets/Edit_Icon-min.svg" alt="Edit" />
           </button>
           <button className={s.deleteButton} onClick={handleDelete}>
             Delete

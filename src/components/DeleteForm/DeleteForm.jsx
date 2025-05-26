@@ -28,7 +28,9 @@ const DeleteForm = ({ transactionId }) => {
       <CloseButton onClick={handleCancel} />
       <div className={css.container}>
         <img src={logo} alt="Spendy logo" className={css.logo} />
-        <p className={css.text}>Are you sure you want to Delete?</p>
+        <p className={css.text}>
+          Are you sure you want to <span className={css.break}>Delete?</span>
+        </p>
 
         <button onClick={handleDelete} className={css.deleteBtn}>
           Delete

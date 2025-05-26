@@ -4,12 +4,23 @@
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 17px;
   text-align: center;
-  color: #081222;
-  /* color: var(--main-white); */
+  color: var(--main-white);
+}
+
+.logo.auth {
+  color: var(--main-black);
+  font-size: 30px;
 }
 
 .logoIcon {
   fill: var(--main-black);
+  width: 31px;
+  height: 30px;
+}
+
+.logoIcon.auth {
+  width: 46px;
+  height: 36px;
 }

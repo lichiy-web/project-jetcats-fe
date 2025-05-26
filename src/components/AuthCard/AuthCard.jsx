@@ -6,7 +6,7 @@ import css from './AuthCard.module.css';
 const AuthCard = ({ formType }) => {
   return (
     <div className={css.wrapper}>
-      <Logo />
+      <Logo isAuth={true} />
       {formType === 'register' ? <RegistrationForm /> : <LoginForm />}
     </div>
   );

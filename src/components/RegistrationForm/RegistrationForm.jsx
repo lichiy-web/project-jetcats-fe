@@ -40,7 +40,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = async values => {
     const { name, email, password } = values;
-    res = await dispatch(register({ name, email, password }));
+    res = await dispatch(register({ name, email, password })).unwrap();
     const error = res.payload;
     if (error) {
       console.log(error);

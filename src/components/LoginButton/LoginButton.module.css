@@ -1,0 +1,10 @@
+.btnWrapper {
+  background-image: linear-gradient(180deg, #355359 0%, #3B5D63 100%);
+  width: 100%;
+  color: var(--main-white);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

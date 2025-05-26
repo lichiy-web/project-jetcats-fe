@@ -1,0 +1,21 @@
+.closeBtn {
+  position: absolute;
+  top: 1.25rem; /* 20px */
+  right: 1.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 0;
+}
+.closeBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 320px) {
+  .closeBtn svg {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,51 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+  /* border: 1px dotted red; */
+  /* box-sizing: border-box; */
+  /* overflow: scroll;   */
+}
+
+.main-container {
+  padding: 0 1em 1em 1em;
+  max-width: 50em;
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+  overflow: visible;
+  justify-content: start;
+}
+
+#root::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .main-container {
+    min-width: 100%;
+    /* background-color: rgb(224, 246, 61); */
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .main-container {
+    min-width: 25em;
+    /* background-color: aqua; */
+  }
+}
+
+
+.phonebookTitle {
+  font-size: 2.5em;
+  line-height: 2;
+  /* margin-bottom: .5em; */
+  /* margin-top: .5em; */
+}

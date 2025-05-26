@@ -1,0 +1,219 @@
+/* css-variables */
+:root {
+  --main-black: #081222;
+  --main-dark-green: #0b6016;
+  --main-light-green: #508f8c;
+  --main-white: #fcfcfc;
+  --main-yellow: #dfad3f;
+  --main-red: #b20202;
+  --main-light-red: #f23a3a;
+  --chart-green: #24cca7;
+  --chart-pink: #ffd8d0;
+  --chart-darker-green: #00ad84;
+  --chart-blue: #4a56e2;
+  --chart-purple: #6e78e8;
+  --chart-light-blue: #81e1ff;
+  --chart-light-purple: #c5baff;
+  --chart-red: #fd9498;
+}
+
+:root {
+  --font-family: Inter, sans-serif;
+  --second-family: Poppins, sans-serif;
+  --third-family: Circe, sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  /*Перевизначає колір текста автозаповнення input, який вшитий у браузер*/
+  -webkit-text-fill-color: #081222;
+  /*Перевизначає колір фону автозаповнення input, який вшитий у браузер*/
+  -webkit-box-shadow: 0 0 0px 40rem #508f8c inset;
+}
+
+/* ======================================== */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+/* a:hover {
+  color: #535bf2;
+} */
+
+body {
+  margin: 0;
+  display: flex;
+  /* place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+
+  /* border: 1px solid green; */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width: max-content;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Common login/register inputs */
+
+/* .inputLogWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border: 1px solid var(--main-black);
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+} */
+
+.inputLogWrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--main-black);
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.inputLogWrapper.inputLogWrapperError {
+  border: 1px solid var(--main-red);
+}
+
+.inputLog {
+  font-size: 1.12rem;
+  color: var(--main-black);
+  border: none;
+  outline: none;
+  background-color: var(--main-light-green);
+}
+
+.inputLog.inputLogError,
+.inputLog.inputLogError::placeholder {
+  color: var(--main-red);
+}
+
+.inputLog:focus {
+  background-color: #508f8c;
+  color: var(--main-black);
+  outline: none;
+}
+
+.inputLog::placeholder {
+  color: var(--main-black);
+  opacity: 1;
+}
+
+.error {
+  position: absolute;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--main-red);
+}
+
+.fieldLogWrapper {
+  position: relative;
+}
+
+.labelLog {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--main-black);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: transparent;
+  font-size: 18px;
+  justify-content: center;
+  color: var(--main-black);
+}
+
+.btnSubmitWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 8px;
+  padding: 10px;
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  font-size: 18px;
+  justify-content: center;
+  color: #fcfcfc;
+}
+
+.wrapperLog {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .inputLogWrapper {
+    width: 256px;
+  }
+}

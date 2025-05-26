@@ -1,0 +1,97 @@
+.comment {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 5em;
+}
+/* .comment:hover {
+  overflow: visible;
+  white-space: normal;
+  max-width: none;
+} */
+.comment:focus {
+  transform: scale3d(1.05, 1.05, 1);
+  transition: transform 0.2s ease-in-out;
+}
+.transactionRow:focus > .comment > .commentContent {
+  position: relative;
+  width: 100%;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.editButton {
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.editButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.editButton img {
+  width: 14px;
+  height: 14px;
+}
+
+.deleteButton {
+  border: 1px solid var(--main-white);
+  border-radius: 8px;
+  padding: 4px 12px;
+  background-color: transparent;
+  color: var(--main-white);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* ********************** */
+
+.transactionCard {
+  padding: 16px;
+  border-radius: 16px;
+  color: var(--main-white);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+}
+.transactionField svg {
+  width: 100%;
+  height: 2px;
+  display: block;
+}
+.transactionField {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.income {
+  border-left: 6px solid #24cca7;
+}
+
+.expense {
+  border-left: 6px solid var(--main-yellow);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

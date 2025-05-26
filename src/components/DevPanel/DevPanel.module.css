@@ -1,0 +1,43 @@
+.dev-panel {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.1);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: .5em;
+    padding-right: .7em;
+    box-shadow: 3px 3px 3px #8e8b8b;
+    z-index: 10000;
+    transition: left;
+    transition-duration: 500ms;
+}
+
+.dev-panel>button,
+.link {
+    margin-bottom: .5em;
+}
+
+.link.active {
+    text-decoration: underline;
+}
+
+.hideBtn {
+    position: absolute;
+    /* width: .5em; */
+    padding: 0.1em;
+    height: 100%;
+    top: 0;
+    right: 0;
+    font-size: .4em;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.hideBtn:hover {
+    background-color: #ffffff;
+    color: #000000;
+}

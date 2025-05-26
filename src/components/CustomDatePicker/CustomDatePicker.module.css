@@ -1,0 +1,48 @@
+.datepickerWrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.datepickerInput {
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75em;
+  background: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  border: 1px solid #27393d;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--main-black);
+  width: 193px;
+  outline: none;
+}
+
+.datepickerInput:focus,
+.datepickerInput:hover {
+  outline: none;
+  box-shadow: none;
+  border-color: #27393d;
+  background-color: transparent;
+}
+
+.iconWrapper {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--main-black);
+  font-size: 1.2em;
+}
+
+@media (max-width: 320px) {
+  .datepickerInput {
+    width: 100%;
+  }
+}

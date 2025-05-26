@@ -1,0 +1,19 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+}
+
+.logoIcon {
+  fill: var(--main-black);
+  width: 31px;
+  height: 30px;
+}
+
+.title {
+  color: var(--main-white);
+}

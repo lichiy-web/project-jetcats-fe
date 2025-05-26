@@ -1,0 +1,164 @@
+{
+  "transactions": [
+    {
+      "_id": "66500001d8e7b3ce9ac172a1",
+      "type": "income",
+      "category": "Salary",
+      "sum": 5000,
+      "date": "2025-05-01",
+      "comment": "Monthly salary"
+    },
+    {
+      "_id": "66500002d8e7b3ce9ac172a2",
+      "type": "expense",
+      "category": "Food",
+      "sum": 120,
+      "date": "2025-05-02",
+      "comment": "Lunch at cafe"
+    },
+    {
+      "_id": "66500003d8e7b3ce9ac172a3",
+      "type": "expense",
+      "category": "Transport",
+      "sum": 50,
+      "date": "2025-05-03",
+      "comment": "Bus ticket"
+    },
+    {
+      "_id": "66500004d8e7b3ce9ac172a4",
+      "type": "income",
+      "category": "Freelance",
+      "sum": 800,
+      "date": "2025-05-04",
+      "comment": "Website design"
+    },
+    {
+      "_id": "66500005d8e7b3ce9ac172a5",
+      "type": "expense",
+      "category": "Entertainment",
+      "sum": 200,
+      "date": "2025-05-05",
+      "comment": "Movie night"
+    },
+    {
+      "_id": "66500006d8e7b3ce9ac172a6",
+      "type": "expense",
+      "category": "Utilities",
+      "sum": 300,
+      "date": "2025-05-06",
+      "comment": "Electricity bill"
+    },
+    {
+      "_id": "66500007d8e7b3ce9ac172a7",
+      "type": "income",
+      "category": "Gift",
+      "sum": 250,
+      "date": "2025-05-07",
+      "comment": "Birthday gift"
+    },
+    {
+      "_id": "66500008d8e7b3ce9ac172a8",
+      "type": "expense",
+      "category": "Health",
+      "sum": 100,
+      "date": "2025-05-08",
+      "comment": "Pharmacy"
+    },
+    {
+      "_id": "66500009d8e7b3ce9ac172a9",
+      "type": "expense",
+      "category": "Shopping",
+      "sum": 400,
+      "date": "2025-05-09",
+      "comment": "Clothes"
+    },
+    {
+      "_id": "66500010d8e7b3ce9ac172b0",
+      "type": "income",
+      "category": "Investment",
+      "sum": 600,
+      "date": "2025-05-10",
+      "comment": "Stock dividends"
+    },
+    {
+      "_id": "66500011d8e7b3ce9ac172b1",
+      "type": "expense",
+      "category": "Food",
+      "sum": 180,
+      "date": "2025-05-11",
+      "comment": "Dinner with friends"
+    },
+    {
+      "_id": "66500012d8e7b3ce9ac172b2",
+      "type": "expense",
+      "category": "Transport",
+      "sum": 60,
+      "date": "2025-05-12",
+      "comment": "Taxi"
+    },
+    {
+      "_id": "66500013d8e7b3ce9ac172b3",
+      "type": "income",
+      "category": "Bonus",
+      "sum": 1000,
+      "date": "2025-05-13",
+      "comment": "Quarterly bonus"
+    },
+    {
+      "_id": "66500014d8e7b3ce9ac172b4",
+      "type": "expense",
+      "category": "Education",
+      "sum": 350,
+      "date": "2025-05-14",
+      "comment": "Online course"
+    },
+    {
+      "_id": "66500015d8e7b3ce9ac172b5",
+      "type": "expense",
+      "category": "Entertainment",
+      "sum": 90,
+      "date": "2025-05-15",
+      "comment": "Concert ticket"
+    },
+    {
+      "_id": "66500016d8e7b3ce9ac172b6",
+      "type": "income",
+      "category": "Refund",
+      "sum": 120,
+      "date": "2025-05-16",
+      "comment": "Returned item"
+    },
+    {
+      "_id": "66500017d8e7b3ce9ac172b7",
+      "type": "expense",
+      "category": "Shopping",
+      "sum": 220,
+      "date": "2025-05-17",
+      "comment": "New shoes"
+    },
+    {
+      "_id": "66500018d8e7b3ce9ac172b8",
+      "type": "expense",
+      "category": "Health",
+      "sum": 75,
+      "date": "2025-05-18",
+      "comment": "Doctor visit"
+    },
+    {
+      "_id": "66500019d8e7b3ce9ac172b9",
+      "type": "income",
+      "category": "Other",
+      "sum": 300,
+      "date": "2025-05-19",
+      "comment": "Sold old bike"
+    },
+    {
+      "_id": "66500020d8e7b3ce9ac172c0",
+      "type": "expense",
+      "category": "Utilities",
+      "sum": 210,
+      "date": "2025-05-20",
+      "comment": "Water bill"
+    }
+  ]
+}

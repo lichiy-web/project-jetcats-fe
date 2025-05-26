@@ -205,15 +205,23 @@ button:focus-visible {
 
 .wrapperLog {
   max-width: 1280px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@media screen and (max-width: 767px) {
-  .inputLogWrapper {
-    width: 256px;
-  }
+@media screen and (min-width: 767px) and (max-width: 1279px) {
+  .wrapperLog {
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 24px;
+}
+
+.wrapperForm {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 }

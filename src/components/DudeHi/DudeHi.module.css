@@ -2,12 +2,31 @@
   position: absolute;
   bottom: 40px;
   right: 16px;
-  z-index: -1;
+  z-index: 1;
   overflow: hidden;
   width: 326px;
   height: 239px;
 }
 
+.dudeTablet {
+  display: block;
+   width: 326px;
+  height: 239px;
+  transform: translateX(117px);
+  /* bottom: 58px;
+  right: 1px; */
+}
+
 .dudeMobile {
   display: block;
+  bottom: 23px;   
+  right: 12px;
+  width: 159px;
+  height: 118px;
+}
+
+.dudeWrapper {
+    display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }

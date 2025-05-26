@@ -6,7 +6,10 @@ const Logo = () => {
        <svg className={css.logoIcon}>
         <use href="/sprites.svg#logo-icon" />
       </svg>
-      <span>Spendy</span>
+       <svg className={css.logoIconMobile}>
+        <use href="/sprites.svg#logo-modal-text-icon" />
+      </svg>
+      <span className={css.logoText}>Spendy</span>
     </div>
   );
 };

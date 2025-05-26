@@ -17,19 +17,21 @@ const CurrencyItem = () => {
     dispatch(fetchCurrencyRates());
   }, [dispatch]);
 
-  if (error) {
-    toast.error('Failed to load currency rates', {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: 'light',
-      transition: Slide,
-    });
-  }
+  useEffect(() => {
+    if (error) {
+      toast.error('Failed to load currency rates', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: 'light',
+        transition: Slide,
+      });
+    }
+  }, [error]);
 
   return (
     <div>

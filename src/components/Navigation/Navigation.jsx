@@ -10,13 +10,30 @@ const Navigation = () => {
           className={({ isActive }) => clsx(s.link, isActive && s.active)}
           to="/"
         >
-          Home
+          {({ isActive }) => (
+            <div className={s.svgContainer}>
+              <svg
+                className={clsx(s.icon, isActive && s.activeIcon)}
+                fill="linear-gradient(180deg, #294045 0%, #1e2f33 100%)"
+              >
+                <use xlinkHref="/sprites.svg#home-icon" />
+              </svg>
+              <span className={s.linkText}>Home</span>
+            </div>
+          )}
         </NavLink>
         <NavLink
           className={({ isActive }) => clsx(s.link, isActive && s.active)}
           to="/statistics"
         >
-          Statistics
+          {({ isActive }) => (
+            <div className={s.svgContainer}>
+              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
+                <use xlinkHref="/sprites.svg#statistics-icon" />
+              </svg>
+              <span className={s.linkText}>Statistics</span>
+            </div>
+          )}
         </NavLink>
         <NavLink
           className={({ isActive }) =>
@@ -24,7 +41,13 @@ const Navigation = () => {
           }
           to="/currency"
         >
-          Currency
+          {({ isActive }) => (
+            <div className={s.svgContainer}>
+              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
+                <use xlinkHref="/sprites.svg#home-icon" />
+              </svg>
+            </div>
+          )}
         </NavLink>
       </div>
     </div>

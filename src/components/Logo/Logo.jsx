@@ -1,11 +1,12 @@
 import css from './Logo.module.css';
-import AppLogo from '../../assets/AppLogo.png';
 
 const Logo = () => {
   return (
     <div className={css.logo}>
-      <img src={AppLogo} alt="Logo" className={css.logoIcon} />
-      <span>Spendy</span>
+      <svg className={css.logoIcon}>
+        <use href="/sprites.svg#logo-icon" />
+      </svg>
+      <span className={css.title}>Spendy</span>
     </div>
   );
 };

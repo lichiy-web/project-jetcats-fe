@@ -39,3 +39,6 @@
   pointer-events: none;
   color: var(--main-black);
 }
+.error {
+  color: var(--main-red);
+}

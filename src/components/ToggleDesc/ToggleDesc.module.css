@@ -1,73 +1,70 @@
-.toggleGroup {
+.toggleWrapper {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 32px;
 }
 
-.span {
-  font-weight: 600;
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.labelContainer {
+  display: flex;
+  align-items: center;
+}
+
+.labelTitle {
   font-size: 16px;
-  text-align: right;
-  color: var(--main-black);
+  font-weight: 600;
+  color: var(--main-white);
 }
 
-.toggle {
-  display: inline-block;
+.switchBlock {
   position: relative;
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+
   width: 80px;
   height: 40px;
 }
 
-.toggleInput {
-  height: 0;
-  width: 0;
+.switchInput {
   opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.toggleSlider {
+.switchSlider {
   position: absolute;
-  cursor: pointer;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  background-color: white;
+  background-color: var(--main-white);
   border-radius: 30px;
-  transition: background-color 0.4s;
+  cursor: pointer;
 }
 
-.toggleSlider::before {
-  content: '';
-  background-image: url('./../../assets/+.svg');
-  background-size: 16px 16px;
-  background-repeat: no-repeat;
-  background-position: center;
+.switchCircle {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  left: -4px;
-  bottom: -2px;
-  height: 44px;
-  width: 44px;
-  background-color: var(--main-yellow);
-  border-radius: 30px;
-  transition: transform 0.3s, background-color 0.3s;
+  transition: transform 200ms ease-in;
 }
 
-.toggleInput:focus + .toggleSlider {
-  box-shadow: 0 0 1px #333;
+.toggleIcon {
+  z-index: 100;
 }
 
-.toggleInput:checked + .toggleSlider {
-  background-color: var(--main-white);
-}
-
-.toggleInput:checked + .toggleSlider::before {
-  content: '';
-  background-image: url('./../../assets/-.svg');
+.switchInput:checked + .switchSlider .switchCircle {
   transform: translateX(40px);
-  background-color: var(--main-red);
 }

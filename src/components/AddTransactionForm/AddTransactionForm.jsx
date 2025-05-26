@@ -2,7 +2,6 @@ import CancelButton from '../CancelButton/CancelButton';
 import CloseButton from '../CloseButton/CloseButton';
 import InputAmount from '../InputAmount/InputAmount';
 import InputComment from '../InputComment/InputComment';
-import ToggleDesc from '../ToggleDesc/ToggleDesc';
 import AddButton from '../AddButton/AddButton';
 import InputCategory from '../InputCategory/InputCategory';
 import CustomDatePicker from '../CustomDatePicker/CustomDatePicker';
@@ -14,12 +13,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
 import { fetchCategories } from '../../redux/categories/operations';
 import { addTransaction } from '../../redux/transactions/operations';
+import ToggleDescTransaction from '../ToggleDescTransaction/ToggleDescTransaction';
 
 const AddTransactionForm = ({ onClose }) => {
   const validateSchema = Yup.object({
     sum: Yup.number().positive('Must be positive').required('Required'),
     date: Yup.date().required('Required'),
-    comment: Yup.string().max(20),
+    comment: Yup.string().max(192),
     category: Yup.string().when('type', {
       is: 'expense',
       then: schema => schema.required('Category is required'),
@@ -45,7 +45,7 @@ const AddTransactionForm = ({ onClose }) => {
           initialValues={{
             type: 'expense',
             sum: '',
-            date: '',
+            date: new Date(),
             comment: '',
             category: '',
           }}
@@ -58,6 +58,9 @@ const AddTransactionForm = ({ onClose }) => {
               const day = String(d.getDate()).padStart(2, '0');
               return `${year}-${month}-${day}`;
             };
+            // const formatDateToYYYYMMDD = date => {
+            //   return date.toISOString().split('T')[0];
+            // };
 
             const payload = {
               type: values.type,
@@ -70,6 +73,15 @@ const AddTransactionForm = ({ onClose }) => {
             if (values.type === 'income') {
               payload.category = '6825eae52bcfe457b4ce5b14';
             }
+            // const payload = {
+            //   type: values.type,
+            //   category:
+            //     values.category ||
+            //     (values.type === 'income' ? '6825eae52bcfe457b4ce5b14' : ''),
+            //   sum: Number(values.sum),
+            //   date: formatDateToYYYYMMDD(values.date),
+            //   comment: values.comment,
+            // };
 
             dispatch(addTransaction(payload))
               .unwrap()
@@ -79,11 +91,22 @@ const AddTransactionForm = ({ onClose }) => {
               .catch(error => {
                 error.message;
               });
+            // dispatch(addTransaction(payload))
+            //   .then(() => onClose())
+            //   .catch(error =>
+            //     console.error(
+            //       'Ошибка при добавлении транзакции:',
+            //       error.message
+            //     )
+            //   );
           }}
         >
           {({ values, setFieldValue }) => (
             <Form className={s.form}>
-              <ToggleDesc values={values} setFieldValue={setFieldValue} />
+              <ToggleDescTransaction
+                values={values}
+                setFieldValue={setFieldValue}
+              />
 
               <div className={s.wrapper}>
                 <InputCategory />

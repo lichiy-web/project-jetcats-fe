@@ -21,3 +21,16 @@
   font-size: 30px;
   color: var(--main-white);
 }
+
+@media screen and (max-width: 1279px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+  }
+  .title {
+    padding-top: 20px;
+  }
+}

@@ -34,14 +34,17 @@ export const logIn = createAsyncThunk(
         data: { data: loginRes },
       } = await appApi.post('/auth/login', credentials);
       const { accessToken } = loginRes;
-      console.log({ accessToken });
+      // console.log({ accessToken });
       setAuthHeader(accessToken);
       const {
         data: { data: user },
       } = await appApi.get('/users/current');
       return { user, accessToken };
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      // return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );

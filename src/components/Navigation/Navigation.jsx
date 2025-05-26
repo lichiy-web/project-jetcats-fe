@@ -18,7 +18,7 @@ const Navigation = () => {
               >
                 <use xlinkHref="/sprites.svg#home-icon" />
               </svg>
-              Home
+              <span className={s.linkText}>Home</span>
             </div>
           )}
         </NavLink>
@@ -31,7 +31,7 @@ const Navigation = () => {
               <svg className={clsx(s.icon, isActive && s.activeIcon)}>
                 <use xlinkHref="/sprites.svg#statistics-icon" />
               </svg>
-              Statistics
+              <span className={s.linkText}>Statistics</span>
             </div>
           )}
         </NavLink>
@@ -41,7 +41,13 @@ const Navigation = () => {
           }
           to="/currency"
         >
-          Currency
+          {({ isActive }) => (
+            <div className={s.svgContainer}>
+              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
+                <use xlinkHref="/sprites.svg#home-icon" />
+              </svg>
+            </div>
+          )}
         </NavLink>
       </div>
     </div>

@@ -12,13 +12,11 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-// <<<<<<< HEAD
-// =======
-import { categoriesReducer } from './categories/slice';
-// >>>>>>> 752b2f100ea9b4351420f99319a10512d9939972
 import { transactionsReducer } from './transactions/slice';
 import { modalsReducer } from './modals/slice';
+import summaryStatisticReducer from './summary/summaryStatisticSlice';
 import { currencyReducer } from './currency/slice';
+import { categoriesReducer } from './categories/slice';
 
 const persistConfig = {
   key: 'root',
@@ -33,8 +31,8 @@ const persistConfigModals = {
   storage,
   whitelist: [
     'isAddTransaction',
-    'isEditTransAction',
-    'isDeleteTransAction',
+    'isEditTransaction',
+    'isDeleteTransaction',
     'isLogOut',
   ],
 };
@@ -49,13 +47,11 @@ const persistConfigCurrency = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
-    // <<<<<<< HEAD
-    // =======
     categories: categoriesReducer,
-    // >>>>>>> 752b2f100ea9b4351420f99319a10512d9939972
     transactions: transactionsReducer,
     currency: persistReducer(persistConfigCurrency, currencyReducer),
     modals: persistReducer(persistConfigModals, modalsReducer),
+    summaryStatistic: summaryStatisticReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

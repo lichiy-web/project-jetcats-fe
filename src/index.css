@@ -127,6 +127,12 @@ button:focus-visible {
   padding: 10px;
 }
 
+.inputLogWrapper svg {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
 .inputLogWrapper.inputLogWrapperError {
   border: 1px solid var(--main-red);
 }

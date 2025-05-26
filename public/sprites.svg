@@ -84,6 +84,11 @@
       <path stroke-width="3.2" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter"
         d="M2.56 28.8l25.6-25.6"></path>
     </symbol>
+    <symbol id="divider-line" viewBox="0 0 288 2" xmlns="http://www.w3.org/2000/svg">
+  <path opacity="0.4" d="M0 1L288 1" stroke="var(--main-white)" stroke-width="1" />
+</symbol>
+
+    
   </defs>
 </svg>
 >>>>>>> 132a973e59fdc9907c6dd298ea2e8b9a34dbde6f

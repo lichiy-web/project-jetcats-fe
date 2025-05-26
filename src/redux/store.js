@@ -22,35 +22,43 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  whitelist: ['accessToken'],
-};
-
-const persistConfigModals = {
-  key: 'root',
-  version: 1,
-  storage,
   whitelist: [
+    'accessToken',
     'isAddTransaction',
     'isEditTransaction',
     'isDeleteTransaction',
     'isLogOut',
+    'data',
+    'timestamp',
   ],
 };
 
-const persistConfigCurrency = {
-  key: 'currency',
-  version: 1,
-  storage,
-  whitelist: ['data', 'timestamp'],
-};
+// const persistConfigModals = {
+//   key: 'root',
+//   version: 1,
+//   storage,
+//   whitelist: [
+//     'isAddTransaction',
+//     'isEditTransaction',
+//     'isDeleteTransaction',
+//     'isLogOut',
+//   ],
+// };
+
+// const persistConfigCurrency = {
+//   key: 'currency',
+//   version: 1,
+//   storage,
+//   whitelist: ['data', 'timestamp'],
+// };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     categories: categoriesReducer,
     transactions: transactionsReducer,
-    currency: persistReducer(persistConfigCurrency, currencyReducer),
-    modals: persistReducer(persistConfigModals, modalsReducer),
+    currency: persistReducer(persistConfig, currencyReducer),
+    modals: persistReducer(persistConfig, modalsReducer),
     summaryStatistic: summaryStatisticReducer,
   },
   middleware: getDefaultMiddleware =>

@@ -3,7 +3,7 @@ import css from './Logo.module.css';
 const Logo = () => {
   return (
     <div className={css.logo}>
-       <svg className={css.logoIcon}>
+      <svg className={css.logoIcon}>
         <use href="/sprites.svg#logo-icon" />
       </svg>
        <svg className={css.logoIconMobile}>

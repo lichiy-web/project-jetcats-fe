@@ -5,6 +5,8 @@ import css from './StatisticsDashboard.module.css';
 import Select from 'react-select';
 import { SlArrowDown } from 'react-icons/sl';
 import { components } from 'react-select';
+import { useDispatch } from 'react-redux';
+import { setMonth, setYear } from '../../redux/summary/summaryStatisticSlice';
 const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const initialValues = {
     month: 'may',
@@ -56,6 +58,8 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
     console.log('Month:', monthValue);
     console.log('Year:', yearValue);
   }, [formValues]);
+
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -122,6 +126,11 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                 }
                 onChange={option => {
                   const newMonth = option.value;
+                  const newNumMonth =
+                    monthOptions.findIndex(month => month.value === newMonth) +
+                    1;
+                  console.log({ newMonth, newNumMonth });
+                  dispatch(setMonth(newNumMonth));
 
                   const selectedMonthIndex = monthOptions.findIndex(
                     m => m.value === newMonth
@@ -185,6 +194,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                 value={yearOptions.find(opt => opt.value === formValues.year)}
                 onChange={option => {
                   const newYear = option.value;
+                  dispatch(setYear(newYear));
 
                   setFormValues(prev => {
                     const selectedMonthIndex = monthOptions.findIndex(

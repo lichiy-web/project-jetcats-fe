@@ -6,9 +6,6 @@
   font-weight: 700;
   font-size: 17px;
   text-align: center;
-  color: var(--main-black);
-  width: 182px;
-  height: 94px;
 }
 
 .logoIcon {
@@ -37,4 +34,8 @@
   .logoText {
     display: none;
   }
+}
+
+.title {
+  color: var(--main-white);
 }

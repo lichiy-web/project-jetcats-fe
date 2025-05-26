@@ -41,7 +41,7 @@
   font-size: 1.2em;
 }
 
-@media (max-width: 590px) {
+@media (max-width: 320px) {
   .datepickerInput {
     width: 100%;
   }

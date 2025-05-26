@@ -3,7 +3,12 @@ import { deleteTransaction } from '../../redux/transactions/operations';
 import { format, isValid, parseISO } from 'date-fns';
 import s from './TransactionItem.module.css';
 
-const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
+const TransactionItem = ({
+  transaction,
+  isMobile = false,
+  onEdit,
+  onDelete,
+}) => {
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories.items);
 
@@ -13,7 +18,7 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
     return isValid(date) ? format(date, 'dd.MM.yy') : 'Invalid date';
   };
 
-  const handleDelete = () => dispatch(deleteTransaction(transaction._id));
+  // const handleDelete = () => dispatch(deleteTransaction(transaction._id));
   const isIncome = transaction.type === 'income';
   const sign = isIncome ? '+' : '-';
   const category = categories.find(cat => cat._id === transaction.category);
@@ -48,7 +53,10 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
         ))}
 
         <div className={s.buttonWrapper}>
-          <button className={s.deleteButton} onClick={handleDelete}>
+          <button
+            className={s.deleteButton}
+            onClick={() => onDelete(transaction)}
+          >
             Delete
           </button>
           <button className={s.editButton} onClick={onEdit}>
@@ -77,7 +85,10 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
               <use href="/sprites.svg#edit-icon"></use>
             </svg>
           </button>
-          <button className={s.deleteButton} onClick={handleDelete}>
+          <button
+            className={s.deleteButton}
+            onClick={() => onDelete(transaction)}
+          >
             Delete
           </button>
         </div>

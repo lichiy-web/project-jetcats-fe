@@ -1,32 +1,62 @@
-.dude {
-  position: absolute;
-  bottom: 40px;
-  right: 16px;
-  z-index: 1;
-  overflow: hidden;
-  width: 326px;
-  height: 239px;
+.dudeWrap {
+    display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
-.dudeTablet {
+/* .dude {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+} */
+
+@media (min-width: 1280px) {
+
+  .dudeLog {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    right: 16px;
+    width: 326px;
+    height: 239px;
+    z-index: 1;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .dudeLog {
+    display: block;
+    width: 326px;
+    height: 239px;
+    transform: translateX(117px);
+    /* position: relative; */
+  }
+}
+
+
+/* @media (max-width: 1279px) {
+  .dudeLog {
+    display: none;
+  }
+} */
+
+/* .dudeTablet {
   display: block;
    width: 326px;
   height: 239px;
   transform: translateX(117px);
-  /* bottom: 58px;
-  right: 1px; */
-}
+  position: relative;
+  bottom: 58px;
+  right: 1px;
+} */
 
-.dudeMobile {
+@media (max-width: 767px) {
+.dudeLog {
   display: block;
   bottom: 23px;   
   right: 12px;
   width: 159px;
   height: 118px;
 }
-
-.dudeWrapper {
-    display: flex;
-  justify-content: flex-end;
-  width: 100%;
 }

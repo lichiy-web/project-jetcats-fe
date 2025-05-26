@@ -7,17 +7,13 @@ const LoginPage = () => {
     query: '(min-width: 767px) and (max-width: 1279px)',
   })
   const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
-  // const isMobile = useMediaQuery({
-  //   query: '(max-width: 767px)',
-  // });
 
   return (
     <div className="wrapperLog">
       <div className="wrapperForm">
       <AuthCard formType="login" />
       </div>
-      {isTablet && <DudeHi isTablet={isTablet} />}
-      {isDesktop && <DudeHi />}
+      {(isTablet || isDesktop) && <DudeHi />}
     </div>
   );
 };

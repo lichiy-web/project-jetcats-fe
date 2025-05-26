@@ -28,7 +28,7 @@ const ButtonAddTransaction = () => {
       aria-label="Add transaction"
     >
       {/* <img src="/src/assets/+btn.svg" alt="Add" /> */}
-             <svg >
+             <svg width="56" height="56" aria-hidden="true">
               <use href="/sprites.svg#+button-icon" />
             </svg>
       {/* <Plus size={26} /> */}

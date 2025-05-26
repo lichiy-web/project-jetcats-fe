@@ -16,10 +16,6 @@
   padding-top: 53px;
 }
 
-@media screen and (max-width: 1279px) and (min-width: 768px) {
-  /* Smth.. */
-}
-
 @media screen and (max-width: 767px) {
   .wrapper {
     padding: 16px 16px 23px;

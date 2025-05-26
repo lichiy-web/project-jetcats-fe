@@ -171,8 +171,6 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   }),
                   menu: base => ({
                     ...base,
-                    width: '187px',
-                    height: '157px',
                     borderRadius: '8px',
                     background:
                       'linear-gradient(180deg, #294045 0%, #1e2f33 100%)',

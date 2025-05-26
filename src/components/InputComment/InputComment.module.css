@@ -7,8 +7,8 @@
   font-weight: 500;
   font-size: 18px;
   color: var(--main-black);
-  width: 410px;
-  height: 44px;
+  width: 100%;
+  outline: none;
 }
 
 .inputComment::placeholder {

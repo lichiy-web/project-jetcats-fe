@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteTransaction } from '../../redux/transactions/operations';
 import { format, isValid, parseISO } from 'date-fns';
 import s from './TransactionItem.module.css';
-
+import btnImgSrc from '../../assets/Edit_Icon-min.svg';
+console.log({ btnImgSrc });
 const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories.items);
@@ -102,7 +103,7 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
             Delete
           </button>
           <button className={s.editButton} onClick={onEdit}>
-            <img src="./assets/Edit_Icon-min.svg" alt="Edit" />
+            <img src={btnImgSrc} alt="Edit" />
           </button>
         </div>
       </li>
@@ -120,7 +121,7 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
       <td>
         <div className={s.buttonWrapper}>
           <button className={s.editButton} onClick={onEdit}>
-            <img src="./assets/Edit_Icon-min.svg" alt="Edit" />
+            <img src={btnImgSrc} alt="Edit" />
           </button>
           <button className={s.deleteButton} onClick={handleDelete}>
             Delete

@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import s from './ButtonAddTransaction.module.css';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
 import { useDispatch } from 'react-redux';
-
+import addBtnImg from '../../assets/+btn.svg';
 const ButtonAddTransaction = () => {
   const btn = useRef(null);
   useEffect(() => {
@@ -27,7 +27,7 @@ const ButtonAddTransaction = () => {
       onClick={() => handleModals(MODALS.add)}
       aria-label="Add transaction"
     >
-      <img src="/src/assets/+btn.svg" alt="Add" />
+      <img src={addBtnImg} alt="Add" />
       {/* <Plus size={26} /> */}
     </button>
   );

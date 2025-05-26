@@ -27,12 +27,9 @@ const ButtonAddTransaction = () => {
       onClick={() => handleModals(MODALS.add)}
       aria-label="Add transaction"
     >
-      {' '}
-      <svg className={s.divider} width="100%" height="2">
-        <use href="/sprites.svg#+button-icon"></use>
+      <svg width="56" height="56" aria-hidden="true">
+        <use href="/public/sprites.svg#+button-icon" />
       </svg>
-      {/* <img src="/src/assets/+btn.svg" alt="Add" /> */}
-      {/* <Plus size={26} /> */}
     </button>
   );
 };

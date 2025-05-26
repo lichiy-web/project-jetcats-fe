@@ -44,14 +44,11 @@ const DevPanel = () => {
   const handleHidePanel = e => {
     const hideBtn = e.currentTarget;
     const btnWidth = hideBtn.clientWidth;
-    console.log({ hideBtn, btnWidth });
     const panel = hideBtn.parentElement;
     const panelWidth = panel.clientWidth;
-    console.log({ panel, panelWidth });
     isPanelHidden
       ? (panel.style.left = '0px')
       : (panel.style.left = -panelWidth + btnWidth + 'px');
-    console.log('panel.style.left = ', panel.style.left);
     setIsPanelHidden(!isPanelHidden);
   };
   return (

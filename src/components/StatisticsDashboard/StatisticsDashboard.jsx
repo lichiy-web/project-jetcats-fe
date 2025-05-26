@@ -71,6 +71,11 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   IndicatorSeparator: () => null,
                 }}
                 styles={{
+                  dropdownIndicator: base => ({
+                    ...base,
+                    padding: 0,
+                    marginRight: '20px',
+                  }),
                   control: base => ({
                     ...base,
                     background:
@@ -89,6 +94,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                     cursor: 'pointer',
                     color: '#fcfcfc',
                     borderRadius: '8px',
+                    margin: '0',
                   }),
                   menuList: base => ({
                     ...base,
@@ -144,6 +150,11 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   IndicatorSeparator: () => null,
                 }}
                 styles={{
+                  dropdownIndicator: base => ({
+                    ...base,
+                    padding: 0,
+                    marginRight: '20px',
+                  }),
                   control: base => ({
                     ...base,
                     background:
@@ -165,6 +176,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                     borderRadius: '8px',
                     background:
                       'linear-gradient(180deg, #294045 0%, #1e2f33 100%)',
+                    margin: '0',
                   }),
                   menuList: base => ({
                     ...base,

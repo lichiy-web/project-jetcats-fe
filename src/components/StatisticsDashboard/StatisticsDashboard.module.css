@@ -1,11 +1,24 @@
+.statisticsInputsWrapper {
+  display: flex;
+  flex-direction: column;
+
+  width: 264px;
+  height: 100%;
+
+  margin-top: 60px;
+}
+
 .form {
   font-family: var(--font-family);
   /* background-color: var(--main-light-green); */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
-  width: 395px;
-  height: 44px;
+  /* width: 395px;
+  height: 44px; */
+  width: 100%;
+  height: auto;
 }
 
 .fieldMonth {
@@ -39,12 +52,12 @@
   border: 1px solid #fcfcfc;
   border-radius: 50px;
   padding: 10px 14px;
-  width: 187px;
+  width: 122px;
   height: 44px;
 }
 
 :global(.my-select__control) {
-  width: 187px;
+  width: 122px;
   height: 44px;
   box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -70,3 +83,63 @@
 :global(.my-select__menu-list::-webkit-scrollbar) {
   display: none;
 }
+
+/** =================== Mobile: { min-width: 320px } =================== */
+
+@media (min-width: 320px) {
+  .fieldMonth {
+    width: 122px;
+    height: 44px;
+  }
+
+  .fieldYear {
+    width: 122px;
+    height: 44px;
+  }
+}
+
+/* =================== / Mobile: { min-width: 320px } =================== */
+/** =================== Tablet: { min-width: 768px } =================== */
+
+@media screen and (min-width: 768px) {
+  .statisticsInputsWrapper {
+    width: 317px;
+
+    margin-top: 0;
+  }
+
+  .fieldMonth {
+    width: 148px;
+  }
+
+  .fieldYear {
+    width: 148px;
+  }
+  :global(.my-select__control) {
+    width: 148px;
+  }
+}
+
+/* =================== / Tablet: { min-width: 768px } =================== */
+/** =================== Desktop: { min-width: 1280 px } =================== */
+@media (min-width: 1280px) {
+  .statisticsInputsWrapper {
+    width: 395px;
+    height: 44px;
+  }
+
+  .fieldMonth {
+    width: 187px;
+    height: 44px;
+  }
+
+  .fieldYear {
+    width: 187px;
+    height: 44px;
+  }
+
+  :global(.my-select__control) {
+    width: 187px;
+  }
+}
+/*! =================== / Desktop: { min-width: 1280 px } =================== */

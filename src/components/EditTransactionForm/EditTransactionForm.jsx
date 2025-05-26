@@ -83,12 +83,10 @@ const EditTransactionForm = ({ onClose }) => {
         >
           {({ values, setFieldValue }) => (
             <Form className={s.form}>
-              <div className={s.WrapperToggle}>
-                <ToggleDescTransaction
-                  values={values}
-                  setFieldValue={setFieldValue}
-                />
-              </div>
+              <ToggleDescTransaction
+                values={values}
+                setFieldValue={setFieldValue}
+              />
 
               <div className={s.wrapper}>
                 <InputCategory />

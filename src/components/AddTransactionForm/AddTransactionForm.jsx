@@ -36,8 +36,8 @@ const AddTransactionForm = ({ onClose }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <div className={s.backdrop}>
-      <div className={s.modal} onClick={e => e.stopPropagation()}>
+    <div>
+      <div onClick={e => e.stopPropagation()}>
         <CloseButton onClick={onClose} />
         <h2 className={s.title}>Add transaction</h2>
 
@@ -58,9 +58,6 @@ const AddTransactionForm = ({ onClose }) => {
               const day = String(d.getDate()).padStart(2, '0');
               return `${year}-${month}-${day}`;
             };
-            // const formatDateToYYYYMMDD = date => {
-            //   return date.toISOString().split('T')[0];
-            // };
 
             const payload = {
               type: values.type,
@@ -73,15 +70,6 @@ const AddTransactionForm = ({ onClose }) => {
             if (values.type === 'income') {
               payload.category = '6825eae52bcfe457b4ce5b14';
             }
-            // const payload = {
-            //   type: values.type,
-            //   category:
-            //     values.category ||
-            //     (values.type === 'income' ? '6825eae52bcfe457b4ce5b14' : ''),
-            //   sum: Number(values.sum),
-            //   date: formatDateToYYYYMMDD(values.date),
-            //   comment: values.comment,
-            // };
 
             dispatch(addTransaction(payload))
               .unwrap()
@@ -91,22 +79,16 @@ const AddTransactionForm = ({ onClose }) => {
               .catch(error => {
                 error.message;
               });
-            // dispatch(addTransaction(payload))
-            //   .then(() => onClose())
-            //   .catch(error =>
-            //     console.error(
-            //       'Ошибка при добавлении транзакции:',
-            //       error.message
-            //     )
-            //   );
           }}
         >
           {({ values, setFieldValue }) => (
             <Form className={s.form}>
-              <ToggleDescTransaction
-                values={values}
-                setFieldValue={setFieldValue}
-              />
+              <div className={s.WrapperToggle}>
+                <ToggleDescTransaction
+                  values={values}
+                  setFieldValue={setFieldValue}
+                />
+              </div>
 
               <div className={s.wrapper}>
                 <InputCategory />

@@ -6,6 +6,16 @@
 }
 .dudeMobile {
   display: block;
+  bottom: 23px;   
+  right: 12px;
+  width: 159px;
+  height: 118px;
+}
+
+.dudeWrapper {
+    display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 @media screen and (max-width: 1279px) {
   .dude {

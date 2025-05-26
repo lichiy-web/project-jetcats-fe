@@ -32,6 +32,12 @@ const summaryStatisticSlice = createSlice({
     setIsIncome: (state, action) => {
       state.isIncome = action.payload;
     },
+    setYear: (state, action) => {
+      state.period.year = action.payload;
+    },
+    setMonth: (state, action) => {
+      state.period.month = action.payload;
+    },
   },
 
   extraReducers: builder => {
@@ -55,5 +61,5 @@ const summaryStatisticSlice = createSlice({
   },
 });
 
-export const { setIsIncome } = summaryStatisticSlice.actions;
+export const { setIsIncome, setYear, setMonth } = summaryStatisticSlice.actions;
 export default summaryStatisticSlice.reducer;

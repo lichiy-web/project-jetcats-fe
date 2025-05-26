@@ -71,3 +71,22 @@
   transform: translateX(40px);
   background-color: var(--main-red);
 }
+
+@media screen and (max-width: 320px) {
+  .toggle {
+    width: 88px;
+    height: 40px;
+  }
+
+  .toggleSlider::before {
+    width: 48px;
+    height: 44px;
+  }
+
+  .toggleInput:checked + .toggleSlider::before {
+    transform: translateX(45px);
+  }
+  .toggleGroup {
+    margin-bottom: 30px;
+  }
+}

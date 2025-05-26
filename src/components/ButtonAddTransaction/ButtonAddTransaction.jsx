@@ -27,7 +27,7 @@ const ButtonAddTransaction = () => {
       onClick={() => handleModals(MODALS.add)}
       aria-label="Add transaction"
     >
-      <img src="/src/assets/+ btn.svg" alt="Add" />
+      <img src="/src/assets/+btn.svg" alt="Add" />
       {/* <Plus size={26} /> */}
     </button>
   );

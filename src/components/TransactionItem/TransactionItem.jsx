@@ -102,7 +102,7 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
             Delete
           </button>
           <button className={s.editButton} onClick={onEdit}>
-            <img src="/src/assets/Edit_Icon-min.svg" alt="Edit" />
+            <img src="./assets/Edit_Icon-min.svg" alt="Edit" />
           </button>
         </div>
       </li>

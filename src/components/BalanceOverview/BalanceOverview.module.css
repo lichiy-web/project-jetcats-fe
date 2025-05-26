@@ -46,12 +46,3 @@
     position: absolute;
   }
 }
-
-/* mobile */
-.mobileBalance {
-  border-radius: 16px;
-  padding: 24px 16px;
-  width: 288px;
-  height: 115px;
-  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
-}

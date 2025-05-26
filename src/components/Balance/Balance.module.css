@@ -34,3 +34,12 @@
     padding-top: 20px;
   }
 }
+@media screen and (max-width: 767px) {
+  .container {
+    background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+    border-radius: 16px;
+    padding: 24px 16px;
+    width: 288px;
+    height: 115px;
+  }
+}

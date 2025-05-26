@@ -4,19 +4,23 @@
   font-size: 30px;
   text-align: center;
   color: var(--main-black);
+  margin-bottom: 40px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
   align-items: center;
-  margin-top: 40px;
 }
+
 .wrapper {
   display: flex;
   flex-direction: column;
   gap: 36px;
-  margin-bottom: 30px;
+  margin-bottom: 38px;
 }
 
 .inputWrapper {
@@ -28,5 +32,38 @@
 .btnGroup {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 21px;
+}
+
+@media (max-width: 320px) {
+  .form {
+    margin: 0 auto;
+    align-items: stretch;
+  }
+
+  .title {
+    margin-bottom: 30px;
+  }
+
+  .wrapper {
+    gap: 12px;
+  }
+
+  .inputWrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .wrapper {
+    margin-bottom: 30px;
+  }
+
+  .btnGroup {
+    gap: 12px;
+  }
+
+  .WrapperToggle {
+    margin: 0 auto;
+  }
 }

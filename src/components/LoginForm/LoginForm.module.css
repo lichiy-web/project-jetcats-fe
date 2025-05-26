@@ -27,3 +27,32 @@
     gap: 16px;
   }
 }
+/* 
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  justify-content: space-between;
+  gap: 2.19rem;
+  width: 100%;
+  max-width: 25.56rem;
+  min-height: 16.25rem;
+}
+
+.inputFields,
+.btnFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    gap: 16px;
+    justify-content: flex-start;
+  }
+  .inputFields,
+  .btnFields {
+    gap: 16px;
+  }
+} */

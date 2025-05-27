@@ -7,8 +7,9 @@
   gap: 0.5rem;
   border: 1px solid var(--main-black);
   border-radius: 0.5rem;
-  padding: 0.6875rem 4.25rem;
   width: 100%;
+  width: 15.9375rem;
+  padding: 0.6875rem 4.25rem;
   height: auto;
   background-color: var(--main-light-green);
   font-family: 'Inter', sans-serif;
@@ -24,8 +25,9 @@
   color: var(--main-white);
 }
 
-@media (max: 320px) {
+@media (min-width: 768px) {
   .btn {
-    width: 271px;
+    padding: 0.6875rem 4.25rem;
+    width: 25.625rem;
   }
 }

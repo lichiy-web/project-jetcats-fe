@@ -21,6 +21,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    setBalance: (state, { payload: balance }) => {
+      state.user.balance = balance;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(
@@ -60,3 +65,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+export const { setBalance } = authSlice.actions;

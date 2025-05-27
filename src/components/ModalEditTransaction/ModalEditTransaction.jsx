@@ -27,6 +27,7 @@ const customStyles = {
 };
 
 const ModalEditTransaction = ({ isOpen, onClose, transaction }) => {
+  // console.log({ isOpen, onClose, transaction });
   // const isModalEditTransaction = useSelector(selectIsModalEditTransaction);
   const dispatch = useDispatch();
   const closeModal = () => {

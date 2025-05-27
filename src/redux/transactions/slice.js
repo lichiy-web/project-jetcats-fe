@@ -54,11 +54,10 @@ const slice = createSlice({
       .addCase(patchTransaction.pending, handlePending)
 
       .addCase(patchTransaction.fulfilled, (state, action) => {
+        console.log({ action });
         state.loading = false;
         state.items = state.items.map(item =>
-          item._id === action.payload.transaction._id
-            ? action.payload.transaction
-            : item
+          item._id === action.payload._id ? action.payload : item
         );
       })
       .addCase(patchTransaction.rejected, handleReject)

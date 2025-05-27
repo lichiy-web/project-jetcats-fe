@@ -1,12 +1,19 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import TransactionItem from '../TransactionItem/TransactionItem';
 import ModalEditTransaction from '../ModalEditTransaction/ModalEditTransaction';
 import ModalDeleteTransaction from '../ModalDeleteTransaction/ModalDeleteTransaction';
 import s from './TransactionList.module.css';
+import { fetchTransactions } from '../../redux/transactions/operations';
+import { fetchCategories } from '../../redux/categories/operations';
 
 const TransactionList = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchTransactions());
+    dispatch(fetchCategories());
+  }, [dispatch]);
   const transactions = useSelector(state => state.transactions.items) || [];
   const isMobile = useMediaQuery({ maxWidth: 767 });
   // const [editedTransaction, setEditedTransaction] = useState(null);

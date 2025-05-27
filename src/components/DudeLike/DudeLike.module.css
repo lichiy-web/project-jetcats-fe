@@ -17,16 +17,6 @@
   justify-content: flex-end;
   width: 100%;
 }
-
-.dudeLogin {
-  position: absolute;
-  width: 326px;
-  height: 239px;
-  right: 16px;
-  bottom: 58px;
-  z-index: -10;
-}
-
 @media screen and (max-width: 1279px) {
   .dude {
     width: 181px;

@@ -6,7 +6,6 @@ import {
 } from '../../redux/currency/selectors';
 import { useEffect } from 'react';
 import { fetchCurrencyRates } from '../../redux/currency/operations';
-import { toast, Slide } from 'react-toastify';
 
 const CurrencyItem = () => {
   const dispatch = useDispatch();
@@ -17,21 +16,9 @@ const CurrencyItem = () => {
     dispatch(fetchCurrencyRates());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (error) {
-      toast.error('Failed to load currency rates', {
-        position: 'top-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: 'light',
-        transition: Slide,
-      });
-    }
-  }, [error]);
+  if (error) {
+    return <p>Failed to load currency rates</p>;
+  }
 
   return (
     <div>

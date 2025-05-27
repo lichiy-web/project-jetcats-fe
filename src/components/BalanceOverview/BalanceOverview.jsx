@@ -4,25 +4,39 @@ import Currency from '../Currency/Currency';
 import DudeHi from '../DudeHi/DudeHi';
 import s from './BalanceOverview.module.css';
 import useMediaQuery from '../../utils/useMediaQuery';
+import DudeLike from '../DudeLike/DudeLike';
 
 const BalanceOverview = () => {
   const location = useLocation();
   const isTablet = useMediaQuery('(max-width: 1279px)');
   const isMobile = useMediaQuery('(max-width: 767px)');
 
+  const isHome = location.pathname === '/';
+  const isCurrency = location.pathname === '/currency';
+  const isStatistics = location.pathname === '/statistics';
+
   if (isMobile) {
-    if (location.pathname === '/') {
+    if (isHome) {
       return (
         <div className={s.mobileBalance}>
           <Balance />
         </div>
       );
     }
-    if (location.pathname === '/currency') {
+    if (isCurrency) {
+      return (
+        <div className={s.mobileWrapper}>
+          <div className={s.mobileStats}>
+            <Currency />
+            <DudeHi />
+          </div>
+        </div>
+      );
+    }
+    if (isStatistics) {
       return (
         <div className={s.mobileStats}>
-          <Currency />
-          <DudeHi />
+          <DudeLike />
         </div>
       );
     }
@@ -38,22 +52,18 @@ const BalanceOverview = () => {
         <div className={s.tabletCurrency}>
           <Currency />
         </div>
-        {location.pathname === '/' && (
-          <div className={s.dudeWrapper}>
-            <DudeHi />
-          </div>
-        )}
+        <div className={s.dudeWrapper}>
+          {isStatistics ? <DudeLike /> : <DudeHi />}
+        </div>
       </div>
     </>
   ) : (
     <div className={s.container}>
       <Balance />
       <Currency />
-      {location.pathname === '/' && (
-        <div className={s.dudeWrapper}>
-          <DudeHi />
-        </div>
-      )}
+      <div className={s.dudeWrapper}>
+        {isStatistics ? <DudeLike /> : <DudeHi />}
+      </div>
     </div>
   );
 };

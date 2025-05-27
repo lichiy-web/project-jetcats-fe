@@ -46,6 +46,9 @@
   fill: #172326;
   opacity: 1;
 }
+.currencyIcon {
+  transform: translateY(3px) scale(0.85);
+}
 
 /* tablet */
 
@@ -64,6 +67,11 @@
 
 /* mobile */
 @media screen and (max-width: 767px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
   .mobileOnly {
     display: inline-block;
   }

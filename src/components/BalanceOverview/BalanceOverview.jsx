@@ -31,9 +31,9 @@ const BalanceOverview = () => {
 
   return isTablet ? (
     <>
-      <div className={s.tabletBalance}>
+      {/* <div className={s.tabletBalance}>
         <Balance />
-      </div>
+      </div> */}
       <div className={s.tabletContainer}>
         <div className={s.tabletCurrency}>
           <Currency />

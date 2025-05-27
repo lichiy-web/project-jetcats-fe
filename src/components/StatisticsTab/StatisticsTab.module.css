@@ -14,7 +14,15 @@
 
 @media screen and (min-width: 1400px) {
   .statisticsContainer {
-    width: calc(47.3125rem * 1.1);
-    padding: 1.1rem 2.2rem;
+    width: 100%;
+    max-width: 100%;
+    height: calc(60vw * 0.773);
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .statisticsContainer {
+    width: 93.75rem;
+    height: 72.4688rem;
   }
 }

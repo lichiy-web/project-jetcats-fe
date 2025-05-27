@@ -23,3 +23,20 @@
     height: 135px;
   }
 }
+
+@media screen and (min-width: 1400px) {
+  .dude {
+    width: 100%;
+    max-width: 17vw;
+    height: calc(17vw * 0.748);
+    bottom: 0px;
+    top: 50%;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .dude {
+    width: 26.5625rem;
+    height: 19.8688rem;
+  }
+}

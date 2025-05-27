@@ -1,6 +1,6 @@
 .layoutWrapper {
   width: 100%;
-  max-width: 18rem;
+  max-width: 20rem;
 }
 
 .header {
@@ -19,8 +19,8 @@
   justify-content: center;
   min-height: calc(100vh - 70px);
   width: 100%;
-  max-width: 18rem;
-  padding: 1.5rem 1rem 1rem;
+  max-width: 20rem;
+  padding: 1rem;
   box-sizing: border-box;
   gap: 1.5rem;
   background: var(
@@ -40,7 +40,7 @@
   .layoutWrapper {
     max-width: 48rem;
   }
-  
+
   .pageWrapper {
     max-width: 48rem;
     padding: 1.5rem;
@@ -55,7 +55,6 @@
   .tabletSidebar {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
   }
 /*//////////////////*/
   .navigation {
@@ -132,6 +131,13 @@
     flex: 1;
     max-width: 160rem;
   }
+
+  .header {
+    width: 100%;
+    max-width: 100%;
+    height: calc(100% * 0.07);
+  }
+  
   .pageWrapper {
     flex: 1;
     max-width: 160rem;

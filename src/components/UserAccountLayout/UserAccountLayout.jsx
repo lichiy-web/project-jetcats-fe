@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import SideBar from '../SideBar/SideBar';
 import Navigation from '../Navigation/Navigation';
@@ -13,8 +13,8 @@ const UserAccountLayout = () => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
 
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  // const location = useLocation();
+  // const isHomePage = location.pathname === '/';
 
   return (
     <div className={css.layoutWrapper}>
@@ -40,9 +40,10 @@ const UserAccountLayout = () => {
         )}
 
         {isMobile && (
-          <>
-            <Navigation /> {isHomePage && <Balance />}
-          </>
+          <SideBar/>
+          // <>
+          //   <Navigation /> {isHomePage && <Balance />}
+          // </>
         )}
 
         <main className={css.mainContent}>

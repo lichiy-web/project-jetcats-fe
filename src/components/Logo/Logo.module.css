@@ -16,8 +16,8 @@
 
 .logoIcon {
   fill: var(--main-black);
-  width: 45px;
-  height: 36px;
+  width: 22px;
+  height: 22px;
 }
 
 .logoIconMobile {
@@ -25,22 +25,26 @@
 }
 
 .logoText {
-    font-size: 30px;
+    font-size: 17px;
   }
 
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .logoIcon {
     display: none;
+    width: 31px;
+    height: 31px;
   }
   .logoIconMobile {
     display: block;
-    width: 192px;
-    height: 94px;
+    width: 100%;
+    max-width: 69px;
+    height: 54px;
   }
   .logoText {
     display: none;
+    font-size: 17px;
   }
-}
+} */
 
 .logoIcon.auth {
   width: 46px;

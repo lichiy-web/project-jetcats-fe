@@ -1,19 +1,11 @@
-import DudeHiSvg from '../../assets/DudeHi.svg';
+import DudeHiPng from '../../images/dudeHi/dudeHi-1x.png';
 import css from './DudeHi.module.css';
 
-const DudeHi = ({
-  isMobile = false,
-  isTablet = false,
-  isLoginPage = false,
-}) => {
-  if (isLoginPage) {
-    return <img src={DudeHiSvg} alt="Dude Hi" className={css.dudeLogin} />;
-  }
-
+const DudeHi = ({ isMobile = false, isTablet = false }) => {
   if (isMobile) {
     return (
       <div className={css.dudeWrapper}>
-        <img src={DudeHiSvg} alt="Dude Hi" className={css.dudeMobile} />
+        <img src={DudeHiPng} alt="Dude Hi" className={css.dudeMobile} />
       </div>
     );
   }
@@ -21,11 +13,13 @@ const DudeHi = ({
   if (isTablet) {
     return (
       <div className={css.dudeWrapper}>
-        <img src={DudeHiSvg} alt="Dude Hi" className={css.dudeTablet} />
+        <img src={DudeHiPng} alt="Dude Hi" className={css.dudeTablet} />
+
       </div>
     );
   }
 
-  return <img src={DudeHiSvg} alt="Dude Hi" className={css.dude} />;
+  return <img src={DudeHiPng} alt="Dude Hi" className={css.dude} />;
+
 };
 export default DudeHi;

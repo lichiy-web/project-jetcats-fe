@@ -1,11 +1,11 @@
-import DudeLikeSvg from '../../assets/DudeLike.svg';
+import DudeLikePng from '../../images/dudeLike/DudeLike.png';
 import css from './DudeLike.module.css';
 
 const DudeLike = ({ isMobile = false, isTablet = false }) => {
   if (isMobile) {
     return (
       <div className={css.dudeWrapper}>
-        <img src={DudeLikeSvg} alt="Dude Hi" className={css.dudeMobile} />
+        <img src={DudeLikePng} alt="Dude Hi" className={css.dudeMobile} />
       </div>
     );
   }
@@ -13,11 +13,11 @@ const DudeLike = ({ isMobile = false, isTablet = false }) => {
   if (isTablet) {
     return (
       <div className={css.dudeWrapper}>
-        <img src={DudeLikeSvg} alt="Dude Hi" className={css.dudeTablet} />
+        <img src={DudeLikePng} alt="Dude Hi" className={css.dudeTablet} />
       </div>
     );
   }
 
-  return <img src={DudeLikeSvg} alt="Dude Hi" className={css.dude} />;
+  return <img src={DudeLikePng} alt="Dude Hi" className={css.dude} />;
 };
 export default DudeLike;

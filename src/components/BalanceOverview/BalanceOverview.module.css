@@ -49,19 +49,3 @@
     position: absolute;
   }
 }
-
-@media screen and (min-width: 1400px) {
-  .container {
-    max-width: 100%;
-    width: 100%;
-    height: calc(37vw * 1.05);
-  }
-  .dudeWrapper{}
-}
-
-@media screen and (min-width: 2500px) {
-  .container {
-    width: 57.8125rem;
-    height: 60.7031rem;
-  }
-}

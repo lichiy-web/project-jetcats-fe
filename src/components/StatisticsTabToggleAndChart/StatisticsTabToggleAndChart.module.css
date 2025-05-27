@@ -4,18 +4,3 @@
   justify-content: center;
   align-items: center;
 }
-
-@media screen and (min-width: 1400px) {
-  .statisticsTabToggleAndChartWrapper {
-    width: 100%;
-    max-width: 100%;
-    height: calc(23vw * 1.264);
-  }
-}
-
-@media screen and (min-width: 2500px) {
-  .statisticsTabToggleAndChartWrapper {
-    width: 35.9375rem;
-    height: 45.425rem;
-  }
-}

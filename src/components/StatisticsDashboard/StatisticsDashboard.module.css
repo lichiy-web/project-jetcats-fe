@@ -70,18 +70,3 @@
 :global(.my-select__menu-list::-webkit-scrollbar) {
   display: none;
 }
-
-@media screen and (min-width: 1400px) {
-  .container {
-    width: 100%;
-    max-width: 100%;
-    height: calc(31vw * 1.595);
-  }
-}
-
-@media screen and (min-width: 2500px) {
-  .statisticsTabToggleAndChartWrapper {
-    width: 48.4375rem;
-    height: 77.258rem;
-  }
-}

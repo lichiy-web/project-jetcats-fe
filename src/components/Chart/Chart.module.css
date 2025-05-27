@@ -1,17 +1,16 @@
 .ChartWrapper {
   display: flex;
-  margin-top: 34px;
+  margin-top: 32px;
   /* width: 100%; */
   /* height: 400px; */
-  width: 288px;
-  max-width: 288px;
+  width: 264px;
+  max-width: 264px;
 }
 
 .chartContainer {
   width: 100%;
   height: 100%;
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 264px;
 }
 
 .totalSum {
@@ -20,3 +19,28 @@
   font-size: 18px;
   font-weight: 700;
 }
+
+/** =================== Mobile: { min-width: 320px } =================== */
+
+@media (min-width: 320px) {
+}
+
+/* =================== / Mobile: { min-width: 320px } =================== */
+/** =================== Tablet: { min-width: 768px } =================== */
+
+@media screen and (min-width: 768px) {
+  .ChartWrapper {
+    width: 288px;
+    max-width: 288px;
+  }
+
+  .chartContainer {
+    max-width: 288px;
+  }
+}
+
+/* =================== / Tablet: { min-width: 768px } =================== */
+/** =================== Desktop: { min-width: 1280 px } =================== */
+@media (min-width: 1280px) {
+}
+/*! =================== / Desktop: { min-width: 1280 px } =================== */

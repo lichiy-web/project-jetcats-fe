@@ -68,3 +68,20 @@
 .switchInput:checked + .switchSlider .switchCircle {
   transform: translateX(40px);
 }
+
+/** =================== Mobile: { min-width: 320px } =================== */
+
+@media (min-width: 320px) {
+}
+
+/* =================== / Mobile: { min-width: 320px } =================== */
+/** =================== Tablet: { min-width: 768px } =================== */
+
+@media screen and (min-width: 768px) {
+}
+
+/* =================== / Tablet: { min-width: 768px } =================== */
+/** =================== Desktop: { min-width: 1280 px } =================== */
+@media (min-width: 1280px) {
+}
+/*! =================== / Desktop: { min-width: 1280 px } =================== */

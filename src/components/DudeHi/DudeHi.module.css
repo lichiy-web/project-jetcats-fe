@@ -1,14 +1,13 @@
 .dudeWrap {
-    display: flex;
+  display: flex;
   justify-content: flex-end;
   width: 100%;
 }
 
-/* .dude {
-  position: absolute;
+.dude {
   z-index: 1;
   overflow: hidden;
-} */
+}
 
 @media (min-width: 1280px) {
 
@@ -19,8 +18,6 @@
     right: 16px;
     width: 326px;
     height: 239px;
-    z-index: 1;
-    overflow: hidden;
   }
 }
 
@@ -30,26 +27,9 @@
     width: 326px;
     height: 239px;
     transform: translateX(117px);
-    /* position: relative; */
   }
 }
 
-
-/* @media (max-width: 1279px) {
-  .dudeLog {
-    display: none;
-  }
-} */
-
-/* .dudeTablet {
-  display: block;
-   width: 326px;
-  height: 239px;
-  transform: translateX(117px);
-  position: relative;
-  bottom: 58px;
-  right: 1px;
-} */
 
 @media (max-width: 767px) {
 .dudeLog {
@@ -61,28 +41,3 @@
 }
 }
 
-/* .dude {
-  bottom: 40px;
-  right: 16px;
-  width: 222px;
-  height: 166px;
-}
-.dudeMobile {
-  display: block;
-  bottom: 23px;   
-  right: 12px;
-  width: 159px;
-  height: 118px;
-}
-
-.dudeWrapper {
-    display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-@media screen and (max-width: 1279px) {
-  .dude {
-    width: 181px;
-    height: 135px;
-  }
-} */

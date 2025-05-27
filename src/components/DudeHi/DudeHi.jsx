@@ -1,51 +1,18 @@
+import clsx from 'clsx';
 import DudeHiSvg from '../../assets/DudeHi.svg';
 import css from './DudeHi.module.css';
 
-const DudeHi = () => {
+const DudeHi = ({ className = '' }) =>{
   return (
-    <div className={css.dudeWrapper}>
+   <div className={clsx(css.dudeWrap, className)}>
       <img
         src={DudeHiSvg}
         alt="Dude Hi"
-        className={css.dudeLog}
+        className={`${css.dude} ${className}`}
       />
-    </div>
+      </div>
   );
 };
 
 export default DudeHi;
-
-// import DudeHiSvg from '../../assets/DudeHi.svg';
-// import css from './DudeHi.module.css';
-
-// const DudeHi = ({isMobile = false, isTablet = false}) => {
-//   if (isMobile) {
-//     return (
-//       <div className={css.dudeWrap}>
-//         <img
-//           src={DudeHiSvg}
-//           alt="Dude Hi"
-//           className={css.dudeMobile}
-//         />
-//       </div>
-//     );
-//   }
-
-//     if (isTablet) {
-//     return (
-//       <div className={css.dudeWrapper} >
-//         <img src={DudeHiSvg} alt="Dude Hi" className={css.dudeTablet} />
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <img
-//       src={DudeHiSvg}
-//       alt="Dude Hi"
-//       className={css.dude}
-//     />
-//   );
-// };
-// export default DudeHi;
 

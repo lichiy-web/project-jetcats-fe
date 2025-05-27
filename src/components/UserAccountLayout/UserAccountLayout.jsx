@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-// import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import SideBar from '../SideBar/SideBar';
 import css from './UserAccountLayout.module.css';
@@ -10,12 +9,8 @@ import BalanceOverview from '../BalanceOverview/BalanceOverview';
 
 const UserAccountLayout = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  // const isTabletOrAbove = useMediaQuery({ minWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
-
-  // const location = useLocation();
-  // const isHomePage = location.pathname === '/';
 
   return (
     <div>

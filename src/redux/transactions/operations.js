@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { appApi } from '../api/api';
+import { setBalance } from '../auth/slice';
 
 export const fetchTransactions = createAsyncThunk(
   'transactions/fetchAll',
@@ -29,7 +30,14 @@ export const deleteTransaction = createAsyncThunk(
   async (transactionId, thunkAPI) => {
     return appApi
       .delete(`/transactions/${transactionId}`)
-      .then(({ data }) => data._id)
+      .then(({ data }) => {
+        const {
+          data: { balance },
+        } = data;
+        console.log('deleteTransaction => ', { balance });
+        thunkAPI.dispatch(setBalance(balance));
+        return transactionId;
+      })
       .catch(error => thunkAPI.rejectWithValue(error.message));
   }
 );
@@ -39,7 +47,14 @@ export const patchTransaction = createAsyncThunk(
   async ({ transactionId, transaction }, thunkAPI) => {
     return appApi
       .patch(`/transactions/${transactionId}`, transaction)
-      .then(({ data }) => data)
+      .then(({ data }) => {
+        const {
+          data: { balance },
+        } = data;
+        // console.log('patchTransaction => ', { balance });
+        thunkAPI.dispatch(setBalance(balance));
+        return { ...transaction, _id: transactionId };
+      })
       .catch(error => thunkAPI.rejectWithValue(error.message));
   }
 );

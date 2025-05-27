@@ -16,12 +16,20 @@ import toast from 'react-hot-toast';
 // Валідація з урахуванням backend-схеми
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
+  email: Yup.string().email('Invalid email'),
   password: Yup.string()
     .min(6, 'Password must be at least 6 characters')
-    .required('Password is required'),
+    .required('Password is required')
+    .required('Email is required'),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Passwords must match')
+    .test({
+      name: 'comparePasswords',
+      message: 'Passwords do not match',
+      test: (value, context) => {
+        console.log({ value, context });
+        return value === context.parent.password;
+      },
+    })
     .required('Confirm password is required'),
 });
 

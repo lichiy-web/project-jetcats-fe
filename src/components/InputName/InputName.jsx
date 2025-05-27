@@ -1,4 +1,4 @@
-import { useField } from 'formik';
+import { Field, useField } from 'formik';
 import { ImUser } from 'react-icons/im';
 import css from './InputName.module.css';
 
@@ -8,7 +8,14 @@ const InputName = () => {
   return (
     <div className="inputLogWrapper">
       <ImUser size={24} color="#081222" />
-      <input {...field} type="text" placeholder="Name" className="inputLog" />
+      <Field
+        {...field}
+        type="text"
+        name="name"
+        placeholder="Name"
+        className="inputLog"
+        autoComplete="new-name"
+      />
       {meta.touched && meta.error && (
         <div className={css.error}>{meta.error}</div>
       )}

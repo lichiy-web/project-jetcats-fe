@@ -1,6 +1,7 @@
 .tableContainer {
   width: 100%;
-  max-width: 395px;
+  height: 100%;
+  max-width: 264px;
   margin-top: 20px;
 
   border-radius: 8px;
@@ -52,3 +53,29 @@
   font-size: 14px;
   font-weight: 600;
 }
+
+/** =================== Mobile: { min-width: 320px } =================== */
+
+@media (min-width: 320px) {
+  .tableContainer {
+    max-width: 264px;
+  }
+}
+
+/* =================== / Mobile: { min-width: 320px } =================== */
+/** =================== Tablet: { min-width: 768px } =================== */
+
+@media screen and (min-width: 768px) {
+  .tableContainer {
+    max-width: 317px;
+  }
+}
+
+/* =================== / Tablet: { min-width: 768px } =================== */
+/** =================== Desktop: { min-width: 1280 px } =================== */
+@media (min-width: 1280px) {
+  .tableContainer {
+    max-width: 395px;
+  }
+}
+/*! =================== / Desktop: { min-width: 1280 px } =================== */

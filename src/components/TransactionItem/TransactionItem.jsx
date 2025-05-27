@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteTransaction } from '../../redux/transactions/operations';
+import { useSelector } from 'react-redux';
+// import { deleteTransaction } from '../../redux/transactions/operations';
 import { format, isValid, parseISO } from 'date-fns';
 import s from './TransactionItem.module.css';
 
@@ -9,7 +9,7 @@ const TransactionItem = ({
   onEdit,
   onDelete,
 }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const categories = useSelector(state => state.categories.items);
 
   const formatDate = isoDate => {
@@ -82,12 +82,12 @@ const TransactionItem = ({
         <div className={s.buttonWrapper}>
           <button className={s.editButton} onClick={onEdit}>
             <svg className={s.editButton} width="24" height="24">
-              <use href="/sprites.svg#edit-icon"></use>
+              <use href="../../../public/sprites.svg#edit-icon"></use>
             </svg>
           </button>
           <button
             className={s.deleteButton}
-            onClick={() => onDelete(transaction)}
+            onClick={() => onDelete(transaction._id)}
           >
             Delete
           </button>

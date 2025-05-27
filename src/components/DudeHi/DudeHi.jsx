@@ -14,10 +14,12 @@ const DudeHi = ({ isMobile = false, isTablet = false }) => {
     return (
       <div className={css.dudeWrapper}>
         <img src={DudeHiPng} alt="Dude Hi" className={css.dudeTablet} />
+
       </div>
     );
   }
 
   return <img src={DudeHiPng} alt="Dude Hi" className={css.dude} />;
+
 };
 export default DudeHi;

@@ -12,7 +12,10 @@ const Navigation = () => {
         >
           {({ isActive }) => (
             <div className={s.svgContainer}>
-              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
+              <svg
+                className={clsx(s.icon, isActive && s.activeIcon)}
+                preserveAspectRatio="xMidYMid meet"
+              >
                 <use xlinkHref="/sprites.svg#home-icon" />
               </svg>
               <span className={s.linkText}>Home</span>
@@ -25,7 +28,10 @@ const Navigation = () => {
         >
           {({ isActive }) => (
             <div className={s.svgContainer}>
-              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
+              <svg
+                className={clsx(s.icon, isActive && s.activeIcon)}
+                preserveAspectRatio="xMidYMid meet"
+              >
                 <use xlinkHref="/sprites.svg#statistics-icon" />
               </svg>
               <span className={s.linkText}>Statistics</span>
@@ -40,9 +46,14 @@ const Navigation = () => {
         >
           {({ isActive }) => (
             <div className={s.svgContainer}>
-              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
-                <use xlinkHref="/sprites.svg#home-icon" />
-              </svg>
+              <div className={s.currencyIcon}>
+                <svg
+                  className={clsx(s.icon, isActive && s.activeIcon)}
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <use xlinkHref="/sprites.svg#currency-mob-icon" />
+                </svg>
+              </div>
             </div>
           )}
         </NavLink>

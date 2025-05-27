@@ -4,3 +4,30 @@
   justify-content: center;
   align-items: center;
 }
+
+/** =================== Mobile: { min-width: 320px } =================== */
+
+@media (min-width: 320px) {
+  .statisticsTabToggleAndChartWrapper {
+  }
+}
+
+/* =================== / Mobile: { min-width: 320px } =================== */
+/** =================== Tablet: { min-width: 768px } =================== */
+
+@media screen and (min-width: 768px) {
+  .statisticsTabToggleAndChartWrapper {
+  }
+}
+
+/* =================== / Tablet: { min-width: 768px } =================== */
+/** =================== Desktop: { min-width: 1280 px } =================== */
+@media (min-width: 1280px) {
+  .statisticsTabToggleAndChartWrapper {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+  }
+}
+/*! =================== / Desktop: { min-width: 1280 px } =================== */

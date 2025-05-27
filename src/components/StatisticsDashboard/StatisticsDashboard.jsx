@@ -62,7 +62,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className={css.statisticsInputsWrapper}>
       <Formik initialValues={initialValues}>
         {() => {
           return (
@@ -75,6 +75,11 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   IndicatorSeparator: () => null,
                 }}
                 styles={{
+                  dropdownIndicator: base => ({
+                    ...base,
+                    padding: 0,
+                    marginRight: '20px',
+                  }),
                   control: base => ({
                     ...base,
                     background:
@@ -93,6 +98,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                     cursor: 'pointer',
                     color: '#fcfcfc',
                     borderRadius: '8px',
+                    margin: '0',
                   }),
                   menuList: base => ({
                     ...base,
@@ -153,6 +159,11 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   IndicatorSeparator: () => null,
                 }}
                 styles={{
+                  dropdownIndicator: base => ({
+                    ...base,
+                    padding: 0,
+                    marginRight: '20px',
+                  }),
                   control: base => ({
                     ...base,
                     background:
@@ -169,11 +180,10 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   }),
                   menu: base => ({
                     ...base,
-                    width: '187px',
-                    height: '157px',
                     borderRadius: '8px',
                     background:
                       'linear-gradient(180deg, #294045 0%, #1e2f33 100%)',
+                    margin: '0',
                   }),
                   menuList: base => ({
                     ...base,

@@ -18,21 +18,31 @@
   width: 100%;
 }
 
-.buttonWrapper {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: flex-start;
-}
 .editButton {
   background-color: transparent;
+  stroke: var(--main-white);
+  fill: none;
+  color: var(--main-white);
   border: none;
+  text-align: right;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-right: 8px;
+}
+@media screen and (max-width: 767px) {
+  .editButton {
+    padding: 0;
+  }
+}
+.editButtonText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--main-white);
 }
 
 .editButton:hover {
@@ -58,19 +68,45 @@
 .deleteButton:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
 /* ********************** */
 
 .transactionCard {
+  position: relative;
   padding: 16px;
   border-radius: 16px;
   color: var(--main-white);
   display: flex;
   flex-direction: column;
   gap: 8px;
+  overflow: hidden;
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
 }
-.transactionField svg {
-  width: 100%;
+
+.income::before,
+.expense::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.income::before {
+  background-color: #24cca7;
+}
+
+.expense::before {
+  background-color: var(--main-yellow);
+}
+
+.transactionField svg.divider {
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  margin-right: -16px;
   height: 2px;
   display: block;
 }
@@ -80,18 +116,12 @@
   justify-content: space-between;
   font-size: 0.95rem;
   flex-grow: 1;
-}
-
-.income {
-  border-left: 6px solid #24cca7;
-}
-
-.expense {
-  border-left: 6px solid var(--main-yellow);
+  height: 48px;
 }
 
 .buttonWrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   gap: 8px;
 }

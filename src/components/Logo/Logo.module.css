@@ -16,16 +16,8 @@
 
 .logoIcon {
   fill: var(--main-black);
-  width: 45px;
-  height: 36px;
-}
-
-.logoIconMobile {
-  display: none;
-}
-
-.logoText {
-  font-size: 30px;
+  width: 27px;
+  height: 21px;
 }
 
 .logoIcon.black {

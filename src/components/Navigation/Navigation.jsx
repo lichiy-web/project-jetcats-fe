@@ -12,10 +12,7 @@ const Navigation = () => {
         >
           {({ isActive }) => (
             <div className={s.svgContainer}>
-              <svg
-                className={clsx(s.icon, isActive && s.activeIcon)}
-                fill="linear-gradient(180deg, #294045 0%, #1e2f33 100%)"
-              >
+              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
                 <use xlinkHref="/sprites.svg#home-icon" />
               </svg>
               <span className={s.linkText}>Home</span>

@@ -28,9 +28,8 @@
   color: var(--main-black);
   margin-top: 1.5625rem;
   margin-bottom: 1.5625rem;
-}
-.break {
-  display: block;
+  width: 100%;
+  max-width: 12.25rem;
 }
 .container {
   position: relative;
@@ -48,8 +47,5 @@
     max-width: 100%;
     margin-top: 2.375rem;
     margin-bottom: 1.5rem;
-  }
-  .break {
-    display: inline;
   }
 }

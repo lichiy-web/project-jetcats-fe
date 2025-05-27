@@ -8,6 +8,10 @@ import InputPassword from '../InputPassword/InputPassword';
 import LoginLink from '../LoginLink/LoginLink';
 import RegisterButton from '../RegisterButton/RegisterButton';
 import css from './RegistrationForm.module.css';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { register } from '../../redux/auth/operations';
+import toast from 'react-hot-toast';
 
 // Валідація з урахуванням backend-схеми
 const validationSchema = Yup.object().shape({
@@ -29,10 +33,28 @@ const initialValues = {
 };
 
 const RegistrationForm = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    // Тут буде запит на бекенд, поки просто лог
-    console.log('Register:', values);
-    resetForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmit = async values => {
+    const { name, email, password } = values;
+
+    try {
+      await dispatch(register({ name, email, password })).unwrap();
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+
+      if (error.includes('400')) {
+        toast.error('Not valid email');
+      } else if (error.includes('Email in use') || error.includes('409')) {
+        toast.error('Email already in use');
+      } else if (error.includes('500')) {
+        toast.error('Unable to connect to the server');
+      } else {
+        toast.error(error);
+      }
+    }
   };
 
   return (

@@ -21,3 +21,9 @@
   color: var(--main-black);
   background: var(--main-light-green);
 }
+
+@media (max: 320px) {
+  .saveBtn {
+    width: 271px;
+  }
+}

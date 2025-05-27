@@ -38,7 +38,7 @@ const CustomDatePicker = ({ selectedDate, onChange }) => {
           ></path>
         </svg>
       </div>
-      <ErrorMessage name="amount" component="div" className={s.error} />
+      <ErrorMessage name="amount" component="div" className="error" />
     </div>
   );
 };

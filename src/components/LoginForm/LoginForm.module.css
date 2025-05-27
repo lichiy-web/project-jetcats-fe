@@ -7,7 +7,7 @@
   width: 100%;
   max-width: 25.56rem;
   min-height: 16.25rem;
-  padding-bottom: 32px;
+  /* padding-bottom: 32px; */
 }
 
 .inputFields,
@@ -20,6 +20,7 @@
 @media screen and (max-width: 767px) {
   .form {
     gap: 16px;
+    justify-content: flex-start;
   }
   .inputFields,
   .btnFields {

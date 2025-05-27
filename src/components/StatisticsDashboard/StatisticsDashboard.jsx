@@ -5,6 +5,8 @@ import css from './StatisticsDashboard.module.css';
 import Select from 'react-select';
 import { SlArrowDown } from 'react-icons/sl';
 import { components } from 'react-select';
+import { useDispatch } from 'react-redux';
+import { setMonth, setYear } from '../../redux/summary/summaryStatisticSlice';
 const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const initialValues = {
     month: 'may',
@@ -57,6 +59,8 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
     console.log('Year:', yearValue);
   }, [formValues]);
 
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Formik initialValues={initialValues}>
@@ -71,6 +75,11 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   IndicatorSeparator: () => null,
                 }}
                 styles={{
+                  dropdownIndicator: base => ({
+                    ...base,
+                    padding: 0,
+                    marginRight: '20px',
+                  }),
                   control: base => ({
                     ...base,
                     background:
@@ -89,6 +98,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                     cursor: 'pointer',
                     color: '#fcfcfc',
                     borderRadius: '8px',
+                    margin: '0',
                   }),
                   menuList: base => ({
                     ...base,
@@ -122,6 +132,11 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                 }
                 onChange={option => {
                   const newMonth = option.value;
+                  const newNumMonth =
+                    monthOptions.findIndex(month => month.value === newMonth) +
+                    1;
+                  console.log({ newMonth, newNumMonth });
+                  dispatch(setMonth(newNumMonth));
 
                   const selectedMonthIndex = monthOptions.findIndex(
                     m => m.value === newMonth
@@ -144,6 +159,11 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   IndicatorSeparator: () => null,
                 }}
                 styles={{
+                  dropdownIndicator: base => ({
+                    ...base,
+                    padding: 0,
+                    marginRight: '20px',
+                  }),
                   control: base => ({
                     ...base,
                     background:
@@ -160,11 +180,10 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   }),
                   menu: base => ({
                     ...base,
-                    width: '187px',
-                    height: '157px',
                     borderRadius: '8px',
                     background:
                       'linear-gradient(180deg, #294045 0%, #1e2f33 100%)',
+                    margin: '0',
                   }),
                   menuList: base => ({
                     ...base,
@@ -185,6 +204,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                 value={yearOptions.find(opt => opt.value === formValues.year)}
                 onChange={option => {
                   const newYear = option.value;
+                  dispatch(setYear(newYear));
 
                   setFormValues(prev => {
                     const selectedMonthIndex = monthOptions.findIndex(

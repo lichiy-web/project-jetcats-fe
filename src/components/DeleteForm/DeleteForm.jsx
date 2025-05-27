@@ -7,16 +7,20 @@ import { useDispatch } from 'react-redux';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
 import { deleteTransaction } from '../../redux/transactions/operations';
 
-const DeleteForm = ({ transactionId }) => {
+const DeleteForm = ({ transactionId, onClose }) => {
   const dispatch = useDispatch();
 
+  // const handleCancel = () => {
+  //   dispatch(toggleModal(MODALS.delete));
+  // };
   const handleCancel = () => {
-    dispatch(toggleModal(MODALS.delete));
+    onClose();
   };
 
   const handleDelete = async () => {
     try {
       await dispatch(deleteTransaction(transactionId)).unwrap();
+      onClose();
       dispatch(toggleModal(MODALS.delete));
     } catch (error) {
       toast.error('Failed to delete transaction:', error);
@@ -35,7 +39,7 @@ const DeleteForm = ({ transactionId }) => {
         <button onClick={handleDelete} className={css.deleteBtn}>
           Delete
         </button>
-        <CancelButton onClick={handleCancel} />
+        <CancelButton onClick={onClose} />
       </div>
     </>
   );

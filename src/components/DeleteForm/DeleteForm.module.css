@@ -1,21 +1,18 @@
 .deleteBtn {
   border-radius: 0.5rem;
   padding: 0.6875rem 4.9375rem;
-  width: 100%;
-  max-width: 15.9375rem;
+  width: 410px;
   height: auto;
   background-color: var(--main-red);
-  font-weight: 500;
   font-size: 1.125rem;
   text-align: center;
   color: var(--main-white);
   margin-bottom: 0.75rem;
-  transition: all 350ms ease-in-out;
 }
 .deleteBtn:hover,
 .deleteBtn:focus {
   background-color: var(--main-light-red);
-  color: var(--main-black);
+
   outline: none;
 }
 .logo {
@@ -28,8 +25,6 @@
   color: var(--main-black);
   margin-top: 1.5625rem;
   margin-bottom: 1.5625rem;
-  width: 100%;
-  max-width: 12.25rem;
 }
 .container {
   position: relative;
@@ -37,9 +32,9 @@
   flex-direction: column;
   align-items: center;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .deleteBtn {
-    max-width: 25.625rem;
+    width: 255px;
     margin-bottom: 1.3125rem;
   }
 

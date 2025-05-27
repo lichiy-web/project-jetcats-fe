@@ -21,6 +21,7 @@ const InputPassword = () => {
           id="password"
           placeholder="Password"
           className={clsx('inputLog', isError && 'inputLogError')}
+          autoComplete="current-password"
         />
       </div>
       <ErrorMessage name="password" component="div" className="error" />

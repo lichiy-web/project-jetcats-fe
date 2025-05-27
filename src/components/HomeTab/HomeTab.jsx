@@ -14,6 +14,7 @@ const HomeTab = () => {
     dispatch(fetchTransactions());
     dispatch(fetchCategories());
   }, [dispatch]);
+
   return (
     <>
       <div className={s.list}>

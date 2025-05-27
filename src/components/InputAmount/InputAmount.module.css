@@ -36,7 +36,7 @@
   font-weight: 400;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 590px) {
   .inputAmount {
     width: 100%;
   }

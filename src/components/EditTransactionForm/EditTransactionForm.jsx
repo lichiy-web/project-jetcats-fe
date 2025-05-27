@@ -15,7 +15,16 @@ import { fetchCategories } from '../../redux/categories/operations';
 import { patchTransaction } from '../../redux/transactions/operations';
 import ToggleDescTransaction from '../ToggleDescTransaction/ToggleDescTransaction';
 
-const EditTransactionForm = ({ onClose }) => {
+const EditTransactionForm = ({ onClose, transaction }) => {
+  const { type, sum, date, comment, category } = transaction;
+  const initialValues = {
+    type,
+    sum,
+    date,
+    comment,
+    category,
+  };
+
   const validateSchema = Yup.object({
     sum: Yup.number().positive('Must be positive').required('Required'),
     date: Yup.date().required('Required'),
@@ -35,6 +44,38 @@ const EditTransactionForm = ({ onClose }) => {
 
   const [startDate, setStartDate] = useState(new Date());
 
+  const handleSubmit = async values => {
+    const formatDateToYYYYMMDD = date => {
+      const d = new Date(date);
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    };
+
+    const patchedTransaction = {
+      type: values.type,
+      category: values.category,
+      sum: Number(values.sum),
+      date: formatDateToYYYYMMDD(values.date),
+      comment: values.comment,
+    };
+
+    dispatch(
+      patchTransaction({
+        transactionId: transaction._id,
+        transaction: patchedTransaction,
+      })
+    )
+      .unwrap()
+      .then(() => {
+        onClose();
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className={s.backdrop}>
       <div className={s.modal} onClick={e => e.stopPropagation()}>
@@ -42,51 +83,19 @@ const EditTransactionForm = ({ onClose }) => {
         <h2 className={s.title}>Edit transaction</h2>
 
         <Formik
-          initialValues={{
-            type: 'expense',
-            sum: '',
-            date: new Date(),
-            comment: '',
-            category: '',
-          }}
+          enableReinitialize
+          initialValues={initialValues}
           validationSchema={validateSchema}
-          onSubmit={values => {
-            const formatDateToYYYYMMDD = date => {
-              const d = new Date(date);
-              const year = d.getFullYear();
-              const month = String(d.getMonth() + 1).padStart(2, '0');
-              const day = String(d.getDate()).padStart(2, '0');
-              return `${year}-${month}-${day}`;
-            };
-
-            const payload = {
-              type: values.type,
-              category: values.category,
-              sum: Number(values.sum),
-              date: formatDateToYYYYMMDD(values.date),
-              comment: values.comment,
-            };
-
-            if (values.type === 'income') {
-              payload.category = '6825eae52bcfe457b4ce5b14';
-            }
-
-            dispatch(patchTransaction(payload))
-              .unwrap()
-              .then(() => {
-                onClose();
-              })
-              .catch(error => {
-                error.message;
-              });
-          }}
+          onSubmit={handleSubmit}
         >
           {({ values, setFieldValue }) => (
             <Form className={s.form}>
-              <ToggleDescTransaction
-                values={values}
-                setFieldValue={setFieldValue}
-              />
+              <div className={s.WrapperToggle}>
+                <ToggleDescTransaction
+                  values={values}
+                  setFieldValue={setFieldValue}
+                />
+              </div>
 
               <div className={s.wrapper}>
                 <InputCategory />

@@ -77,7 +77,7 @@ const AddTransactionForm = ({ onClose }) => {
                 onClose();
               })
               .catch(error => {
-                error.message;
+                console.error(error);
               });
           }}
         >

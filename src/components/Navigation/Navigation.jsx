@@ -14,7 +14,7 @@ const Navigation = () => {
             <div className={s.svgContainer}>
               <svg
                 className={clsx(s.icon, isActive && s.activeIcon)}
-                fill="linear-gradient(180deg, #294045 0%, #1e2f33 100%)"
+                preserveAspectRatio="xMidYMid meet"
               >
                 <use xlinkHref="/sprites.svg#home-icon" />
               </svg>
@@ -28,7 +28,10 @@ const Navigation = () => {
         >
           {({ isActive }) => (
             <div className={s.svgContainer}>
-              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
+              <svg
+                className={clsx(s.icon, isActive && s.activeIcon)}
+                preserveAspectRatio="xMidYMid meet"
+              >
                 <use xlinkHref="/sprites.svg#statistics-icon" />
               </svg>
               <span className={s.linkText}>Statistics</span>
@@ -43,9 +46,14 @@ const Navigation = () => {
         >
           {({ isActive }) => (
             <div className={s.svgContainer}>
-              <svg className={clsx(s.icon, isActive && s.activeIcon)}>
-                <use xlinkHref="/sprites.svg#home-icon" />
-              </svg>
+              <div className={s.currencyIcon}>
+                <svg
+                  className={clsx(s.icon, isActive && s.activeIcon)}
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <use xlinkHref="/sprites.svg#currency-mob-icon" />
+                </svg>
+              </div>
             </div>
           )}
         </NavLink>

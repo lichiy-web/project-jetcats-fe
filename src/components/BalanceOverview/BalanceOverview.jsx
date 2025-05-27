@@ -1,19 +1,27 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Balance from '../Balance/Balance';
 import Currency from '../Currency/Currency';
 import DudeHi from '../DudeHi/DudeHi';
 import s from './BalanceOverview.module.css';
-import useMediaQuery from '../../utils/useMediaQuery';
+import { useMediaQuery } from 'react-responsive';
 import DudeLike from '../DudeLike/DudeLike';
+import { useEffect } from 'react';
 
 const BalanceOverview = () => {
   const location = useLocation();
-  const isTablet = useMediaQuery('(max-width: 1279px)');
-  const isMobile = useMediaQuery('(max-width: 767px)');
+  const navigate = useNavigate();
+  const isTablet = useMediaQuery({ maxWidth: 1279 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const isHome = location.pathname === '/';
   const isCurrency = location.pathname === '/currency';
   const isStatistics = location.pathname === '/statistics';
+
+  useEffect(() => {
+    if (isCurrency && !isMobile) {
+      navigate('/');
+    }
+  }, [isCurrency, isMobile, navigate]);
 
   if (isMobile) {
     if (isHome) {

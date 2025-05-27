@@ -3,7 +3,12 @@ import { deleteTransaction } from '../../redux/transactions/operations';
 import { format, isValid, parseISO } from 'date-fns';
 import s from './TransactionItem.module.css';
 
-const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
+const TransactionItem = ({
+  transaction,
+  isMobile = false,
+  onEdit,
+  onDelete,
+}) => {
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories.items);
 
@@ -13,7 +18,7 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
     return isValid(date) ? format(date, 'dd.MM.yy') : 'Invalid date';
   };
 
-  const handleDelete = () => dispatch(deleteTransaction(transaction._id));
+  // const handleDelete = () => dispatch(deleteTransaction(transaction._id));
   const isIncome = transaction.type === 'income';
   const sign = isIncome ? '+' : '-';
   const category = categories.find(cat => cat._id === transaction.category);
@@ -28,56 +33,6 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
       { label: 'Sum', value: transaction.sum?.toFixed(2) ?? '0.00' },
     ];
 
-    // return (
-    //   <li className={`${s.transactionCard} ${isIncome ? s.income : s.expense}`}>
-    //     <div className={s.transactionField}>
-    //       <span>Date:</span>
-    //       <span>{formatDate(transaction.date)}</span>
-    //     </div>
-    //     <svg width="288" height="2" viewBox="0 0 288 2" fill="none">
-    //       <path opacity="0.4" d="M0 1L288 1" stroke="#FCFCFC" />
-    //     </svg>
-    //     <div className={s.transactionField}>
-    //       <span>Type:</span>
-    //       <span>{sign}</span>
-    //     </div>
-    //     <svg width="288" height="2" viewBox="0 0 288 2" fill="none">
-    //       <path opacity="0.4" d="M0 1L288 1" stroke="#FCFCFC" />
-    //     </svg>
-    //     <div className={s.transactionField}>
-    //       <span>Category:</span>
-    //       <span>{categoryName}</span>
-    //     </div>
-    //     <svg width="288" height="2" viewBox="0 0 288 2" fill="none">
-    //       <path opacity="0.4" d="M0 1L288 1" stroke="#FCFCFC" />
-    //     </svg>
-    //     <div className={s.transactionField}>
-    //       <span>Comment:</span>
-    //       <span className={s.comment} title={transaction.comment}>
-    //         {transaction.comment}
-    //       </span>
-    //     </div>
-    //     <svg width="288" height="2" viewBox="0 0 288 2" fill="none">
-    //       <path opacity="0.4" d="M0 1L288 1" stroke="#FCFCFC" />
-    //     </svg>
-    //     <div className={s.transactionField}>
-    //       <span>Sum:</span>
-    //       <span>{transaction.sum?.toFixed(2) ?? '0.00'}</span>
-    //     </div>
-    //     <svg width="288" height="2" viewBox="0 0 288 2" fill="none">
-    //       <path opacity="0.4" d="M0 1L288 1" stroke="#FCFCFC" />
-    //     </svg>
-    //     <div className={s.buttonWrapper}>
-    //       <button className={s.deleteButton} onClick={handleDelete}>
-    //         Delete
-    //       </button>
-    //       <button className={s.editButton} onClick={onEdit}>
-    //         <img src="/src/assets/Edit_Icon-min.svg" alt="Edit" />
-    //       </button>
-    //     </div>
-    //   </li>}
-    // );
-
     return (
       <li className={`${s.transactionCard} ${isIncome ? s.income : s.expense}`}>
         {transactionFields.map(({ label, value, className }, index) => (
@@ -90,19 +45,25 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
               {value}
             </span>
             {index < transactionFields.length && (
-              <svg width="100%" height="2" viewBox="0 0 288 2" fill="none">
-                <path opacity="0.4" d="M0 1L288 1" stroke="#FCFCFC" />
+              <svg className={s.divider} width="100%" height="2">
+                <use href="/sprites.svg#divider-line"></use>
               </svg>
             )}
           </div>
         ))}
 
         <div className={s.buttonWrapper}>
-          <button className={s.deleteButton} onClick={handleDelete}>
+          <button
+            className={s.deleteButton}
+            onClick={() => onDelete(transaction)}
+          >
             Delete
           </button>
           <button className={s.editButton} onClick={onEdit}>
-            <img src="./assets/Edit_Icon-min.svg" alt="Edit" />
+            <svg width="24" height="24">
+              <use href="/sprites.svg#edit-icon"></use>
+            </svg>
+            <span className={s.editButtonText}>Edit</span>
           </button>
         </div>
       </li>
@@ -120,9 +81,14 @@ const TransactionItem = ({ transaction, isMobile = false, onEdit }) => {
       <td>
         <div className={s.buttonWrapper}>
           <button className={s.editButton} onClick={onEdit}>
-            <img src="./assets/Edit_Icon-min.svg" alt="Edit" />
+            <svg className={s.editButton} width="24" height="24">
+              <use href="/sprites.svg#edit-icon"></use>
+            </svg>
           </button>
-          <button className={s.deleteButton} onClick={handleDelete}>
+          <button
+            className={s.deleteButton}
+            onClick={() => onDelete(transaction)}
+          >
             Delete
           </button>
         </div>

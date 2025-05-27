@@ -69,7 +69,6 @@
 
 .arrow {
   transition: 0.4s ease;
-  margin-right: 14px;
 }
 .arrowOpen {
   transform: rotate(180deg);
@@ -115,6 +114,7 @@
   .fieldYear {
     width: 148px;
   }
+
   :global(.my-select__control) {
     width: 148px;
   }
@@ -142,4 +142,4 @@
     width: 187px;
   }
 }
-/*! =================== / Desktop: { min-width: 1280 px } =================== */
+

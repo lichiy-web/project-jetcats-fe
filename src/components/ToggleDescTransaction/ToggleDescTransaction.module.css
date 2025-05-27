@@ -71,6 +71,9 @@
   transform: translateX(40px);
   background-color: var(--main-red);
 }
+.icon {
+  color: aqua;
+}
 
 @media screen and (max-width: 320px) {
   .toggle {

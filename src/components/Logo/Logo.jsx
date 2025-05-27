@@ -8,9 +8,6 @@ const Logo = ({ isAuth }) => {
       <svg className={css.logoIcon}>
         <use href="/sprites.svg#logo-icon" />
       </svg>
-      <svg className={css.logoIconMobile}>
-        <use href="/sprites.svg#logo-modal-text-icon" />
-      </svg>
       <span className={css.logoText}>Spendy</span>
     </div>
   );

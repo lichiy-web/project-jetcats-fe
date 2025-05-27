@@ -9,8 +9,10 @@
 .form {
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
   margin-top: 40px;
+  z-index: 1000;
 }
 .wrapper {
   display: flex;
@@ -29,4 +31,21 @@
   display: flex;
   flex-direction: column;
   gap: 21px;
+}
+
+.modal {
+  position: relative;
+  z-index: 1001;
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

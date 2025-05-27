@@ -3,17 +3,18 @@
   background: none;
   border: none;
   padding: 0;
-
   cursor: pointer;
-  z-index: 1000;
   transition: transform 0.2s ease-in-out;
   transform: rotate(180deg);
+  outline: none !important;
 }
 
 .addTransactionButton:hover {
   transform: scale(1.05);
+  outline: none !important;
 }
 
 .addTransactionButton svg path {
+  outline: none !important;
   stroke: black !important;
 }

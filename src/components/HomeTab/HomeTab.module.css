@@ -51,10 +51,11 @@
 
 @media (min-width: 320px) and (max-width: 767px) {
   .list {
-    width: 320px;
+    width: 288px;
   }
   .homeTabContainer {
-    width: 320px;
+    width: 288px;
+    padding: 0px;
     background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
   }
 }

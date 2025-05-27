@@ -62,7 +62,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className={css.statisticsInputsWrapper}>
       <Formik initialValues={initialValues}>
         {() => {
           return (

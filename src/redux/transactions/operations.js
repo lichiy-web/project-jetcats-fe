@@ -20,7 +20,10 @@ export const addTransaction = createAsyncThunk(
   async (transaction, thunkAPI) => {
     return appApi
       .post('/transactions', transaction)
-      .then(({ data }) => data)
+      .then(({ data }) => {
+        thunkAPI.dispatch(setBalance(data.data.balance));
+        return data;
+      })
       .catch(error => thunkAPI.rejectWithValue(error.message));
   }
 );

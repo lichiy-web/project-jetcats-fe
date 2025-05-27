@@ -1,16 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { appApi } from '../api/api';
 import { setBalance } from '../auth/slice';
+import { disableLoader, enableLoader } from '../app/slice';
+
+export const enLoader = thunkAPI => thunkAPI.dispatch(enableLoader());
+export const disLoader = thunkAPI => thunkAPI.dispatch(disableLoader());
 
 export const fetchTransactions = createAsyncThunk(
   'transactions/fetchAll',
   async (signal, thunkAPI) => {
+    enLoader(thunkAPI);
     return (
       appApi
         .get('/transactions', { signal: signal })
         // .then(({ data }) => data)
         .then(({ data }) => data.data.transactions)
         .catch(error => thunkAPI.rejectWithValue(error.message))
+        .finally(() => {
+          disLoader(thunkAPI);
+        })
     );
   }
 );

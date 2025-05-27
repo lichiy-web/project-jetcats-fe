@@ -60,35 +60,3 @@
     margin: 0 auto;
   }
 }
-
-@media (max-width: 320px) {
-  .form {
-    margin: 0 auto;
-    align-items: stretch;
-  }
-
-  .title {
-    margin-bottom: 30px;
-  }
-
-  .wrapper {
-    gap: 12px;
-  }
-
-  .inputWrapper {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .wrapper {
-    margin-bottom: 30px;
-  }
-
-  .btnGroup {
-    gap: 12px;
-  }
-
-  .WrapperToggle {
-    margin: 0 auto;
-  }
-}

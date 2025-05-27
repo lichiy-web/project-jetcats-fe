@@ -10,8 +10,8 @@ const AuthCard = ({ formType }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   return (
-    <div className={clsx(css.wrapper, formType === 'login' && css.login)}>
-      <Logo />
+    <div className={css.wrapper}>
+      <Logo isAuth={true} />
       {formType === 'register' ? <RegistrationForm /> : <LoginForm />}
       {isMobile && formType === 'login' && <DudeHi />} 
     </div>

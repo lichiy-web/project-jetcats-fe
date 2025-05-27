@@ -21,7 +21,7 @@ export default DudeHi;
 // const DudeHi = ({isMobile = false, isTablet = false}) => {
 //   if (isMobile) {
 //     return (
-//       <div className={css.dudeWrapper}>
+//       <div className={css.dudeWrap}>
 //         <img
 //           src={DudeHiSvg}
 //           alt="Dude Hi"

@@ -57,3 +57,24 @@
     background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
   }
 }
+
+@media screen and (min-width: 1400px) {
+  .list {
+    width: 100%;
+    max-width: 100%;
+    height: calc(60vw * 0.773);
+  }
+  .homeTabContainer {
+    width: 98%;
+    max-width: 100%;
+    height: calc(60vw * 0.773);
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .list,
+  .homeTabContainer {
+    width: 93.75rem;
+    height: 72.4688rem;
+  }
+}

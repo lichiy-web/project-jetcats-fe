@@ -54,3 +54,14 @@
   margin: 0;
   list-style: none;
 }
+
+/* ******** */
+
+@media screen and (min-width: 1400px) {
+  .transactionTable td {
+    font-size: clamp(0.95rem, 1.5vw, 1.9rem);
+  }
+  .transactionTable th {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+  }
+}

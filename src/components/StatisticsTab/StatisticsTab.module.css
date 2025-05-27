@@ -11,3 +11,10 @@
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
   flex-shrink: 0;
 }
+
+@media screen and (min-width: 1400px) {
+  .statisticsContainer {
+    width: calc(47.3125rem * 1.1);
+    padding: 1.1rem 2.2rem;
+  }
+}

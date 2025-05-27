@@ -21,3 +21,12 @@
   font-size: 30px;
   color: var(--main-white);
 }
+
+@media screen and (min-width: 1400px) {
+  .title {
+    font-size: clamp(0.75rem, 1.5vw, 1.5rem);
+  }
+  .amount {
+    font-size: clamp(1.875rem, 1.5vw, 3.75rem);
+  }
+}

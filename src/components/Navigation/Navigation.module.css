@@ -33,3 +33,21 @@
   display: flex;
   justify-content: left;
 }
+
+@media screen and (min-width: 1400px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    height: calc(37vw * 0.2);
+  }
+  .link {
+    font-size: clamp(1.125rem, 1.5vw, 2.25rem);
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .container {
+    width: 57.8125rem;
+    height: 11.5625rem;
+  }
+}

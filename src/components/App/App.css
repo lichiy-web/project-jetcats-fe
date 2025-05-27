@@ -12,8 +12,8 @@
 
 .main-container {
   padding: 0 1em 1em 1em;
-  max-width: 50em;
-  width: 70%;
+  max-width: none;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -48,4 +48,11 @@
   line-height: 2;
   /* margin-bottom: .5em; */
   /* margin-top: .5em; */
+}
+
+@media screen and (min-width: 1400px) {
+  .main-container {
+    width: 100%;
+    max-width: 160rem;
+  }
 }

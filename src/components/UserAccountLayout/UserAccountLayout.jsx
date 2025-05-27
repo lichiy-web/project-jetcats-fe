@@ -17,7 +17,7 @@ const UserAccountLayout = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div>
+    <div className={css.layoutWrapper}>
       <div className={css.header}>
         <Header />
       </div>

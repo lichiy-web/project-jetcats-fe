@@ -26,3 +26,9 @@
   font-size: 16px;
   color: var(--main-white);
 }
+
+@media screen and (min-width: 1400px) {
+  .span {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+  }
+}

@@ -1,6 +1,17 @@
+.layoutWrapper {
+  width: 100%;
+  max-width: 18rem;
+}
+
 .header {
   height: 70px;
 }
+
+/* .layoutWrapper {
+  max-width: 100%;
+  width: 100%;
+  min-height: 100vh;
+} */
 
 .pageWrapper {
   display: flex;
@@ -26,6 +37,10 @@
 
 /* ========== TABLET ========== */
 @media screen and (min-width: 768px) {
+  .layoutWrapper {
+    max-width: 48rem;
+  }
+  
   .pageWrapper {
     max-width: 48rem;
     padding: 1.5rem;
@@ -65,15 +80,73 @@
 
 /* ========== DESKTOP ========== */
 @media screen and (min-width: 1280px) {
+  .layoutWrapper {
+    max-width: 80rem;
+  }
+
+  /* .layoutWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  } */
+  
+  /* .header {
+    width: 100%;
+    max-width: none;
+    min-width: 1280px;
+  } */
+  
   .pageWrapper {
     flex-direction: row;
     max-width: 80rem;
+    /* max-width: 100%;
+    min-width: 1280px; */
     min-height: calc(100vh - 80px);
     padding: 2rem 1.5rem 1.5rem;
     gap: 1.5rem;
+    /* margin: 0 auto; */
   }
+
+  /* .navigation {
+    width: 100%;
+    max-width: none;
+  } */
+
+  /* .balance {
+    width: 100%;
+    max-width: none;
+  } */
 
   .mainContent {
     max-width: 47.3125rem;
+    /* width: 100%;
+    max-width: none; */
+  }
+}
+
+/* ========== LARGE SCREEN ========== */
+
+@media (min-width: 1400px) {
+  .layoutWrapper {
+    flex: 1;
+    max-width: 160rem;
+  }
+  .pageWrapper {
+    flex: 1;
+    max-width: 160rem;
+  }
+
+  .mainContent {
+    width: 100%;
+    max-width: 60%;
+    height: calc(60% * 0.773);
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .mainContent {
+    width: 93.75rem;
+    height: 72.4688rem;
   }
 }

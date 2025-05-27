@@ -1,0 +1,14 @@
+@media screen and (min-width: 1400px) {
+  .sidebar {
+    width: 100%;
+    max-width: 37vw;
+    height: calc(37vw * 1.2);
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .sidebar {
+    width: 57.8125rem;
+    height: 75.1563rem;
+  }
+}

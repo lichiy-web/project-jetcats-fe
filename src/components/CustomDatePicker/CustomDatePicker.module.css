@@ -1,6 +1,5 @@
 .datepickerWrapper {
   width: 100%;
-  max-width: 250px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -21,12 +20,15 @@
   font-size: 18px;
   color: var(--main-black);
   width: 193px;
-  height: 44px;
+  outline: none;
 }
 
-.datepickerInput:focus {
-  border-color: #1e90ff;
-  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.3);
+.datepickerInput:focus,
+.datepickerInput:hover {
+  outline: none;
+  box-shadow: none;
+  border-color: #27393d;
+  background-color: transparent;
 }
 
 .iconWrapper {
@@ -37,4 +39,10 @@
   pointer-events: none;
   color: var(--main-black);
   font-size: 1.2em;
+}
+
+@media (max-width: 320px) {
+  .datepickerInput {
+    width: 100%;
+  }
 }

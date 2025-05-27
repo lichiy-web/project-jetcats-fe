@@ -8,7 +8,7 @@
   border: 1px solid var(--main-black);
   border-radius: 0.5rem;
   padding: 0.6875rem 4.25rem;
-  width: 25.625rem;
+  width: 100%;
   height: auto;
   background-color: var(--main-light-green);
   font-family: 'Inter', sans-serif;
@@ -22,4 +22,10 @@
 .btn:hover {
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
   color: var(--main-white);
+}
+
+@media (max: 320px) {
+  .btn {
+    width: 271px;
+  }
 }

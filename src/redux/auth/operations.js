@@ -13,15 +13,19 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data: user } = await appApi.post('/auth/register', credentials);
+      const {
+        data: { data: user },
+      } = await appApi.post('/auth/register', credentials);
       const { email, password } = credentials;
       const {
-        data: { accessToken },
-      } = appApi.post('/auth/login', { email, password });
+        data: {
+          data: { accessToken },
+        },
+      } = await appApi.post('/auth/login', { email, password });
       setAuthHeader(accessToken);
       return { user, accessToken };
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -34,7 +38,7 @@ export const logIn = createAsyncThunk(
         data: { data: loginRes },
       } = await appApi.post('/auth/login', credentials);
       const { accessToken } = loginRes;
-      console.log({ accessToken });
+      // console.log({ accessToken });
       setAuthHeader(accessToken);
       const {
         data: { data: user },
@@ -42,7 +46,9 @@ export const logIn = createAsyncThunk(
       return { user, accessToken };
     } catch (error) {
       // return thunkAPI.rejectWithValue(error.message);
-      return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );
@@ -55,10 +61,10 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) =>
 );
 
 export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
-  // console.log('Entered refreshUser!');
+  console.log('Entered refreshUser!');
   const state = thunkAPI.getState();
   const storedAccessToken = state.auth.accessToken;
-  // console.log('refreshUser: ', { storedAccessToken });
+  console.log('refreshUser: ', { storedAccessToken });
 
   if (!storedAccessToken)
     return thunkAPI.rejectWithValue("User isn't logged in");
@@ -70,7 +76,14 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
       // console.log('refreshUser: ', { user: data });
       return data;
     })
-    .catch(error => thunkAPI.rejectWithValue(error.message));
+    .catch(error => {
+      console.log({ error });
+      if (error.includes('401')) {
+        thunkAPI.dispatch(refreshAccessToken());
+      } else {
+        thunkAPI.rejectWithValue(error.message);
+      }
+    });
 });
 
 export const refreshAccessToken = createAsyncThunk(

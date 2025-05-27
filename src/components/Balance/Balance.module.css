@@ -22,11 +22,33 @@
   color: var(--main-white);
 }
 
+<<<<<<< HEAD
 @media screen and (min-width: 1400px) {
   .title {
     font-size: clamp(0.75rem, 1.5vw, 1.5rem);
   }
   .amount {
     font-size: clamp(1.875rem, 1.5vw, 3.75rem);
+=======
+@media screen and (max-width: 1279px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+  }
+  .title {
+    padding-top: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+    border-radius: 16px;
+    padding: 24px 16px;
+    width: 288px;
+    height: 115px;
+>>>>>>> 6996dbab86df5b9aed18d7d3e1122545e8b9e1aa
   }
 }

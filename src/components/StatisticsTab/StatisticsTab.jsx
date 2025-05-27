@@ -10,10 +10,15 @@ import s from './StatisticsTab.module.css';
 
 const StatisticsTab = () => {
   const dispatch = useDispatch();
-  const { isIncome, incomeData, expenseData } = useSelector(
-    summaryStatisticSelector
-  ); // according to initialState (summaryStatisticSlice)
+  const {
+    isIncome,
+    incomeData,
+    expenseData,
+    period: { year, month },
+  } = useSelector(summaryStatisticSelector); // according to initialState (summaryStatisticSlice)
 
+  // console.log({ period });
+  const queryPeriod = `${year}-${month}`;
   const handleToggleChange = incomeExpenseType => {
     dispatch(setIsIncome(incomeExpenseType));
   };
@@ -26,8 +31,8 @@ const StatisticsTab = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchSummary());
-  }, [dispatch]);
+    dispatch(fetchSummary(queryPeriod));
+  }, [dispatch, queryPeriod]);
 
   return (
     <div className={s.statisticsContainer}>

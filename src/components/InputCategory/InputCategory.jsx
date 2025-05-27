@@ -1,16 +1,19 @@
-import { ErrorMessage, useFormikContext } from 'formik';
+import { ErrorMessage, useFormikContext, useField } from 'formik';
 import { useState } from 'react';
 import s from './InputCategory.module.css';
 import { useSelector } from 'react-redux';
 import { selectCategories } from '../../redux/categories/selectors';
+import clsx from 'clsx';
 
 const InputCategory = () => {
   const { values, setFieldValue } = useFormikContext();
   const [isOpen, setIsOpen] = useState(false);
   const categories = useSelector(selectCategories);
+  const [, meta] = useField('category');
+
+  const isError = meta.touched && meta.error;
 
   if (values.type !== 'expense') return null;
-
   if (!Array.isArray(categories)) return null;
 
   const categoryExpense = categories.filter(
@@ -25,7 +28,7 @@ const InputCategory = () => {
           value={values.category || ''}
           onChange={e => setFieldValue('category', e.target.value)}
           onFocus={() => setIsOpen(true)}
-          className={s.select}
+          className={clsx(s.select, isError && s.selectError)}
         >
           <option value="" disabled>
             Category

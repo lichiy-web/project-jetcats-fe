@@ -1,14 +1,18 @@
 .inputAmount {
-  padding: 0.75em;
+  padding: 10px 14px;
   background: none;
   border-radius: 8px;
-  padding: 10px 14px;
   border: 1px solid #27393d;
   font-weight: 500;
   font-size: 18px;
   color: var(--main-black);
   width: 193px;
-  height: 44px;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.inputAmountError {
+  border-color: var(--main-red);
 }
 
 .inputAmount::placeholder {
@@ -28,4 +32,12 @@
 
 .error {
   color: var(--main-red);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@media (max-width: 320px) {
+  .inputAmount {
+    width: 100%;
+  }
 }

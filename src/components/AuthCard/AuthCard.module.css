@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 767px) {
   .wrapper {
-    padding: 16px 16px 46px;
+    padding: 16px 16px 23px;
     gap: 16px;
     min-width: 288px;
   }

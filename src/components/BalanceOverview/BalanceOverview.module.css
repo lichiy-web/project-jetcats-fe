@@ -4,12 +4,47 @@
   width: 451px;
   height: 469px;
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  position: relative;
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
 }
 .dudeWrapper {
-  position: static;
-  overflow: hidden;
-  max-width: 100%;
-  justify-self: center;
+  position: absolute;
+  bottom: 41;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tabletBalanceWrapper,
+.tabletCurrencyWrapper {
+  display: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .tabletContainer {
+    position: relative;
+    width: 336px;
+    height: 310px;
+  }
+  .tabletBalance {
+    border-radius: 16px;
+    padding: 16px;
+    width: 338px;
+    height: 143px;
+    background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  }
+  .tabletCurrency {
+    border-radius: 16px;
+    padding: 1px 16px;
+    width: 336px;
+    height: 310px;
+    background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+  }
+  .dudeWrapper {
+    bottom: 16px;
+    position: absolute;
+  }
 }
 
 @media screen and (min-width: 1400px) {

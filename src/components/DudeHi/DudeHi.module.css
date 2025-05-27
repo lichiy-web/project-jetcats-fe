@@ -1,13 +1,25 @@
 .dude {
-  position: absolute;
   bottom: 40px;
   right: 16px;
-  z-index: -1;
-  overflow: hidden;
-  width: 326px;
-  height: 239px;
+  width: 222px;
+  height: 166px;
 }
-
 .dudeMobile {
   display: block;
+  bottom: 23px;   
+  right: 12px;
+  width: 159px;
+  height: 118px;
+}
+
+.dudeWrapper {
+    display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+@media screen and (max-width: 1279px) {
+  .dude {
+    width: 181px;
+    height: 135px;
+  }
 }

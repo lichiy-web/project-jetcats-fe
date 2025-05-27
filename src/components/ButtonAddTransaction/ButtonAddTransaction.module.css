@@ -1,21 +1,19 @@
 .addTransactionButton {
   position: absolute;
-  background-color: transparent;
-  margin-top: auto;
-  border-radius: 50%;
-  margin-left: auto;
-  bottom: 24px;
-  right: 24px; 
-  align-self: flex-end;
-  z-index: 100;
+  background: none;
   border: none;
-  cursor: pointer;
   padding: 0;
 
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease-in-out;
+  transform: rotate(180deg);
 }
 
-@media screen and (max-width: 767px) {
-  .addTransactionButton {
-    position: fixed;
-  }
+.addTransactionButton:hover {
+  transform: scale(1.05);
+}
+
+.addTransactionButton svg path {
+  stroke: black !important;
 }

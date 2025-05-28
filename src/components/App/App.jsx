@@ -13,6 +13,7 @@ import StatisticsTab from '../StatisticsTab/StatisticsTab';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BalanceOverview from '../BalanceOverview/BalanceOverview';
+import { selectIsLoading } from '../../redux/app/selectors';
 
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
@@ -24,7 +25,7 @@ const UserAccountLayout = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
-  // const isLoadding = useSelector(selectIsLoadding);
+  const isLoadding = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -35,7 +36,7 @@ function App() {
   ) : (
     <div className="main-container">
       <DevPanel />
-      {/* <Loader isLoading={isLoadding} /> */}
+      <Loader isLoading={isLoadding} />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route

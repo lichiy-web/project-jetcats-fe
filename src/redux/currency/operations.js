@@ -1,11 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { currencyApi } from '../api/api';
+import { disLoader, enLoader } from '../transactions/operations';
 
 const CACHE_TTL = 60 * 60 * 1000;
 
 export const fetchCurrencyRates = createAsyncThunk(
   'currency/fetchRates',
-  async (_, { getState, rejectWithValue }) => {
+  async (_, thunkAPI) => {
+    enLoader(thunkAPI);
+    const { getState, rejectWithValue } = thunkAPI;
     const state = getState();
     const cached = state.currency;
     const now = Date.now();
@@ -35,7 +38,10 @@ export const fetchCurrencyRates = createAsyncThunk(
 
       return { data: formatted, timestamp: now };
     } catch {
-      return rejectWithValue('Error loading exchange rate');
+      thunkAPI.dispatch(fetchCurrencyRates());
+      rejectWithValue('Error loading exchange rate');
+    } finally {
+      disLoader(thunkAPI);
     }
   }
 );

@@ -3,7 +3,7 @@ import { COLORS } from '../../utils/colorsIncomeExpense';
 
 import s from './StatisticsTable.module.css';
 import { useSelector } from 'react-redux';
-import { summaryStatisticSelector } from '../../redux/summary/summaryStatisticSelector';
+import { summaryStatisticSelector } from '../../redux/summary/selectors';
 
 const StatisticsTable = ({ incomeExpenseData, totalSum }) => {
   const { isIncome } = useSelector(summaryStatisticSelector);

@@ -21,7 +21,7 @@ const InputEmail = () => {
           id="email"
           placeholder="E-mail"
           className={clsx('inputLog', isError && 'inputLogError')}
-          autoComplete="new-email"
+          autoComplete="current-email"
         />
       </div>
       <ErrorMessage name="email" component="div" className="error" />

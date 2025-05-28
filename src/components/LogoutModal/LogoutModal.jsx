@@ -5,7 +5,7 @@ import { logOut } from '../../redux/auth/operations.js';
 import { selectIsModalLogOut } from '../../redux/modals/selectors.js';
 import { toggleModal } from '../../redux/modals/slice.js';
 import { toast } from 'react-toastify';
-import CancelButton from '../CancelButton/CancelButton';
+import CancelButtonDelete from '../CancelButtonDelete/CancelButtonDelete';
 import CloseButton from '../CloseButton/CloseButton';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import logo from '../../assets/logo-modal.svg';
@@ -50,7 +50,7 @@ const LogoutModal = () => {
         <p className={css.message}>Are you sure you want to log out?</p>
 
         <LogOutButton onClick={handleLogout} />
-        <CancelButton onClick={handleClose} />
+        <CancelButtonDelete onClick={handleClose} />
       </div>
     </Modal>
   );

@@ -16,9 +16,7 @@ const TransactionList = () => {
   }, [dispatch]);
   const transactions = useSelector(state => state.transactions.items) || [];
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  // const [editedTransaction, setEditedTransaction] = useState(null);
-  // const handleEdit = transaction => setEditedTransaction(transaction);
-  // const handleCloseModal = () => setEditedTransaction(null);
+
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState(null);

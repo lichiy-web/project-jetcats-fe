@@ -25,7 +25,6 @@ const validationSchema = Yup.object().shape({
       name: 'comparePasswords',
       message: 'Passwords do not match',
       test: (value, context) => {
-        console.log({ value, context });
         return value === context.parent.password;
       },
     })

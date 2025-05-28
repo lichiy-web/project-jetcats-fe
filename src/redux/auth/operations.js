@@ -28,6 +28,8 @@ export const register = createAsyncThunk(
       return { user, accessToken };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    } finally {
+      disLoader(thunkAPI);
     }
   }
 );
@@ -52,6 +54,8 @@ export const logIn = createAsyncThunk(
       return thunkAPI.rejectWithValue(
         error.response?.data?.message || error.message
       );
+    } finally {
+      disLoader(thunkAPI);
     }
   }
 );

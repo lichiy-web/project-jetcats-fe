@@ -34,7 +34,7 @@ const Chart = ({ incomeExpenseData, totalSum, colors }) => {
               dominantBaseline="middle"
               className={s.totalSum}
             >
-              {`\u0024 ${Number(totalSum).toFixed(2)}`}
+              {`\u20B4 ${Number(totalSum).toFixed(2)}`}
             </text>
           </PieChart>
         </ResponsiveContainer>

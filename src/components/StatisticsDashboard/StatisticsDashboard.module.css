@@ -114,7 +114,6 @@
   .fieldYear {
     width: 148px;
   }
-
   :global(.my-select__control) {
     width: 148px;
   }

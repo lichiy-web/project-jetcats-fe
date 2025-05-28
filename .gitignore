@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 package-lock.json
-yarn.lock
+yarn.lockreact-rework-08-phonebook-vite/

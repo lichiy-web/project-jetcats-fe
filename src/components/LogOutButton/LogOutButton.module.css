@@ -1,13 +1,12 @@
 /* ======== BASE STYLES ======== */
 
 .button {
-  margin: 0 auto 1rem; /* 16px */
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6875rem 4.9375rem; /* 11px 79px */
+  margin-bottom: 16px;
   width: 100%;
-  max-width: 15.5rem; /* 248px */
   height: 2.75rem; /* 44px */
   border-radius: 0.5rem;
   background: var(
@@ -18,12 +17,4 @@
   text-align: center;
   font-size: 1.125rem; /* 18px */
   font-weight: 500;
-}
-
-/* ======== TABLET + DESKTOP ======== */
-
-@media (min-width: 768px) {
-  .button {
-    max-width: 25.625rem; /* 248px */
-  }
 }

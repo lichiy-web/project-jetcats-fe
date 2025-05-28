@@ -1,4 +1,4 @@
-import CancelButton from '../CancelButton/CancelButton';
+import CancelButtonDelete from '../CancelButtonDelete/CancelButtonDelete';
 import CloseButton from '../CloseButton/CloseButton';
 import logo from '../../assets/logo-modal.svg';
 import css from './DeleteForm.module.css';
@@ -37,7 +37,7 @@ const DeleteForm = ({ transactionId, onClose }) => {
         <button onClick={handleDelete} className={css.deleteBtn}>
           Delete
         </button>
-        <CancelButton onClick={onClose} />
+        <CancelButtonDelete onClick={onClose} />
       </div>
     </>
   );

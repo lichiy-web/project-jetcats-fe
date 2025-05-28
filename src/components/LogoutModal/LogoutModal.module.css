@@ -12,9 +12,8 @@
 }
 
 .modal {
-  padding: 1rem;
-  width: 100%;
-  max-width: 17.5rem;
+  padding: 53px 62px 47px;
+  width: 533px;
   border-radius: 1rem;
   background: var(--main-Light-green, #508f8c);
   position: relative;
@@ -31,8 +30,8 @@
 }
 
 .logo {
-  width: 11.375rem;  /* 182px */
-  height: 5.875rem;  /* 94px */
+  width: 11.375rem; /* 182px */
+  height: 5.875rem; /* 94px */
 }
 
 .message {
@@ -40,20 +39,18 @@
   text-align: center;
   font-size: 1.125rem; /* 18px */
   margin: 1rem 0; /* 16px */
-  width: 100%;
-  max-width: 12.25rem;
 }
 
 /* ======== TABLET + DESKTOP ======== */
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .modal {
-    max-width: 33.3rem; /* 533px */
-    padding: 2.5rem 2rem;
+    width: 280px;
+    padding: 16px 22px;
   }
 
   .message {
-    max-width: 100%;
+    max-width: 196px;
     margin-top: 2.375rem; /* 38px */
     margin-bottom: 1.5rem; /* 24px */
   }

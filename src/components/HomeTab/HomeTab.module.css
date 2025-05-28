@@ -3,9 +3,10 @@
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
   width: 757px;
   border-radius: 16px;
+  position: relative;
 }
 .homeTabContainer {
-  overflow-y: scroll;
+  overflow: auto;
   padding: 32px 27px;
   width: 739px;
   padding-bottom: 80px;
@@ -16,7 +17,6 @@
   padding: 1rem;
   /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
   /* background: linear-gradient(180deg, #355359 0%, #3b5d63 100%); */
-  position: relative;
 }
 .homeTabContainer::-webkit-scrollbar {
   border-radius: 2px;

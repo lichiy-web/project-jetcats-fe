@@ -76,8 +76,10 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
   const storedAccessToken = state.auth.accessToken;
   // console.log('refreshUser: ', { storedAccessToken });
 
-  if (!storedAccessToken)
+  if (!storedAccessToken) {
+    disLoader(thunkAPI);
     return thunkAPI.rejectWithValue("User isn't logged in");
+  }
 
   setAuthHeader(storedAccessToken);
   return appApi

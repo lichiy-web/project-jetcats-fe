@@ -23,11 +23,6 @@
 /* =================== / Tablet: { min-width: 768px } =================== */
 /** =================== Desktop: { min-width: 1280 px } =================== */
 @media (min-width: 1280px) {
-  .statisticsTabToggleAndChartWrapper {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-  }
+
 }
 /*! =================== / Desktop: { min-width: 1280 px } =================== */

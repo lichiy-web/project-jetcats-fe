@@ -5,7 +5,10 @@ import css from './DeleteForm.module.css';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { MODALS, toggleModal } from '../../redux/modals/slice';
-import { deleteTransaction } from '../../redux/transactions/operations';
+import {
+  deleteTransaction,
+  fetchTransactions,
+} from '../../redux/transactions/operations';
 
 const DeleteForm = ({ transactionId, onClose }) => {
   const dispatch = useDispatch();
@@ -20,6 +23,7 @@ const DeleteForm = ({ transactionId, onClose }) => {
   const handleDelete = async () => {
     try {
       await dispatch(deleteTransaction(transactionId)).unwrap();
+      await dispatch(fetchTransactions());
       onClose();
       dispatch(toggleModal(MODALS.delete));
     } catch (error) {

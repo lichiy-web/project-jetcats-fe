@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchSummary } from './summaryStatisticOperations';
+import { fetchSummary } from './operations';
 
 const initialState = {
   isIncome: 'income',

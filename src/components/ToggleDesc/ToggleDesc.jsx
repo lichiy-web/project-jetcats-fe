@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsIncome } from '../../redux/summary/summaryStatisticSlice';
-import { summaryStatisticSelector } from '../../redux/summary/summaryStatisticSelector';
+import { setIsIncome } from '../../redux/summary/slice';
+import { summaryStatisticSelector } from '../../redux/summary/selectors';
 
 import s from './ToggleDesc.module.css';
 

@@ -6,7 +6,7 @@ import Select from 'react-select';
 import { SlArrowDown } from 'react-icons/sl';
 import { components } from 'react-select';
 import { useDispatch } from 'react-redux';
-import { setMonth, setYear } from '../../redux/summary/summaryStatisticSlice';
+import { setMonth, setYear } from '../../redux/summary/slice';
 const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const initialValues = {
     month: 'may',

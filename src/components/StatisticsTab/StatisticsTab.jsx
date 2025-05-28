@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import StatisticsDashboard from '../StatisticsDashboard/StatisticsDashboard';
 import StatisticsTabToggleAndChart from '../StatisticsTabToggleAndChart/StatisticsTabToggleAndChart';
-import { summaryStatisticSelector } from '../../redux/summary/summaryStatisticSelector';
-import { setIsIncome } from '../../redux/summary/summaryStatisticSlice';
-import { fetchSummary } from '../../redux/summary/summaryStatisticOperations';
+import { summaryStatisticSelector } from '../../redux/summary/selectors';
+import { setIsIncome } from '../../redux/summary/slice';
+import { fetchSummary } from '../../redux/summary/operations';
 import s from './StatisticsTab.module.css';
 
 const StatisticsTab = () => {

@@ -16,9 +16,7 @@ export const fetchTransactions = createAsyncThunk(
         // .then(({ data }) => data)
         .then(({ data }) => data.data.transactions)
         .catch(error => thunkAPI.rejectWithValue(error.message))
-        .finally(() => {
-          disLoader(thunkAPI);
-        })
+        .finally(() => disLoader(thunkAPI))
     );
   }
 );
@@ -26,43 +24,47 @@ export const fetchTransactions = createAsyncThunk(
 export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
   async (transaction, thunkAPI) => {
+    enLoader(thunkAPI);
     return appApi
       .post('/transactions', transaction)
       .then(({ data }) => data)
-      .catch(error => thunkAPI.rejectWithValue(error.message));
+      .catch(error => thunkAPI.rejectWithValue(error.message))
+      .finally(() => disLoader(thunkAPI));
   }
 );
 
 export const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
   async (transactionId, thunkAPI) => {
+    enLoader(thunkAPI);
     return appApi
       .delete(`/transactions/${transactionId}`)
       .then(({ data }) => {
         const {
           data: { balance },
         } = data;
-        console.log('deleteTransaction => ', { balance });
         thunkAPI.dispatch(setBalance(balance));
         return transactionId;
       })
-      .catch(error => thunkAPI.rejectWithValue(error.message));
+      .catch(error => thunkAPI.rejectWithValue(error.message))
+      .finally(() => disLoader(thunkAPI));
   }
 );
 
 export const patchTransaction = createAsyncThunk(
   'transactions/patchTransaction',
   async ({ transactionId, transaction }, thunkAPI) => {
+    enLoader(thunkAPI);
     return appApi
       .patch(`/transactions/${transactionId}`, transaction)
       .then(({ data }) => {
         const {
           data: { balance },
         } = data;
-        // console.log('patchTransaction => ', { balance });
         thunkAPI.dispatch(setBalance(balance));
         return { ...transaction, _id: transactionId };
       })
-      .catch(error => thunkAPI.rejectWithValue(error.message));
+      .catch(error => thunkAPI.rejectWithValue(error.message))
+      .finally(() => disLoader(thunkAPI));
   }
 );

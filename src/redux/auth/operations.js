@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { appApi } from '../api/api';
+import { disLoader, enLoader } from '../transactions/operations';
 
 const setAuthHeader = token => {
   appApi.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -12,6 +13,7 @@ const clearAuthHeader = () => {
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
+    enLoader(thunkAPI);
     try {
       const {
         data: { data: user },
@@ -33,6 +35,7 @@ export const register = createAsyncThunk(
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
+    enLoader(thunkAPI);
     try {
       const {
         data: { data: loginRes },
@@ -53,14 +56,17 @@ export const logIn = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) =>
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+  enLoader(thunkAPI);
   appApi
     .post('/auth/logout')
     .then(() => clearAuthHeader())
     .catch(error => thunkAPI.rejectWithValue(error.message))
-);
+    .finally(() => disLoader(thunkAPI));
+});
 
 export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
+  enLoader(thunkAPI);
   // console.log('Entered refreshUser!');
   const state = thunkAPI.getState();
   const storedAccessToken = state.auth.accessToken;
@@ -83,12 +89,14 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
       } else {
         thunkAPI.rejectWithValue(error.message);
       }
-    });
+    })
+    .finally(() => disLoader(thunkAPI));
 });
 
 export const refreshAccessToken = createAsyncThunk(
   'auth/refreshAccessToken',
-  async (_, thunkAPI) =>
+  async (_, thunkAPI) => {
+    enLoader(thunkAPI);
     appApi
       .post('/auth/refresh')
       .then(({ data: { data } }) => {
@@ -96,4 +104,6 @@ export const refreshAccessToken = createAsyncThunk(
         return data;
       })
       .catch(error => thunkAPI.rejectWithValue(error.message))
+      .finally(() => disLoader(thunkAPI));
+  }
 );

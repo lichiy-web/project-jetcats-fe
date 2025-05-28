@@ -14,6 +14,7 @@ export const fetchCurrencyRates = createAsyncThunk(
     const now = Date.now();
 
     if (cached.timestamp && now - cached.timestamp < CACHE_TTL) {
+      disLoader(thunkAPI);
       return { data: cached.data, timestamp: cached.timestamp };
     }
 

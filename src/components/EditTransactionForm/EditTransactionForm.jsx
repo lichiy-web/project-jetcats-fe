@@ -16,7 +16,6 @@ import { patchTransaction } from '../../redux/transactions/operations';
 import ToggleDescTransaction from '../ToggleDescTransaction/ToggleDescTransaction';
 
 const EditTransactionForm = ({ onClose, transaction }) => {
-  // console.log('EditTransactionForm => ', { onClose, transaction });
   const { type, sum, date, comment, category } = transaction;
   const initialValues = {
     type,
@@ -55,17 +54,12 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     };
 
     const patchedTransaction = {
-      // _id: transaction._id,
       type: values.type,
       category: values.category,
       sum: Number(values.sum),
       date: formatDateToYYYYMMDD(values.date),
       comment: values.comment,
     };
-
-    // if (values.type === 'income') {
-    //   patchedTransaction.category = '6825eae52bcfe457b4ce5b14';
-    // }
 
     dispatch(
       patchTransaction({
@@ -75,9 +69,6 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     )
       .unwrap()
       .then(() => {
-        // console.log(
-        //   'EditTransactionForm: clode ModalEditTransaction after patching!'
-        // );
         onClose();
       })
       .catch(error => {
@@ -99,10 +90,12 @@ const EditTransactionForm = ({ onClose, transaction }) => {
         >
           {({ values, setFieldValue }) => (
             <Form className={s.form}>
-              <ToggleDescTransaction
-                values={values}
-                setFieldValue={setFieldValue}
-              />
+              <div className={s.WrapperToggle}>
+                <ToggleDescTransaction
+                  values={values}
+                  setFieldValue={setFieldValue}
+                />
+              </div>
 
               <div className={s.wrapper}>
                 <InputCategory />

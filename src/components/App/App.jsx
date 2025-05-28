@@ -12,6 +12,7 @@ import DevPanel from '../DevPanel/DevPanel';
 import StatisticsTab from '../StatisticsTab/StatisticsTab';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BalanceOverview from '../BalanceOverview/BalanceOverview';
 
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
@@ -56,6 +57,7 @@ function App() {
                 />
               }
             />
+            <Route path="currency" element={<BalanceOverview />} />
           </Route>
           <Route
             path="/register"

@@ -9,8 +9,8 @@
   overflow: hidden;
 }
 
+/* ========== Desktop ≥1280px ========== */
 @media (min-width: 1280px) {
-
   .dudeLog {
     display: block;
     position: absolute;
@@ -21,6 +21,7 @@
   }
 }
 
+/* ========== Tablet 768–1279px ========== */
 @media (min-width: 768px) and (max-width: 1279px) {
   .dudeLog {
     display: block;
@@ -30,14 +31,37 @@
   }
 }
 
-
+/* ========== Mobile <768px ========== */
 @media (max-width: 767px) {
-.dudeLog {
-  display: block;
-  bottom: 23px;   
-  right: 12px;
-  width: 159px;
-  height: 118px;
-}
+  .dudeLog {
+    display: block;
+    bottom: 23px;
+    right: 12px;
+    width: 159px;
+    height: 118px;
+  }
+
+  .dudeLogin {
+    position: absolute;
+    width: 326px;
+    height: 239px;
+    right: 16px;
+    bottom: 58px;
+    z-index: -10;
+  }
 }
 
+/* ========== Shared adjustments ========== */
+@media (max-width: 1279px) {
+  .dude {
+    width: 181px;
+    height: 135px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dude {
+    width: 234px;
+    height: 174px;
+  }
+}

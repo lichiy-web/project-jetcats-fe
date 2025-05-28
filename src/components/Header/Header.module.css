@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 7px 16px 17px 30px;
+  height: 80px;
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
 }
 
@@ -24,5 +25,6 @@
 @media (max-width: 320px) {
   .header {
     padding: 7px 16px;
+    height: 70px;
   }
 }

@@ -16,17 +16,19 @@ const Balance = () => {
   //   return t.type === 'income' ? acc + t.amount : acc - t.amount;
   // }, 0);
   return (
-    <div className={s.container}>
-      <h1 className={s.title}>Your balance</h1>
-      <p className={s.amount}>
-        {balance
-          .toLocaleString('uk-UA', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })
-          .replace(',', '.')}{' '}
-        UAH
-      </p>
+    <div className={s.wrapper}>
+      <div className={s.container}>
+        <h1 className={s.title}>Your balance</h1>
+        <p className={s.amount}>
+          {balance
+            .toLocaleString('uk-UA', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })
+            .replace(',', '.')}{' '}
+          UAH
+        </p>
+      </div>
     </div>
   );
 };

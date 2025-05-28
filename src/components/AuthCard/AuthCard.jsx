@@ -12,9 +12,9 @@ const AuthCard = ({ formType }) => {
 
   return (
     <div className={css.wrapper}>
-      <Logo isAuth={true} />
+      <Logo isBlack={true} />
       {formType === 'register' ? <RegistrationForm /> : <LoginForm />}
-      {isMobile && formType === 'login' && <DudeHi className={styles.dudeLog}/>} 
+      {isMobile && formType === 'login' && <DudeHi isMobile={isMobile} className={styles.dudeLog}/>}
     </div>
   );
 };

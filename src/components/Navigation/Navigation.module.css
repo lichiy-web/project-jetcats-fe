@@ -46,6 +46,9 @@
   fill: #172326;
   opacity: 1;
 }
+.currencyIcon {
+  transform: translateY(3px) scale(0.85);
+}
 
 /* tablet */
 
@@ -64,6 +67,11 @@
 
 /* mobile */
 @media screen and (max-width: 767px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
   .mobileOnly {
     display: inline-block;
   }
@@ -75,11 +83,13 @@
     width: 100%;
     background: none;
     gap: 0;
+    margin-bottom: 0;
   }
   .icon {
     opacity: 0.6;
     width: 44px;
     height: 44px;
+    margin-right: 0;
   }
   .activeIcon {
     fill: white;

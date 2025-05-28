@@ -14,6 +14,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BalanceOverview from '../BalanceOverview/BalanceOverview';
 import { selectIsLoading } from '../../redux/app/selectors';
+import { useMediaQuery } from 'react-responsive';
+import { RestrictedRouteProviding } from './RestrictedRouteProviding';
 
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
@@ -26,6 +28,7 @@ function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
   const isLoadding = useSelector(selectIsLoading);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -58,7 +61,16 @@ function App() {
                 />
               }
             />
-            <Route path="currency" element={<BalanceOverview />} />
+            <Route
+              path="currency"
+              element={
+                <RestrictedRouteProviding
+                  condition={!isMobile}
+                  redirectTo="/"
+                  component={<BalanceOverview />}
+                />
+              }
+            />
           </Route>
           <Route
             path="/register"

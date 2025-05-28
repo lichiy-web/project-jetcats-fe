@@ -48,14 +48,16 @@ const TransactionList = () => {
         </ul>
       ) : (
         <table className={s.transactionTable}>
-          <thead>
+          <thead className={s.transactionTableHeader}>
             <tr>
               <th>Date</th>
               <th>Type</th>
               <th>Category</th>
               <th>Comment</th>
               <th>Sum</th>
-              <th>Actions</th>
+              <th>
+                <span></span>
+              </th>
             </tr>
           </thead>
           <tbody>

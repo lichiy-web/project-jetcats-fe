@@ -7,13 +7,16 @@ import ModalDeleteTransaction from '../ModalDeleteTransaction/ModalDeleteTransac
 import s from './TransactionList.module.css';
 import { fetchTransactions } from '../../redux/transactions/operations';
 import { fetchCategories } from '../../redux/categories/operations';
+import { selectPage, selectPerPage } from '../../redux/transactions/selectors';
 
 const TransactionList = () => {
+  const page = useSelector(selectPage);
+  const perPage = useSelector(selectPerPage);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchTransactions());
+    dispatch(fetchTransactions({ page, perPage }));
     dispatch(fetchCategories());
-  }, [dispatch]);
+  }, [dispatch, page, perPage]);
   const transactions = useSelector(state => state.transactions.items) || [];
   const isMobile = useMediaQuery({ maxWidth: 767 });
 

@@ -67,6 +67,22 @@ body {
   /* border: 1px solid green; */
 }
 
+/* Custom scrollbar styles */
+*::-webkit-scrollbar {
+  border-radius: 2px;
+  width: 4px;
+  height: 13px;
+  background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 64px;
+  width: 4px;
+  height: 13px;
+  background: var(--main-light-green);
+}
+/* ------------------------ */
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

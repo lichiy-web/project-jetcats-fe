@@ -14,19 +14,18 @@
 .modal {
   background-color: var(--main-light-green);
   position: relative;
-  width: 100%;
-  max-width: 17.9375rem;
+  width: 533px;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 53px 62px 47px;
   border-radius: 1rem;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .modal {
-    max-width: 33.3rem;
-    padding: 3.3125rem 3.875rem 2.9375rem;
+    width: 287px;
+    padding: 32px 16px;
   }
 }

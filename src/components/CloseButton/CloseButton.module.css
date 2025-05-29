@@ -7,10 +7,12 @@
   cursor: pointer;
   padding: 0;
   line-height: 0;
+  transition: ;
 }
 .closeBtn svg {
   width: 16px;
   height: 16px;
+  transition: transform 0.3s ease;
 }
 
 .closeBtn:hover,
@@ -18,6 +20,7 @@
 .closeBtn:active {
   box-shadow: none;
   outline: none;
+  transform: scale(1.2);
 }
 
 @media (max-width: 320px) {

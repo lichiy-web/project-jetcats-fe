@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import CancelButtonDelete from '../CancelButtonDelete/CancelButtonDelete';
 import CloseButton from '../CloseButton/CloseButton';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import logo from '../../assets/logo-modal.svg';
+import Logo from './../../components/Logo/Logo.jsx';
 import css from './LogoutModal.module.css';
 
 Modal.setAppElement('#root');
@@ -43,12 +43,9 @@ const LogoutModal = () => {
       overlayClassName={css.overlay}
     >
       <CloseButton onClick={handleClose} />
-
       <div className={css.container}>
-        <img src={logo} alt="Spendy logo" className={css.logo} />
-
+        <Logo isBlack={true} />
         <p className={css.message}>Are you sure you want to log out?</p>
-
         <LogOutButton onClick={handleLogout} />
         <CancelButtonDelete onClick={handleClose} />
       </div>

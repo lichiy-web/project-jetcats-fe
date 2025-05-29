@@ -1,7 +1,7 @@
 .deleteBtn {
   border-radius: 0.5rem;
   padding: 0.6875rem 4.9375rem;
-  width: 410px;
+  width: 100%;
   height: auto;
   background-color: var(--main-red);
   font-size: 1.125rem;
@@ -13,7 +13,6 @@
 .deleteBtn:focus,
 .deleteBtn:active {
   background-color: var(--main-light-red);
-  border: none;
   box-shadow: none;
   outline: none;
 }
@@ -25,18 +24,18 @@
   font-size: 1.125rem;
   text-align: center;
   color: var(--main-black);
-  margin-top: 1.5625rem;
-  margin-bottom: 1.5625rem;
+  margin-top: 38px;
+  margin-bottom: 24px;
 }
 .container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 @media (max-width: 768px) {
   .deleteBtn {
-    width: 255px;
     margin-bottom: 1.3125rem;
   }
 

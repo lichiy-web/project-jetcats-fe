@@ -41,13 +41,36 @@ const initialState = {
 const slice = createSlice({
   name: 'transactions',
   initialState,
+  reducers: {
+    setPage: (state, { payload: page }) => {
+      state.paginationData.page = page;
+    },
+    setPerPage: (state, { payload: perPage }) => {
+      state.paginationData.perPage = perPage;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchTransactions.pending, handlePending)
-      .addCase(fetchTransactions.fulfilled, (state, action) => {
+      .addCase(fetchTransactions.fulfilled, (state, { payload }) => {
+        console.log({ payload });
+        const {
+          page,
+          perPage,
+          totalItems,
+          totalPages,
+          hasPreviousPage,
+          hasNextPage,
+        } = payload;
         state.loading = false;
         state.error = null;
-        state.items = action.payload;
+        state.items = payload.transactions;
+        state.paginationData.page = page;
+        state.paginationData.perPage = perPage;
+        state.paginationData.totalItems = totalItems;
+        state.paginationData.totalPages = totalPages;
+        state.paginationData.hasPreviousPage = hasPreviousPage;
+        state.paginationData.hasNextPage = hasNextPage;
       })
       .addCase(fetchTransactions.rejected, handleReject)
       .addCase(addTransaction.pending, handlePending)
@@ -101,4 +124,5 @@ const slice = createSlice({
   },
 });
 
+export const { setPage, setPerPage } = slice.actions;
 export const transactionsReducer = slice.reducer;

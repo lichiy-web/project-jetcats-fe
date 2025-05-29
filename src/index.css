@@ -17,6 +17,19 @@
   --chart-red: #fd9498;
 }
 
+/* Для зміни стилів пагінатору */
+.MuiPagination-root {
+  a {
+    background-color: var(--main-light-green) !important;
+    outline: 0 !important;    
+  }  
+}
+
+a.Mui-selected {
+  filter: brightness(150%)
+  /* background-color: var(--chart-green) !important; */
+}
+
 :root {
   --font-family: Inter, sans-serif;
   --second-family: Poppins, sans-serif;

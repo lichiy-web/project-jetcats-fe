@@ -1,0 +1,12 @@
+.paginatorContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    /* margin-bottom: 1em;     */
+}
+
+.paginatorItem {
+    background-color: var(--main-light-green) !important;
+}
+

@@ -8,10 +8,11 @@ import s from './TransactionList.module.css';
 import { fetchTransactions } from '../../redux/transactions/operations';
 import { fetchCategories } from '../../redux/categories/operations';
 import {
-  selectPage,
+  // selectPage,
   selectPaginationData,
-  selectPerPage,
+  // selectPerPage,
 } from '../../redux/transactions/selectors';
+import Paginator from '../Paginator/Paginator';
 
 const TransactionList = () => {
   // const page = useSelector(selectPage);
@@ -105,6 +106,7 @@ const TransactionList = () => {
           transactionId={selectedTransaction?._id}
         />
       )}
+      <Paginator {...{ page, perPage, totalPages }} />
     </section>
   );
 };

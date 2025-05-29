@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const appApiConfig = {
   baseURL: 'https://project-jetcats-be.onrender.com',
+  // baseURL: 'http://localhost:3000',
   timeout: 4000,
 };
 const currencyApiConfig = {

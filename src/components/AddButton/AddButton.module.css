@@ -16,7 +16,11 @@
   transition: all 350ms ease-in-out;
 }
 
-.saveBtn:hover {
+.saveBtn:hover,
+.saveBtn:focus,
+.saveBtn:active {
+  outline: none;
+  box-shadow: none;
   border: 1px solid #081222;
   color: var(--main-black);
   background: var(--main-light-green);

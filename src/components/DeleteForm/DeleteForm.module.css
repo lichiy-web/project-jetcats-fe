@@ -10,9 +10,11 @@
   margin-bottom: 0.75rem;
 }
 .deleteBtn:hover,
-.deleteBtn:focus {
+.deleteBtn:focus,
+.deleteBtn:active {
   background-color: var(--main-light-red);
-
+  border: none;
+  box-shadow: none;
   outline: none;
 }
 .logo {

@@ -19,7 +19,7 @@
 @media (min-width: 320px) {
   .statisticsContainer {
     width: 100%;
-    min-width: 320px;
+    /* min-width: 320px; */
   }
 }
 

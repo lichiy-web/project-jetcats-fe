@@ -18,7 +18,7 @@
   /* width: 395px;
   height: 44px; */
   width: 100%;
-  height: auto;
+  height: 3.5em;
 }
 
 .fieldMonth {
@@ -124,7 +124,7 @@
 @media (min-width: 1280px) {
   .statisticsInputsWrapper {
     width: 395px;
-    height: 44px;
+    /* height: 44px; */
   }
 
   .fieldMonth {

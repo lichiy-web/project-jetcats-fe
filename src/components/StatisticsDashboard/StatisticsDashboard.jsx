@@ -53,10 +53,10 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
   const [formValues, setFormValues] = useState(initialValues);
 
   useEffect(() => {
-    const monthValue = formValues.month;
-    const yearValue = formValues.year;
-    console.log('Month:', monthValue);
-    console.log('Year:', yearValue);
+    // const monthValue = formValues.month;
+    // const yearValue = formValues.year;
+    // console.log('Month:', monthValue);
+    // console.log('Year:', yearValue);
   }, [formValues]);
 
   const dispatch = useDispatch();
@@ -135,7 +135,7 @@ const StatisticsDashboard = ({ incomeExpenseData, totalSum }) => {
                   const newNumMonth =
                     monthOptions.findIndex(month => month.value === newMonth) +
                     1;
-                  console.log({ newMonth, newNumMonth });
+                  // console.log({ newMonth, newNumMonth });
                   dispatch(setMonth(newNumMonth));
 
                   const selectedMonthIndex = monthOptions.findIndex(

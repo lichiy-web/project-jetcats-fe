@@ -50,7 +50,11 @@ export const logIn = createAsyncThunk(
       } = await appApi.get('/users/current');
       return { user, accessToken };
     } catch (error) {
-      // return thunkAPI.rejectWithValue(error.message);
+      console.dir(error);
+      console.log('status = ', error.status);
+      if (error?.status === 401) {
+        return thunkAPI.rejectWithValue('login:wrong-credentials');
+      }
       return thunkAPI.rejectWithValue(
         error.response?.data?.message || error.message
       );
@@ -71,10 +75,8 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 
 export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
   enLoader(thunkAPI);
-  // console.log('Entered refreshUser!');
   const state = thunkAPI.getState();
   const storedAccessToken = state.auth.accessToken;
-  // console.log('refreshUser: ', { storedAccessToken });
 
   if (!storedAccessToken) {
     disLoader(thunkAPI);
@@ -85,15 +87,13 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
   return appApi
     .get('/users/current')
     .then(({ data: { data } }) => {
-      // console.log('refreshUser: ', { user: data });
       return data;
     })
     .catch(error => {
-      // console.log({ error });
-      if (error.includes('401')) {
+      if (error.status === 401) {
         thunkAPI.dispatch(refreshAccessToken());
       } else {
-        thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(error.message);
       }
     })
     .finally(() => disLoader(thunkAPI));

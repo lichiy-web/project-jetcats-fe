@@ -8,11 +8,13 @@ export const disLoader = thunkAPI => thunkAPI.dispatch(disableLoader());
 
 export const fetchTransactions = createAsyncThunk(
   'transactions/fetchAll',
-  async (signal, thunkAPI) => {
+  async ({ page, perPage, signal }, thunkAPI) => {
     enLoader(thunkAPI);
     return (
       appApi
-        .get('/transactions', { signal: signal })
+        .get(`/transactions?page=${page}&perPage=${perPage}`, {
+          signal: signal,
+        })
         // .then(({ data }) => data)
         .then(({ data }) => data.data.transactions)
         .catch(error => thunkAPI.rejectWithValue(error.message))

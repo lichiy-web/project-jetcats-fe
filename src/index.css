@@ -60,12 +60,32 @@ a {
 body {
   margin: 0;
   display: flex;
-  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
-
-  /* border: 1px solid green; */
+  overflow: hidden;  
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  body {
+    overflow: auto;
+  };
+}
+
+/* Custom scrollbar styles */
+*::-webkit-scrollbar {
+  border-radius: 2px;
+  width: 4px;
+  height: 13px;
+  background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 64px;
+  width: 4px;
+  height: 13px;
+  background: var(--main-light-green);
+}
+/* ------------------------ */
 
 h1 {
   font-size: 3.2em;
@@ -86,7 +106,8 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  /* border-color: #646cff; */
+  filter: brightness(110%);
 }
 button:focus,
 button:focus-visible {
@@ -98,9 +119,7 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
+
   button {
     background-color: #f9f9f9;
   }

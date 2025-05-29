@@ -16,6 +16,7 @@ const initialState = {
   accessToken: null,
   isLoggedIn: false,
   isRefreshing: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -40,6 +41,10 @@ const authSlice = createSlice({
         state.user = user;
         state.accessToken = accessToken;
         state.isLoggedIn = true;
+      })
+      .addCase(logIn.rejected, (state, { payload: error }) => {
+        console.log({ error });
+        state.error = error;
       })
 
       .addCase(refreshUser.pending, state => {

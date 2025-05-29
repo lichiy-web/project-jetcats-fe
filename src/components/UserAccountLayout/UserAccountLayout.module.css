@@ -1,7 +1,9 @@
+
+
 .pageWrapper {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 70px);
+  max-height: calc(100vh - 80px);
   width: 100%;
   padding: 1.5rem 1rem 1rem;
   box-sizing: border-box;
@@ -16,6 +18,20 @@
   flex-grow: 1;
   width: 100%;
   max-width: 18rem;
+  min-height: calc(5em + 469px);
+}
+
+/* ========== MOBILE ========== */
+@media screen and (min-width: 320px) {
+  .mainContent {
+    max-width: unset; 
+  }
+  /* .userAccountLayoutContainer { 
+    width: 100%;
+  } */
+   .tabletWrapper {
+    width: 100%;
+   }
 }
 
 /* ========== TABLET ========== */

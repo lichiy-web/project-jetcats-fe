@@ -5,31 +5,30 @@ import Stack from '@mui/material/Stack';
 import { useDispatch } from 'react-redux';
 import { setPage } from '../../redux/transactions/slice';
 import { PaginationItem } from '@mui/material';
+import { useMediaQuery } from 'react-responsive';
 
 const defaultPage = 1;
-const defaultPerPage = 20;
 
-const Paginator = ({ page, perPage, totalPages }) => {
+const Paginator = ({ page, totalPages }) => {
   const [searchParams] = useSearchParams();
   const activePage = Number(searchParams.get('page') || page || defaultPage);
-  const activePerPage = Number(
-    searchParams.get('perPage') || perPage || defaultPerPage
-  );
-
-  console.log({ activePage, activePerPage });
 
   const dispatch = useDispatch();
   const handleChange = (e, page) => {
     dispatch(setPage(page));
   };
+  const isMobile = useMediaQuery({
+    query: '(min-width: 320px) and (max-width: 767px)',
+  });
+  const size = isMobile ? 'small' : 'normal';
   return (
     <div className={css.paginatorContainer}>
       <Stack spacing={2}>
         <Pagination
+          //   size={(isMobile && 'small') || null}
+          size={size}
           count={totalPages}
-          //   backgroundColor="#508f8c"
           onChange={handleChange}
-          //   classes={{ button: css.paginatorItem }}\
           page={activePage}
           renderItem={item => (
             <PaginationItem

@@ -36,7 +36,6 @@ const StatisticsTab = () => {
 
   return (
     <div className={s.statisticsContainer}>
-      {/* <h3>===StatisticsTab===</h3> */}
       <StatisticsTabToggleAndChart
         handleToggleChange={handleToggleChange}
         incomeExpenseData={incomeExpenseData}

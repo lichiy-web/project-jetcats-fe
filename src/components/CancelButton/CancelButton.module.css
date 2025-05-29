@@ -21,7 +21,9 @@
   box-shadow: none;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus,
+.btn:active {
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
   color: var(--main-white);
   border: 1px solid #081222;

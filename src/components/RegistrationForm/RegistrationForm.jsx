@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../redux/auth/operations';
 import toast from 'react-hot-toast';
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 // Валідація з урахуванням backend-схеми
 const validationSchema = Yup.object().shape({

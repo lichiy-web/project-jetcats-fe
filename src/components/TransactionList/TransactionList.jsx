@@ -7,11 +7,17 @@ import ModalDeleteTransaction from '../ModalDeleteTransaction/ModalDeleteTransac
 import s from './TransactionList.module.css';
 import { fetchTransactions } from '../../redux/transactions/operations';
 import { fetchCategories } from '../../redux/categories/operations';
-import { selectPage, selectPerPage } from '../../redux/transactions/selectors';
+import {
+  // selectPage,
+  selectPaginationData,
+  // selectPerPage,
+} from '../../redux/transactions/selectors';
+import Paginator from '../Paginator/Paginator';
 
 const TransactionList = () => {
-  const page = useSelector(selectPage);
-  const perPage = useSelector(selectPerPage);
+  // const page = useSelector(selectPage);
+  // const perPage = useSelector(selectPerPage);
+  const { page, perPage, totalPages } = useSelector(selectPaginationData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchTransactions({ page, perPage }));
@@ -100,6 +106,7 @@ const TransactionList = () => {
           transactionId={selectedTransaction?._id}
         />
       )}
+      <Paginator {...{ page, perPage, totalPages }} />
     </section>
   );
 };

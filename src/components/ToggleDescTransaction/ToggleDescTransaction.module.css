@@ -39,37 +39,39 @@
 }
 
 .toggleSlider::before {
-  content: '';
-  background-image: url('./../../assets/+.svg');
-  background-size: 16px 16px;
-  background-repeat: no-repeat;
-  background-position: center;
+  content: none;
+}
+
+.iconWrapper {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  left: -4px;
-  bottom: -2px;
   height: 44px;
   width: 44px;
-  background-color: var(--main-yellow);
+  left: -4px;
+  bottom: -2px;
   border-radius: 30px;
+  pointer-events: none;
   transition: transform 0.3s, background-color 0.3s;
 }
 
-.toggleInput:focus + .toggleSlider {
-  box-shadow: 0 0 1px #333;
+.icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--main-white);
+  stroke-width: 2;
+  fill: none;
 }
 
-.toggleInput:checked + .toggleSlider {
-  background-color: var(--main-white);
+.income {
+  background-color: var(--main-yellow);
+  transform: translateX(0);
 }
 
-.toggleInput:checked + .toggleSlider::before {
-  content: '';
-  background-image: url('./../../assets/-.svg');
-  transform: translateX(40px);
+.expense {
   background-color: var(--main-red);
+  transform: translateX(40px);
 }
 
 @media screen and (max-width: 320px) {
@@ -78,14 +80,10 @@
     height: 40px;
   }
 
-  .toggleSlider::before {
-    width: 48px;
-    height: 44px;
-  }
-
-  .toggleInput:checked + .toggleSlider::before {
+  .iconWrapper.expense {
     transform: translateX(45px);
   }
+
   .toggleGroup {
     margin-bottom: 30px;
   }

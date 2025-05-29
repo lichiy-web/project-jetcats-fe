@@ -27,12 +27,14 @@ const initialState = {
   items: [],
   loading: true,
   error: null,
-  page: 1,
-  perPage: 20,
-  totalItems: null,
-  totalPages: null,
-  hasPreviousPage: null,
-  hasNextPage: null,
+  paginationData: {
+    page: 1,
+    perPage: 20,
+    totalItems: null,
+    totalPages: null,
+    hasPreviousPage: null,
+    hasNextPage: null,
+  },
   sortBy: 'date',
 };
 

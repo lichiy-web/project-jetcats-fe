@@ -2,6 +2,7 @@
   /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
   background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
   width: 757px;
+  height: 100%;
   border-radius: 16px;
   position: relative;
 }
@@ -13,7 +14,7 @@
   border-radius: 16px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  height: 585px;
+  height: 100vw;
   /* padding: 1rem; */
   /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
   /* background: linear-gradient(180deg, #355359 0%, #3b5d63 100%); */
@@ -41,11 +42,11 @@
   .homeTabContainer {
     max-width: 685px;
     border-radius: 16px;
-    height: 538px;
+    height: 100%;
   }
   .list {
     max-width: 698px;
-    height: 538px;
+    height: 100%;
   }
 }
 

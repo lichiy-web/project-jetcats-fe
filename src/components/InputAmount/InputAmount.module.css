@@ -2,7 +2,7 @@
   padding: 10px 14px;
   background: none;
   border-radius: 8px;
-  border: 1px solid #27393d;
+  border: 1px solid var(--main-black);
   font-weight: 500;
   font-size: 18px;
   color: var(--main-black);
@@ -15,13 +15,11 @@
   border-color: var(--main-red);
 }
 
-.inputAmount::placeholder {
-  font-weight: 500;
-  font-size: 18px;
-  background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.inputAmountError::placeholder {
+  background: none;
+  -webkit-text-fill-color: var(--main-red);
+  color: var(--main-red);
+  opacity: 1;
 }
 
 .wrapper {
@@ -31,7 +29,7 @@
 }
 
 .error {
-  color: var(--main-red);
+  color: var(--main-red) !important;
   font-size: 12px;
   font-weight: 400;
 }

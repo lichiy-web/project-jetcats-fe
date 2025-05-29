@@ -75,13 +75,13 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   body {
     overflow: auto;
-  };
+  }
 }
 
 /* Custom scrollbar styles */
@@ -252,14 +252,14 @@ button:focus-visible {
 
 @media screen and (min-width: 767px) and (max-width: 1279px) {
   .wrapperLog {
-  flex-direction: column;
-  /* align-items: center; */
-  gap: 24px;
-}
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 24px;
+  }
 
-.wrapperForm {
+  .wrapperForm {
     display: flex;
     justify-content: center;
     width: 100%;
-}
+  }
 }

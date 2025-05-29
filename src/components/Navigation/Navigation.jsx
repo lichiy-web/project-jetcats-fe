@@ -40,7 +40,12 @@ const Navigation = () => {
           >
             {({ isActive }) => (
               <div className={s.svgContainer}>
-                <div className={clsx(to === '/currency' && s.currencyIcon)}>
+                <div
+                  className={clsx(
+                    s.currencyIc,
+                    to === '/currency' && s.currencyIcon
+                  )}
+                >
                   <svg
                     className={clsx(s.icon, isActive && s.activeIcon)}
                     preserveAspectRatio="xMidYMid meet"

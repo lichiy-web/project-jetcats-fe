@@ -7,6 +7,7 @@ import ModalDeleteTransaction from '../ModalDeleteTransaction/ModalDeleteTransac
 import s from './TransactionList.module.css';
 import { fetchTransactions } from '../../redux/transactions/operations';
 import { fetchCategories } from '../../redux/categories/operations';
+import Paginator from '../Paginator/Paginator';
 
 const TransactionList = () => {
   const dispatch = useDispatch();
@@ -97,6 +98,7 @@ const TransactionList = () => {
           transactionId={selectedTransaction?._id}
         />
       )}
+      <Paginator />
     </section>
   );
 };

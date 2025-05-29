@@ -27,6 +27,8 @@ const initialState = {
   items: [],
   loading: true,
   error: null,
+  page: 1,
+  perPage: 20,
 };
 
 const slice = createSlice({

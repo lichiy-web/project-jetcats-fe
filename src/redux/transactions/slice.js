@@ -53,7 +53,6 @@ const slice = createSlice({
     builder
       .addCase(fetchTransactions.pending, handlePending)
       .addCase(fetchTransactions.fulfilled, (state, { payload }) => {
-        console.log({ payload });
         const {
           page,
           perPage,

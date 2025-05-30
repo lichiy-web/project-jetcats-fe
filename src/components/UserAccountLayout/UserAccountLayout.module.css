@@ -24,6 +24,7 @@
 @media screen and (min-width: 320px) {
   .mainContent {
     max-width: unset;
+    min-height: unset;
   }
   /* .userAccountLayoutContainer { 
     width: 100%;

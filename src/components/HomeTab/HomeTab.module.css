@@ -5,6 +5,8 @@
   height: 100%;
   border-radius: 16px;
   position: relative;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 .homeTabContainer {
   overflow: auto;

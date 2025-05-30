@@ -8,14 +8,14 @@ const links = [
     text: 'Home',
     icon: 'home-icon',
     showText: true,
-    className: '',
+    className: 's.homeIcon',
   },
   {
     to: '/statistics',
     text: 'Statistics',
     icon: 'statistics-icon',
     showText: true,
-    className: '',
+    className: 's.statisticsIcon',
   },
   {
     to: '/currency',

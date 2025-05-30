@@ -8,15 +8,8 @@ const CloseButton = ({ onClick }) => {
       onClick={onClick}
       aria-label="Close modal"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 18 18"
-        fill="none"
-      >
-        <path d="M1 1L17 17" stroke="#081222" />
-        <path d="M1 17L17 1" stroke="#081222" />
+      <svg width="16" height="16" aria-hidden="true">
+        <use href="/sprites.svg#cancel-x-icon" />
       </svg>
     </button>
   );

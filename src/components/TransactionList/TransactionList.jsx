@@ -7,13 +7,22 @@ import ModalDeleteTransaction from '../ModalDeleteTransaction/ModalDeleteTransac
 import s from './TransactionList.module.css';
 import { fetchTransactions } from '../../redux/transactions/operations';
 import { fetchCategories } from '../../redux/categories/operations';
+import {
+  // selectPage,
+  selectPaginationData,
+  // selectPerPage,
+} from '../../redux/transactions/selectors';
+import Paginator from '../Paginator/Paginator';
 
 const TransactionList = () => {
+  // const page = useSelector(selectPage);
+  // const perPage = useSelector(selectPerPage);
+  const { page, perPage, totalPages } = useSelector(selectPaginationData);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchTransactions());
+    dispatch(fetchTransactions({ page, perPage }));
     dispatch(fetchCategories());
-  }, [dispatch]);
+  }, [dispatch, page, perPage]);
   const transactions = useSelector(state => state.transactions.items) || [];
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -48,14 +57,16 @@ const TransactionList = () => {
         </ul>
       ) : (
         <table className={s.transactionTable}>
-          <thead>
+          <thead className={s.transactionTableHeader}>
             <tr>
               <th>Date</th>
               <th>Type</th>
               <th>Category</th>
               <th>Comment</th>
               <th>Sum</th>
-              <th>Actions</th>
+              <th>
+                <span></span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -95,6 +106,7 @@ const TransactionList = () => {
           transactionId={selectedTransaction?._id}
         />
       )}
+      <Paginator {...{ page, perPage, totalPages }} />
     </section>
   );
 };

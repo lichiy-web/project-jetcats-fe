@@ -8,17 +8,17 @@ import Navigation from '../Navigation/Navigation';
 import BalanceOverview from '../BalanceOverview/BalanceOverview';
 
 const UserAccountLayout = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  // const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
-  const isDesktop = useMediaQuery({ minWidth: 1280 });
+  // const isDesktop = useMediaQuery({ minWidth: 1280 });
 
   return (
-    <div>
+    <div className={css.userAccountLayoutContainer}>
       <div className={css.header}>
         <Header />
       </div>
       <div className={css.pageWrapper}>
-        {isDesktop && <SideBar />}
+        {!isTablet && <SideBar />}
 
         {isTablet && (
           <div className={css.tabletWrapper}>
@@ -34,7 +34,7 @@ const UserAccountLayout = () => {
           </div>
         )}
 
-        {isMobile && <SideBar />}
+        {/* {isMobile && <SideBar />} */}
 
         <main className={css.mainContent}>
           <Outlet />

@@ -1,10 +1,13 @@
-import { ErrorMessage, Field, useField } from 'formik';
+import { ErrorMessage, Field, useField, useFormikContext } from 'formik';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import clsx from 'clsx';
+import PasswordStrengthBar from 'react-password-strength-bar';
+import css from './InputConfirmPassword.module.css';
 
 const InputConfirmPassword = () => {
   const [, meta] = useField('confirmPassword');
   const isError = meta.touched && meta.error;
+  const { values } = useFormikContext();
 
   return (
     <div className="fieldLogWrapper">
@@ -25,6 +28,12 @@ const InputConfirmPassword = () => {
         />
       </div>
       <ErrorMessage name="confirmPassword" component="div" className="error" />
+      {values.confirmPassword.length > 0 && (
+        <PasswordStrengthBar
+          className={css.strengthBar}
+          password={values.confirmPassword}
+        />
+      )}
     </div>
   );
 };

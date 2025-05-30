@@ -41,21 +41,11 @@ const BalanceOverview = () => {
         </div>
       );
     }
-    if (isStatistics) {
-      return (
-        <div className={s.mobileStats}>
-          <DudeLike />
-        </div>
-      );
-    }
     return null;
   }
 
   return isTablet ? (
     <>
-      {/* <div className={s.tabletBalance}>
-        <Balance />
-      </div> */}
       <div className={s.tabletContainer}>
         <div className={s.tabletCurrency}>
           <Currency />

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchSummary } from './operations';
 
 const initialState = {
-  isIncome: 'income',
+  isIncome: 'expense',
   incomeData: [],
   expenseData: [],
   totalIncome: 0,

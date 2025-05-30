@@ -24,6 +24,7 @@ const persistConfig = {
   version: 1,
   storage,
   whitelist: [
+    // 'isLoggedIn',
     'accessToken',
     'isAddTransaction',
     'isEditTransaction',

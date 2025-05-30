@@ -46,6 +46,10 @@
   fill: #172326;
   opacity: 1;
 }
+.currencyIc {
+  display: flex;
+  align-items: center;
+}
 .currencyIcon {
   transform: translateY(3px) scale(0.85);
 }

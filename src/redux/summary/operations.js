@@ -8,7 +8,7 @@ export const fetchSummary = createAsyncThunk(
   async (period, thunkAPI) => {
     enLoader(thunkAPI);
     try {
-      console.log({ period });
+      // console.log({ period });
       const response = await appApi.get(
         `/transactions/summary?period=${period}`
       );

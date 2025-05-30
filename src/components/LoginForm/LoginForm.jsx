@@ -5,17 +5,19 @@ import RegisterLink from '../RegisterLink/RegisterLink';
 import css from './LoginForm.module.css';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 // import toast from 'react-hot-toast';
-// import { selectError } from '../../redux/transactions/selectors';
+import { selectAuthError, selectIsLoggedIn } from '../../redux/auth/selectors';
+import toast from 'react-hot-toast';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const error = useSelector(selectError);
+  const error = useSelector(selectAuthError);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleSubmit = values => {
     dispatch(logIn(values));
@@ -23,20 +25,20 @@ const LoginForm = () => {
     navigate('/');
   };
 
-  // useEffect(() => {
-  //   if (error) {
-  //     toast.dismiss();
-  //     console.log('Error caught in component:', error);
-  //   if (error?.toLowerCase().includes('unauthorized')) {
-  //     toast.error('User is not registered')
-  //   } else if (error?.includes('email') || error?.includes('password')) {
-  //     toast.error('Wrong email or password');
-  //   } else 
-  //   {
-  //     toast.error(error);
-  //   }
-  //   }
-  // }, [error]);
+useEffect(() => {
+  if (error) {
+    toast.dismiss();
+    if (error === 'login:wrong-credentials') {
+      toast.error('User is not registered or wrong credentials');
+    } else {
+      toast.error(error);
+    }
+  }
+
+  if (isLoggedIn) {
+    navigate('/');
+  }
+}, [error, isLoggedIn, navigate]);
 
   const loginFormSchema = Yup.object({
     email: Yup.string()

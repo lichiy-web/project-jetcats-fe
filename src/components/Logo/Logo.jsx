@@ -7,9 +7,13 @@ const Logo = ({ isBlack }) => {
       <svg className={clsx(css.logoIcon, isBlack && css.black)}>
         <use href="/sprites.svg#logo-icon" />
       </svg>
+      <svg className={css.logoIconMobile}>
+        <use href="/sprites.svg#logo-modal-text-icon" />
+      </svg>
       <span className={css.logoText}>Spendy</span>
     </div>
   );
 };
 
 export default Logo;
+

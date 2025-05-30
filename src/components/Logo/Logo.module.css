@@ -6,6 +6,55 @@
   font-weight: 700;
   font-size: 17px;
   text-align: center;
+  color: var(--main-black);
+}
+
+.logo.auth {
+  color: var(--main-black);
+  font-size: 30px;
+}
+
+.logoIcon {
+  fill: var(--main-black);
+  width: 45px;
+  height: 36px;
+}
+
+.logoIconMobile {
+  display: none;
+}
+
+.logoText {
+    font-size: 30px;
+  }
+
+@media screen and (max-width: 767px) {
+  .logoIcon {
+    display: none;
+  }
+  .logoIconMobile {
+    display: block;
+    width: 192px;
+    height: 94px;
+  }
+  .logoText {
+    display: none;
+  }
+}
+
+.logoIcon.auth {
+  width: 46px;
+  height: 36px;
+}
+
+/* .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
   color: var(--main-white);
 }
 
@@ -23,4 +72,4 @@
 .logoIcon.black {
   width: 46px;
   height: 36px;
-}
+} */

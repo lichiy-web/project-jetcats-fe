@@ -11,6 +11,9 @@
 .closeBtn svg {
   width: 16px;
   height: 16px;
+  stroke: var(--main-black);
+  stroke-width: 3.2;
+  fill: none;
 }
 
 @media (max-width: 320px) {

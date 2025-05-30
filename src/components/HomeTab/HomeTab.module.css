@@ -46,7 +46,7 @@
   .homeTabContainer {
     max-width: 685px;
     border-radius: 16px;
-    height: 100%;
+    height: calc(100vh - 80px - 330px) ;
   }
   .list {
     max-width: 698px;

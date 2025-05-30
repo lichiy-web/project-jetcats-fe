@@ -49,15 +49,7 @@ function App() {
             }
           >
             <Route index element={<HomeTab />} />
-            <Route
-              path="statistics"
-              element={
-                <PrivateRoute
-                  redirectTo="/login"
-                  component={<StatisticsTab />}
-                />
-              }
-            />
+            <Route path="statistics" element={<StatisticsTab />} />
             <Route path="currency" element={<BalanceOverview />} />
           </Route>
           <Route

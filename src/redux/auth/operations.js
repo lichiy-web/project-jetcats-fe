@@ -95,8 +95,9 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
           setAuthHeader(data.accessToken);
           return data;
         });
+      } else {
+        return thunkAPI.rejectWithValue(error);
       }
-      return thunkAPI.rejectWithValue(error);
     })
     .finally(() => disLoader(thunkAPI));
 });

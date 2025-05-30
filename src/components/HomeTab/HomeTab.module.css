@@ -22,7 +22,6 @@
   /* background: linear-gradient(180deg, #355359 0%, #3b5d63 100%); */
 }
 
-
 /* .homeTabContainer::-webkit-scrollbar {
   border-radius: 2px;
   width: 4px;
@@ -50,7 +49,7 @@
   }
   .list {
     max-width: 698px;
-    height: 100%;
+    height: calc(100vh - 470px);
   }
 }
 
@@ -67,6 +66,6 @@
     border-radius: 16px;
     padding: 0px;
     background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
-    height: calc(100vh + 3em);
+    height: calc(100vh - 330px);
   }
 }

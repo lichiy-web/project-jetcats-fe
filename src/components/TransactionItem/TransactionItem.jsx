@@ -82,7 +82,7 @@ const TransactionItem = ({
         <div className={s.buttonWrapper}>
           <button className={s.editButton} onClick={onEdit}>
             <svg className={s.editButton} width="24" height="24">
-              <use href="../../../public/sprites.svg#edit-icon"></use>
+              <use href="/public/sprites.svg#edit-icon"></use>
             </svg>
           </button>
           <button

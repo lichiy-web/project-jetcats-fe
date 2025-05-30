@@ -11,7 +11,8 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App/App.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
+  <>
     <Toaster position="top-center" reverseOrder={false} />
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -20,5 +21,6 @@ createRoot(document.getElementById('root')).render(
         </BrowserRouter>
       </PersistGate>
     </Provider>
-  </StrictMode>
+  </>
+  //</StrictMode>
 );

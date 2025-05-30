@@ -20,7 +20,12 @@ export const fetchTransactions = createAsyncThunk(
         .then(({ data }) => data.data)
         .catch(error => {
           if (error.status === 401) {
-            thunkAPI.dispatch(refreshAccessToken());
+            return thunkAPI
+              .dispatch(refreshAccessToken())
+              .unwrap()
+              .then(() =>
+                thunkAPI.dispatch(fetchTransactions({ page, perPage, signal }))
+              );
           } else {
             return thunkAPI.rejectWithValue(error.message);
           }

@@ -1,12 +1,23 @@
 import DudeHiPng from '../../images/dudeHi/dudeHi-1x.png';
 import css from './DudeHi.module.css';
-import clsx from 'clsx';
 
-const DudeHi = ({ isMobile = false, isTablet = false, className }) => {
+const DudeHi = ({
+  isMobile = false,
+  isTablet = false,
+  isLoginPage = false,
+}) => {
+  if (isLoginPage) {
+    return (
+      <div className={css.dudeWrapper}>
+        <img src={DudeHiPng} alt="Dude Hi" className={css.dudeLogin} />
+      </div>
+    );
+  }
+
   if (isMobile) {
     return (
       <div className={css.dudeWrapper}>
-        <img src={DudeHiPng} alt="Dude Hi" className={clsx(css.dudeMobile, className)}/>
+        <img src={DudeHiPng} alt="Dude Hi" className={css.dudeMobile} />
       </div>
     );
   }
@@ -14,14 +25,11 @@ const DudeHi = ({ isMobile = false, isTablet = false, className }) => {
   if (isTablet) {
     return (
       <div className={css.dudeWrapper}>
-        <img src={DudeHiPng} alt="Dude Hi" className={clsx(css.dudeTablet, className)}/>
-
+        <img src={DudeHiPng} alt="Dude Hi" className={css.dudeTablet} />
       </div>
     );
   }
 
-  return <img src={DudeHiPng} alt="Dude Hi" className={clsx(css.dude, className)}/>;
-
+  return <img src={DudeHiPng} alt="Dude Hi" className={css.dude} />;
 };
-
 export default DudeHi;

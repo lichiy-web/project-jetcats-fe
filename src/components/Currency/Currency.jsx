@@ -4,7 +4,7 @@ import s from './Currency.module.css';
 
 const Currency = () => {
   useEffect(() => {
-    console.log('Currency mounted');
+    // console.log('Currency mounted');
   }, []);
   return (
     <div>

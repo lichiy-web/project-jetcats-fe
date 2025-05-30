@@ -12,13 +12,15 @@ import App from './components/App/App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Toaster position="top-center" reverseOrder={false} />
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+    <>
+      <Toaster position="top-center" reverseOrder={false} />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </>
   </StrictMode>
 );

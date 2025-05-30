@@ -2,11 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { appApi } from '../api/api';
 import { disLoader, enLoader } from '../transactions/operations';
 
-const setAuthHeader = token => {
+export const setAuthHeader = token => {
   appApi.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const clearAuthHeader = () => {
+export const clearAuthHeader = () => {
   appApi.defaults.headers.common.Authorization = '';
 };
 
@@ -91,9 +91,12 @@ export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
     })
     .catch(error => {
       if (error.status === 401) {
-        thunkAPI.dispatch(refreshAccessToken());
+        appApi.post('/auth/refresh').then(({ data: { data } }) => {
+          setAuthHeader(data.accessToken);
+          return data;
+        });
       } else {
-        return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(error);
       }
     })
     .finally(() => disLoader(thunkAPI));

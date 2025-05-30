@@ -17,9 +17,6 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   height: 100%;
-  /* padding: 1rem; */
-  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
-  /* background: linear-gradient(180deg, #355359 0%, #3b5d63 100%); */
 }
 /* .homeTabContainer::-webkit-scrollbar {
   border-radius: 2px;
@@ -43,7 +40,8 @@
 @media (min-width: 768px) and (max-width: 1279px) {
   .homeTabContainer {
     max-width: 685px;
-    border-radius: 16px;
+    border-radius: 20px;
+
     height: 100%;
   }
   .list {
@@ -56,7 +54,8 @@
   .list {
     width: 288px;
     border-radius: 16px;
-    height: fit-content;
+    height: 100%;
+    padding: 0px;
   }
   .homeTabContainer {
     width: 292px;

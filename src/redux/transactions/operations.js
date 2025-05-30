@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { appApi } from '../api/api';
 import { setBalance } from '../auth/slice';
 import { disableLoader, enableLoader } from '../app/slice';
-import { refreshAccessToken } from '../auth/operations';
+import { setAuthHeader } from '../auth/operations';
 
 export const enLoader = thunkAPI => thunkAPI.dispatch(enableLoader());
 export const disLoader = thunkAPI => thunkAPI.dispatch(disableLoader());
@@ -20,15 +20,17 @@ export const fetchTransactions = createAsyncThunk(
         .then(({ data }) => data.data)
         .catch(error => {
           if (error.status === 401) {
-            return thunkAPI
-              .dispatch(refreshAccessToken())
-              .unwrap()
+            appApi
+              .post('/auth/refresh')
+              .then(({ data: { data } }) => {
+                setAuthHeader(data.accessToken);
+                return data;
+              })
               .then(() =>
                 thunkAPI.dispatch(fetchTransactions({ page, perPage, signal }))
               );
-          } else {
-            return thunkAPI.rejectWithValue(error.message);
           }
+          return thunkAPI.rejectWithValue(error);
         })
         // .catch(error => thunkAPI.rejectWithValue(error.message))
         .finally(() => disLoader(thunkAPI))

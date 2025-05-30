@@ -21,7 +21,8 @@
 .MuiPagination-root {
   a {
     background-color: var(--main-light-green) !important;
-    outline: 0 !important;    
+    outline: 0 !important;  
+    color: var(--main-white) !important;  
   }  
 }
 

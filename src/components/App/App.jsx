@@ -5,7 +5,10 @@ import { Route, Routes } from 'react-router-dom';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { refreshUser } from '../../redux/auth/operations';
-import { selectIsRefreshing } from '../../redux/auth/selectors';
+import {
+  selectIsLoggedIn,
+  selectIsRefreshing,
+} from '../../redux/auth/selectors';
 import Loader from '../Loader/Loader';
 import HomeTab from '../HomeTab/HomeTab';
 import DevPanel from '../DevPanel/DevPanel';
@@ -14,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BalanceOverview from '../BalanceOverview/BalanceOverview';
 import { selectIsLoading } from '../../redux/app/selectors';
+import { isUndefined } from '../../utils/isDefined';
 
 const RegistrationPage = lazy(() => import('../../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
@@ -26,12 +30,21 @@ function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
   const isLoadding = useSelector(selectIsLoading);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(refreshUser());
+    const abortController = new AbortController();
+    dispatch(refreshUser(abortController.signal));
+    return () => abortController.abort('Prevent request after App dismantling');
   }, [dispatch]);
-
-  return isRefreshing ? (
+  // console.log(
+  //   `In App BEFORE return =>\n isUndefined = ${isUndefined(
+  //     isRefreshing
+  //   )},\n isRefreshing = ${isRefreshing},\n isLoggedIn = ${isLoggedIn}`
+  // );
+  return isUndefined(isRefreshing) ||
+    isUndefined(isLoggedIn) ||
+    isRefreshing ? (
     <Loader />
   ) : (
     <div className="main-container">

@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/slice';
 // import { filtersReducer } from './filters/slice';
 import {
@@ -19,32 +19,61 @@ import { currencyReducer } from './currency/slice';
 import { categoriesReducer } from './categories/slice';
 import { appReducer } from './app/slice';
 
-const persistConfig = {
-  key: 'root',
-  version: 1,
+// const authTransform = createTransform(
+//   inboundState => {
+//     console.log('authTransform inboundState:', inboundState);
+//     if (!inboundState || typeof inboundState !== 'object') return {};
+//     return {
+//       accessToken: inboundState?.accessToken,
+//     };
+//   },
+//   outboundState => {
+//     console.log('authTransform outboundState:', outboundState);
+//     return outboundState;
+//   },
+//   { whitelist: ['auth'] }
+// );
+
+// const currencyTransform = createTransform(
+//   inboundState => ({
+//     data: inboundState.data,
+//     timestamp: inboundState.timestamp,
+//   }),
+//   outboundState => outboundState,
+//   { whitelist: ['currency'] }
+// );
+
+const authPersistConfig = {
+  key: 'auth',
   storage,
-  whitelist: [
-    // 'isLoggedIn',
-    'accessToken',
-    'isAddTransaction',
-    'isEditTransaction',
-    'isDeleteTransaction',
-    'isLogOut',
-    'data',
-    'timestamp',
-  ],
+  // transforms: [authTransform],
+  whitelist: ['accessToken'],
 };
 
+const currencyPersistConfig = {
+  key: 'currency',
+  storage,
+  // transforms: [currencyTransform],
+  whitelist: ['data', 'timestamp'],
+};
+
+const modalsPersistConfig = {
+  key: 'modals',
+  storage,
+};
+
+const rootReducer = combineReducers({
+  auth: persistReducer(authPersistConfig, authReducer),
+  currency: persistReducer(currencyPersistConfig, currencyReducer),
+  modals: persistReducer(modalsPersistConfig, modalsReducer),
+  categories: categoriesReducer,
+  transactions: transactionsReducer,
+  summaryStatistic: summaryStatisticReducer,
+  app: appReducer,
+});
+
 export const store = configureStore({
-  reducer: {
-    auth: persistReducer(persistConfig, authReducer),
-    categories: categoriesReducer,
-    transactions: transactionsReducer,
-    currency: persistReducer(persistConfig, currencyReducer),
-    modals: persistReducer(persistConfig, modalsReducer),
-    summaryStatistic: summaryStatisticReducer,
-    app: appReducer,
-  },
+  reducer: rootReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

@@ -14,9 +14,9 @@ const initialState = {
     balance: null,
   },
   accessToken: null,
-  isLoggedIn: false,
-  isRefreshing: false,
-  isAuthLoadding: false,
+  isLoggedIn: null,
+  isRefreshing: null,
+  isAuthLoadding: null,
   error: null,
 };
 
@@ -68,6 +68,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+        state.isLoggedIn = false;
         state.isAuthLoadding = false;
       })
       .addCase(logOut.pending, state => {
@@ -82,7 +83,11 @@ const authSlice = createSlice({
       })
       .addCase(
         refreshAccessToken.fulfilled,
-        (state, { payload: accessToken }) => {
+        (state, { payload: { accessToken } }) => {
+          console.log(
+            'In refreshAccessToken.fulfilled => accessToken:  ',
+            accessToken
+          );
           state.accessToken = accessToken;
           state.isLoggedIn = true;
           state.isAuthLoadding = false;

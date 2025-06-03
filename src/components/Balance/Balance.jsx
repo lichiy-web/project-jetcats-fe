@@ -21,11 +21,11 @@ const Balance = () => {
         <h1 className={s.title}>Your balance</h1>
         <p className={s.amount}>
           {balance
-            .toLocaleString('uk-UA', {
+            ?.toLocaleString('uk-UA', {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })
-            .replace(',', '.')}{' '}
+            ?.replace(',', '.')}{' '}
           UAH
         </p>
       </div>

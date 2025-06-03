@@ -66,52 +66,71 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   enLoader(thunkAPI);
-  appApi
+  return appApi
     .post('/auth/logout')
     .then(() => clearAuthHeader())
     .catch(error => thunkAPI.rejectWithValue(error.message))
     .finally(() => disLoader(thunkAPI));
 });
 
-export const refreshUser = createAsyncThunk('auth/refresh', (_, thunkAPI) => {
-  enLoader(thunkAPI);
-  const state = thunkAPI.getState();
-  const storedAccessToken = state.auth.accessToken;
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  (signal, thunkAPI) => {
+    enLoader(thunkAPI);
+    const state = thunkAPI.getState();
+    const storedAccessToken = state.auth.accessToken;
 
-  if (!storedAccessToken) {
-    disLoader(thunkAPI);
-    return thunkAPI.rejectWithValue("User isn't logged in");
+    if (!storedAccessToken) {
+      disLoader(thunkAPI);
+      return thunkAPI.rejectWithValue("User isn't logged in");
+    }
+
+    setAuthHeader(storedAccessToken);
+    return appApi
+      .get('/users/current', { signal })
+      .then(({ data: { data } }) => {
+        return data;
+      })
+      .catch(error => {
+        if (error.code === 'ERR_CANCELED') {
+          return thunkAPI.rejectWithValue('Aborted!');
+        }
+        if (error.status === 401) {
+          appApi
+            .post('/auth/refresh', { signal })
+            .then(({ data: { data } }) => {
+              setAuthHeader(data.accessToken);
+              return data;
+            });
+          thunkAPI.dispatch(refreshAccessToken(signal));
+          return thunkAPI.rejectWithValue(error);
+        } else {
+          return thunkAPI.rejectWithValue(error);
+        }
+      })
+      .finally(() => disLoader(thunkAPI));
   }
-
-  setAuthHeader(storedAccessToken);
-  return appApi
-    .get('/users/current')
-    .then(({ data: { data } }) => {
-      return data;
-    })
-    .catch(error => {
-      if (error.status === 401) {
-        appApi.post('/auth/refresh').then(({ data: { data } }) => {
-          setAuthHeader(data.accessToken);
-          return data;
-        });
-      } else {
-        return thunkAPI.rejectWithValue(error);
-      }
-    })
-    .finally(() => disLoader(thunkAPI));
-});
+);
 
 export const refreshAccessToken = createAsyncThunk(
   'auth/refreshAccessToken',
-  async (_, thunkAPI) => {
+  async (signal, thunkAPI) => {
     enLoader(thunkAPI);
-    appApi
-      .post('/auth/refresh')
-      .then(({ data: { data } }) => {
-        setAuthHeader(data.accessToken);
-        return data;
-      })
+    return appApi
+      .post('/auth/refresh', { signal })
+      .then(
+        ({
+          data: {
+            data: { accessToken },
+          },
+        }) => {
+          console.log('refreshAccessToken => accessToken: ', accessToken);
+          setAuthHeader(accessToken);
+          return {
+            accessToken,
+          };
+        }
+      )
       .catch(error => thunkAPI.rejectWithValue(error.message))
       .finally(() => disLoader(thunkAPI));
   }

@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { appApi } from '../api/api';
 import { setBalance } from '../auth/slice';
 import { disableLoader, enableLoader } from '../app/slice';
-import { setAuthHeader } from '../auth/operations';
+import { refreshAccessToken } from '../auth/operations';
+// import { setAuthHeader } from '../auth/operations';
 
 export const enLoader = thunkAPI => thunkAPI.dispatch(enableLoader());
 export const disLoader = thunkAPI => thunkAPI.dispatch(disableLoader());
@@ -20,17 +21,13 @@ export const fetchTransactions = createAsyncThunk(
         .then(({ data }) => data.data)
         .catch(error => {
           if (error.status === 401) {
-            appApi
-              .post('/auth/refresh')
-              .then(({ data: { data } }) => {
-                setAuthHeader(data.accessToken);
-                return data;
-              })
-              .then(() =>
-                thunkAPI.dispatch(fetchTransactions({ page, perPage, signal }))
-              );
+            thunkAPI.dispatch(refreshAccessToken(signal));
+            return thunkAPI.rejectWithValue('Unauthorized/refreshAccessToken!');
+          } else {
+            return thunkAPI.rejectWithValue(error);
           }
-          return thunkAPI.rejectWithValue(error);
+
+          // console.error(error);
         })
         // .catch(error => thunkAPI.rejectWithValue(error.message))
         .finally(() => disLoader(thunkAPI))
@@ -48,7 +45,10 @@ export const addTransaction = createAsyncThunk(
         thunkAPI.dispatch(setBalance(data.data.balance));
         return data;
       })
-      .catch(error => thunkAPI.rejectWithValue(error.message))
+      .catch(error => {
+        console.error(error);
+        // thunkAPI.rejectWithValue(error.message);
+      })
       .finally(() => disLoader(thunkAPI));
   }
 );

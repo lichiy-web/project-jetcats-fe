@@ -4,4 +4,5 @@ export const selectIsGlobalLoading = state =>
   state.app.isLoading ||
   state.auth.isLoading ||
   state.categories.isLoading ||
-  state.currency.isLoading;
+  state.currency.isLoading ||
+  state.transactions.isLoading;

@@ -16,7 +16,7 @@ const initialState = {
   accessToken: null,
   isLoggedIn: null,
   isRefreshing: null,
-  isLoading: null, //It needs to be renamed to isLoading
+  isLoading: null,
   error: null,
 };
 

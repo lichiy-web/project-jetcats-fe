@@ -9,18 +9,18 @@ import { logIn, logOut, refreshUser, register } from '../auth/operations';
 // import toast from 'react-hot-toast';
 
 const handlePending = state => {
-  state.loading = true;
+  state.isLoading = true;
 };
 
 const handleReject = (state, action) => {
-  state.loading = false;
+  state.isLoading = false;
   if (action.payload === 'canceled') return state;
   state.error = action.payload;
 };
 
 const handleAuthSuccess = state => {
   state.error = null;
-  state.loading = false;
+  state.isLoading = false;
 };
 
 const initialState = {
@@ -61,7 +61,7 @@ const slice = createSlice({
           hasPreviousPage,
           hasNextPage,
         } = payload;
-        state.loading = false;
+        state.isLoading = false;
         state.error = null;
         state.items = payload.transactions;
         state.paginationData.page = page;
@@ -75,7 +75,7 @@ const slice = createSlice({
       .addCase(addTransaction.pending, handlePending)
 
       .addCase(addTransaction.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         if (action.payload.data?.transaction) {
           state.items.unshift(action.payload.data.transaction);
         }
@@ -86,7 +86,7 @@ const slice = createSlice({
 
       .addCase(patchTransaction.fulfilled, (state, action) => {
         console.log({ action });
-        state.loading = false;
+        state.isLoading = false;
         state.items = state.items.map(item =>
           item._id === action.payload._id ? action.payload : item
         );
@@ -94,7 +94,7 @@ const slice = createSlice({
       .addCase(patchTransaction.rejected, handleReject)
       .addCase(deleteTransaction.pending, handlePending)
       .addCase(deleteTransaction.fulfilled, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.items = state.items.filter(item => item._id !== action.payload);
       })
       .addCase(deleteTransaction.rejected, handleReject)
@@ -104,7 +104,7 @@ const slice = createSlice({
       .addCase(logIn.pending, handlePending)
       .addCase(logIn.fulfilled, handleAuthSuccess)
       .addCase(logIn.rejected, (state, { payload }) => {
-        state.loading = false;
+        state.isLoading = false;
         // if (payload === 'Request failed with status code 400') {
         //   toast.error('Wrong email or password');
         //   return state;

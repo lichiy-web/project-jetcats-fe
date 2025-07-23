@@ -2,24 +2,24 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchCategories } from './operations';
 
 const handlePending = state => {
-  state.loading = true;
+  state.isLoading = true;
 };
 
 const handleReject = (state, action) => {
-  state.loading = false;
+  state.isLoading = false;
   if (action.payload === 'canceled') return state;
   state.error = action.payload;
 };
 
 const handleSuccess = (state, action) => {
   state.error = null;
-  state.loading = false;
+  state.isLoading = false;
   state.items = action.payload;
 };
 
 const initialState = {
   items: [],
-  loading: true,
+  isLoading: true,
   error: null,
 };
 

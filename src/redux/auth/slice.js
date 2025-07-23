@@ -16,7 +16,7 @@ const initialState = {
   accessToken: null,
   isLoggedIn: null,
   isRefreshing: null,
-  isAuthLoadding: null,
+  isLoading: null, //It needs to be renamed to isLoading
   error: null,
 };
 
@@ -31,7 +31,7 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(register.pending, state => {
-        state.isAuthLoadding = true;
+        state.isLoading = true;
       })
       .addCase(
         register.fulfilled,
@@ -39,47 +39,47 @@ const authSlice = createSlice({
           state.user = user;
           state.accessToken = accessToken;
           state.isLoggedIn = true;
-          state.isAuthLoadding = false;
+          state.isLoading = false;
         }
       )
       .addCase(logIn.pending, state => {
-        state.isAuthLoadding = true;
+        state.isLoading = true;
       })
       .addCase(logIn.fulfilled, (state, { payload: { user, accessToken } }) => {
         state.user = user;
         state.accessToken = accessToken;
         state.isLoggedIn = true;
-        state.isAuthLoadding = false;
+        state.isLoading = false;
       })
       .addCase(logIn.rejected, (state, { payload: error }) => {
         console.log({ error });
         state.error = error;
-        state.isAuthLoadding = false;
+        state.isLoading = false;
       })
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
-        state.isAuthLoadding = true;
+        state.isLoading = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload: user }) => {
         state.user = user;
         state.isLoggedIn = true;
         state.isRefreshing = false;
-        state.isAuthLoadding = false;
+        state.isLoading = false;
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
         state.isLoggedIn = false;
-        state.isAuthLoadding = false;
+        state.isLoading = false;
       })
       .addCase(logOut.pending, state => {
-        state.isAuthLoadding = true;
+        state.isLoading = true;
       })
       .addCase(logOut.fulfilled, () => initialState)
       .addCase(logOut.rejected, state => {
-        state.isAuthLoadding = false;
+        state.isLoading = false;
       })
       .addCase(refreshAccessToken.pending, state => {
-        state.isAuthLoadding = true;
+        state.isLoading = true;
       })
       .addCase(
         refreshAccessToken.fulfilled,
@@ -90,11 +90,11 @@ const authSlice = createSlice({
           );
           state.accessToken = accessToken;
           state.isLoggedIn = true;
-          state.isAuthLoadding = false;
+          state.isLoading = false;
         }
       )
       .addCase(refreshAccessToken.rejected, state => {
-        state.isAuthLoadding = false;
+        state.isLoading = false;
       });
   },
 });

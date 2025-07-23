@@ -10,4 +10,4 @@ export const selectBalance = state => state.auth.user.balance;
 
 export const selectAuthError = state => state.auth.error;
 
-export const selectIsAuthLoadding = state => state.auth.isAuthLoadding;
+export const selectIsAuthLoading = state => state.auth.isLoading;
